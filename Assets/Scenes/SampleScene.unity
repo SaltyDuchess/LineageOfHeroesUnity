@@ -382,8 +382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c2103ce0e90a2b44950fcf12c17f3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allSpells: []
-  unlockedSpells: []
 --- !u!4 &1378480340
 Transform:
   m_ObjectHideFlags: 0

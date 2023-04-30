@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625cfbb72175c90489bfda57b6fde3f4, type: 3}
+  m_Name: InstantImmolation
+  m_EditorClassIdentifier: 
+  spellName: Instant Immolation
+  uiElement: {fileID: 21300000, guid: c55b1e6c3bd8efc47b012bd1c6f87fab, type: 3}
+  levelRequirement: 4
+  abilityPowerCost: 0
+  descriptionLong: $"{displayName}\nCost - 100% of Stamina\nRequired Level - {levelRequirement}\nDescription
+    - Instantly kills enemy of equal or lesser level"
+  cooldown: 20
+  instantCast: 0

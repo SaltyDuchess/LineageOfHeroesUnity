@@ -1,16 +1,21 @@
 using System.Collections.Generic;
+using LineageOfHeroes.Spells;
+using LineageOfHeroes.Spells.Magi;
 
-public class Magi : IClass
+namespace LineageOfHeroes.CharacterClasses
 {
-    public List<Spells> classSpells { get; set; }
+	public class Magi : IClass
+	{
+			public List<ISpell> classSpells { get; set; }
 
-    public Magi()
-    {
-        classSpells = new List<Spells>
-        {
-            new LivelyLightning(),
-            new WeakWard(),
-            new MagicMissile()
-        };
-    }
+			public Magi()
+			{
+					classSpells = new List<ISpell>
+					{
+							new LivelyLightning(),
+							new WeakWard(),
+							new MagicMissile()
+					};
+			}
+	}
 }

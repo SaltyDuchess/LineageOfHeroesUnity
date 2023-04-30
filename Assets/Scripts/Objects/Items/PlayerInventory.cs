@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 
-public class PlayerInventory
+namespace LineageOfHeroes.Items
 {
-    public List<IItem> InventoryList { get; set; }
+	public class PlayerInventory
+	{
+			public List<IItem> InventoryList { get; set; }
 
-    public PlayerInventory()
-    {
-        InventoryList = new List<IItem>();
-    }
+			public PlayerInventory()
+			{
+					InventoryList = new List<IItem>();
+			}
+	}
 }

@@ -1,6 +1,10 @@
 using System.Collections.Generic;
+using LineageOfHeroes.Spells;
 
-public interface IClass
+namespace LineageOfHeroes.CharacterClasses
 {
-    List<Spells> classSpells { get; set; }
+	public interface IClass
+	{
+			List<ISpell> classSpells { get; set; }
+	}
 }

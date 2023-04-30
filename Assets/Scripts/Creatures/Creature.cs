@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using LineageOfHeroes.Randomization;
 
 public class Creature : Level, ICritStats
 {
@@ -33,6 +34,6 @@ public class Creature : Level, ICritStats
     // Add creature-specific functionality here.
 		public float GetDamageValue()
 		{
-			return Random.Range(damageRange[0], damageRange[1]);
+			return RandomGenerator.Range(damageRange[0], damageRange[1]);
 		}
 }

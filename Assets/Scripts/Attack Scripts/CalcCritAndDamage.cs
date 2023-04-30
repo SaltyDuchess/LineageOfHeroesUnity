@@ -1,3 +1,4 @@
+using LineageOfHeroes.Randomization;
 using UnityEngine;
 
 public class CalcCritAndDamage : MonoBehaviour
@@ -10,7 +11,7 @@ public class CalcCritAndDamage : MonoBehaviour
 			float universalCritMultiplier = damageSystem.universalCritMultiplier;
 			float finalCritChance = universalCritChance + attacker.critChanceModifier;
 
-			if (Random.Range(1, 101) <= finalCritChance)
+			if (RandomGenerator.Range(1, 101) <= finalCritChance)
 			{
 					return universalCritMultiplier + attacker.critDamageMultiplier;
 			}

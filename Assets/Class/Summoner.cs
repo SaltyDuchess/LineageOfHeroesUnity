@@ -1,15 +1,20 @@
 using System.Collections.Generic;
+using LineageOfHeroes.Spells;
+using LineageOfHeroes.Spells.Summoner;
 
-public class Summoner : IClass
+namespace LineageOfHeroes.CharacterClasses
 {
-    public List<Spells> classSpells { get; set; }
+	public class Summoner : IClass
+	{
+			public List<ISpell> classSpells { get; set; }
 
-    public Summoner()
-    {
-        classSpells = new List<Spells>
-        {
-            new MeaslyMiasma(),
-            new PiedPiper()
-        };
-    }
+			public Summoner()
+			{
+					classSpells = new List<ISpell>
+					{
+							new MeaslyMiasma(),
+							new PiedPiper()
+					};
+			}
+	}
 }

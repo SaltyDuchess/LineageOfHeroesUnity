@@ -1,19 +1,24 @@
 using System.Collections.Generic;
+using LineageOfHeroes.Spells;
+using LineageOfHeroes.Spells.Berzerker;
 
-public class Berzerker : IClass
+namespace LineageOfHeroes.CharacterClasses
 {
-    public List<Spells> classSpells { get; set; }
+	public class Berzerker : IClass
+	{
+			public List<ISpell> classSpells { get; set; }
 
-    public Berzerker()
-    {
-        classSpells = new List<Spells>
-        {
-            new SanguinarySwap(),
-            new WeepingWound(),
-            new BeastlyBite(),
-            new StunningStrike(),
-            new FatalFinish(),
-            new InstantImmolation()
-        };
-    }
+			public Berzerker()
+			{
+					classSpells = new List<ISpell>
+					{
+							new SanguinarySwap(),
+							new WeepingWound(),
+							new BeastlyBite(),
+							new StunningStrike(),
+							new FatalFinish(),
+							new InstantImmolation()
+					};
+			}
+	}
 }

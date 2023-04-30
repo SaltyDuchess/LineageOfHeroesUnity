@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using LineageOfHeroes.CharacterClasses;
+using LineageOfHeroes.Items;
 
 public class Player : Creature, ICritStats
 {

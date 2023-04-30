@@ -1,12 +1,14 @@
 using System.Collections.Generic;
+using LineageOfHeroes.Spells;
 using UnityEngine;
+
 
 public class SpellManager : MonoBehaviour
 {
-    [SerializeField] private List<Spells> allSpells; // List of all available spells in the game
-    [SerializeField] private List<Spells> unlockedSpells; // List of unlocked spells for the player
+    [SerializeField] private List<ISpell> allSpells; // List of all available spells in the game
+    [SerializeField] private List<ISpell> unlockedSpells; // List of unlocked spells for the player
 
-    public void UnlockSpell(Spells spellToUnlock)
+    public void UnlockSpell(ISpell spellToUnlock)
     {
         // Check if the spell is not already unlocked
         if (!unlockedSpells.Contains(spellToUnlock))
@@ -16,7 +18,7 @@ public class SpellManager : MonoBehaviour
         }
     }
 
-    public void RemoveSpell(Spells spellToRemove)
+    public void RemoveSpell(ISpell spellToRemove)
     {
         if (unlockedSpells.Contains(spellToRemove))
         {
@@ -25,12 +27,12 @@ public class SpellManager : MonoBehaviour
         }
     }
 
-    public List<Spells> GetAllSpells()
+    public List<ISpell> GetAllSpells()
     {
         return allSpells;
     }
 
-    public List<Spells> GetUnlockedSpells()
+    public List<ISpell> GetUnlockedSpells()
     {
         return unlockedSpells;
     }
