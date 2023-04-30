@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class BeastlyBite : MonoBehaviour, Spells
+public class FatalFinish : MonoBehaviour, Spells
 {
-    float healPercentage = 0.5f;
     [SerializeField] public Sprite uiElement { get; set; }
     public string displayName { get; set; }
     public int cooldown { get; set; }
@@ -19,37 +18,33 @@ public class BeastlyBite : MonoBehaviour, Spells
     public int stunTurns { get; set; }
     public CalcCritAndDamage calcCritAndDamage { get; set; }
 
-    private void Awake()
+		private void Awake()
     {
-        displayName = "Beastly Bite";
-        uiElement = uiElement;
-        levelRequirement = 2;
-        abilityPowerCost = 33;
-        physDamageModifier = 0.45f;
-        descriptionLong = $"{displayName}\nCost - {abilityPowerCost} Stamina\nRequired Level - {levelRequirement}\nDescription - Deals {physDamageModifier * 100}% additional physical damage and heals for {healPercentage * 100}% of damage dealt after enemy damage reduction.";
+    	levelRequirement = 3;
+    	abilityPowerCost = 30f;
+    	physDamageModifier = 0.2f;
+			descriptionLong = $"{displayName}\nCost - {abilityPowerCost} Stamina\nRequired Level - {levelRequirement}\nDescription - Deals {physDamageModifier * 100}% additional physical damage per 10% missing enemy health. If the enemy is killed,\n refills entire stamina pool.";
+    	displayName = "Fatal Finish";
     }
 
-    // Add Beastly Bite-specific functionality here
-    public void ExecuteBeastlyBite(Creature attacker, Creature defender)
+	public void ExecuteFatalFinish(Creature attacker, Creature defender)
     {
         float damage;
 
         attacker.currentAbilityPool -= abilityPowerCost;
 
-        damage = attacker.GetDamageValue() + attacker.GetDamageValue() * physDamageModifier;
+        damage = attacker.GetDamageValue() + attacker.GetDamageValue() * (physDamageModifier * ((100 - defender.percentageHealth) / 10));
         damage *= calcCritAndDamage.CalculateCritAndDamage(attacker);
 
         damage -= damage * defender.physDamageResist;
 
         defender.currentHealth -= damage;
 
-        attacker.currentHealth += damage * healPercentage;
-
-        if (attacker.currentHealth > attacker.healthPool)
+        if (defender.currentHealth <= 0)
         {
-            attacker.currentHealth = attacker.healthPool;
+            attacker.currentAbilityPool = attacker.abilityPowerPool;
         }
 
-        cooldown = 3;
+        cooldown = 8;
     }
 }

@@ -16,6 +16,15 @@ public class SpellManager : MonoBehaviour
         }
     }
 
+    public void RemoveSpell(Spells spellToRemove)
+    {
+        if (unlockedSpells.Contains(spellToRemove))
+        {
+            unlockedSpells.Remove(spellToRemove);
+            Debug.Log($"Removed spell: {spellToRemove.displayName}");
+        }
+    }
+
     public List<Spells> GetAllSpells()
     {
         return allSpells;

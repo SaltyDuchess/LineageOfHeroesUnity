@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class BeastlyBite : MonoBehaviour, Spells
+public class StunningStrike : Spells
 {
-    float healPercentage = 0.5f;
-    [SerializeField] public Sprite uiElement { get; set; }
+	  [SerializeField] public Sprite uiElement { get; set; }
     public string displayName { get; set; }
     public int cooldown { get; set; }
     public int levelRequirement { get; set; }
@@ -19,18 +18,17 @@ public class BeastlyBite : MonoBehaviour, Spells
     public int stunTurns { get; set; }
     public CalcCritAndDamage calcCritAndDamage { get; set; }
 
-    private void Awake()
-    {
-        displayName = "Beastly Bite";
-        uiElement = uiElement;
-        levelRequirement = 2;
-        abilityPowerCost = 33;
-        physDamageModifier = 0.45f;
-        descriptionLong = $"{displayName}\nCost - {abilityPowerCost} Stamina\nRequired Level - {levelRequirement}\nDescription - Deals {physDamageModifier * 100}% additional physical damage and heals for {healPercentage * 100}% of damage dealt after enemy damage reduction.";
-    }
+		private void Awake()
+		{
+			displayName = "Stunning Strike";
+    	levelRequirement = 3;
+    	abilityPowerCost = 20;
+    	physDamageModifier = 0;
+    	stunTurns = 2;
+			descriptionLong = $"{displayName}\nCost - {abilityPowerCost} Stamina\nRequired Level - {levelRequirement}\nDescription - Stuns target for {stunTurns} turns";
+		}
 
-    // Add Beastly Bite-specific functionality here
-    public void ExecuteBeastlyBite(Creature attacker, Creature defender)
+    public void ExecuteStunningStrike(Creature attacker, Creature defender)
     {
         float damage;
 
@@ -43,13 +41,8 @@ public class BeastlyBite : MonoBehaviour, Spells
 
         defender.currentHealth -= damage;
 
-        attacker.currentHealth += damage * healPercentage;
+        defender.speedPool -= stunTurns * 100;
 
-        if (attacker.currentHealth > attacker.healthPool)
-        {
-            attacker.currentHealth = attacker.healthPool;
-        }
-
-        cooldown = 3;
+        cooldown = 8;
     }
 }

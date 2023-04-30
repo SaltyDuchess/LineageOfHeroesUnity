@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class Spells : Ability
+public interface Spells : IAbility
 {
-    public float physDamageModifier = 0;
-    public float magicDamageModifier = 0;
-    public float DOT = 0;
-    public int DOTTurns = 0;
-    public int stunTurns = 0;
+    public float physDamageModifier { get; set; }
+    public float magicDamageModifier { get; set; }
+    public float DOT { get; set; }
+    public int DOTTurns { get; set; }
+    public int stunTurns { get; set; }
+		public CalcCritAndDamage calcCritAndDamage { get; set; }
 
     // Add spell-specific functionality here.
 }

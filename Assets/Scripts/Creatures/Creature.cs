@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Creature : Level
+public class Creature : Level, ICritStats
 {
     // Override currentLevel property from Level class
     public new int currentLevel = 1;
@@ -11,14 +11,14 @@ public class Creature : Level
     public float currentHealth = 100;
     public float percentageHealth = 100;
     public float speedPool = 100;
-    public Ability queuedAbility = null;
+    public IAbility queuedAbility = null;
     public float abilityPowerPool = 100;
     public float currentAbilityPool = 100;
     public float percentageAbilityPool = 100;
     public float abilityRegeneration = 1;
     public float healthRegeneration = 0.2f;
-    public float critChanceModifier = 0;
-    public float critDamageMultiplier = 0;
+    public float critChanceModifier { get; set; } = 0;
+    public float critDamageMultiplier { get; set; } = 0;
     public List<float> damageRange = new List<float>(2);
     public float dodgeChance = 0;
     public float physDamageResist = 0;
