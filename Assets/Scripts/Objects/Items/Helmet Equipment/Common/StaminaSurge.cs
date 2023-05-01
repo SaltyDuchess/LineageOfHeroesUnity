@@ -5,15 +5,13 @@ namespace LineageOfHeroes.Items
 {
 	public class StaminaSurge : Helmet
 	{
-			private void Awake()
-			{
-					displayName = "Helmet of Stamina Surge";
-					helmetType = ItemTypes.HelmetType.HelmetType.StaminaSurge;
-					itemRarity = Rarity.Common;
+		new private void Awake()
+		{
+			base.Awake();
 
-					bonusAbilityPowerRegen = RandomGenerator.Range(1f, 3.1f);
+			bonusAbilityPowerRegen = RandomGenerator.Range(1f, 3.1f);
 
-					descriptionLong = $"{displayName}\nType - {type}\nIncreases ability power regen by {bonusAbilityPowerRegen}";
-			}
+			descriptionLong = $"{displayName}\nType - {type}\nIncreases ability power regen by {bonusAbilityPowerRegen}";
+		}
 	}
 }

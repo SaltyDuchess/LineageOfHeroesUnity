@@ -3,7 +3,9 @@ guid: 871f84c5e662c344a922de5333fedf22
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - equipmentData: {fileID: 11400000, guid: c9bb1726730d0db4d872d8ff97816b05, type: 2}
+  - bootData: {fileID: 11400000, guid: c9bb1726730d0db4d872d8ff97816b05, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,17 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using LineageOfHeroes.Randomization;
-using UnityEngine;
 
 namespace LineageOfHeroes.Items
 {
 	public class RegenerationRemedy : Helmet
 	{
-			private void Awake()
+			new private void Awake()
 			{
-					displayName = "Helmet of Regeneration Remedy";
-					helmetType = ItemTypes.HelmetType.HelmetType.RegenerationRemedy;
-					itemRarity = Rarity.Common;
+					base.Awake();
 
 					bonusHpRegen = RandomGenerator.Range(.3f, 1.2f);
 

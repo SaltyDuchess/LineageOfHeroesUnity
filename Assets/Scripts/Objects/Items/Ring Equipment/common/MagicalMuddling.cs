@@ -5,15 +5,13 @@ namespace LineageOfHeroes.Items
 {
 	public class MagicalMuddling : Ring
 	{
-			private void Awake()
-			{
-					displayName = "Ring of Magical Muddling";
-					ringType = ItemTypes.RingType.RingType.MagicalMuddling;
-					itemRarity = Rarity.Common;
+		new private void Awake()
+		{
+			base.Awake();
 
-					magicDamageResist = RandomGenerator.Range(4f, 7f);
+			magicDamageResist = RandomGenerator.Range(4f, 7f);
 
-					descriptionLong = $"{displayName}\nType - {type}\nIncreases magical damage resistance by {magicDamageResist} %";
-			}
+			descriptionLong = $"{displayName}\nType - {type}\nIncreases magical damage resistance by {magicDamageResist} %";
+		}
 	}
 }

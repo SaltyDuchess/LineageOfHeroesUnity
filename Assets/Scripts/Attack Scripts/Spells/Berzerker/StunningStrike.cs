@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace LineageOfHeroes.Spells.Berzerker
 {
 	public class StunningStrike : SpellBase, ISpell
@@ -11,22 +9,22 @@ namespace LineageOfHeroes.Spells.Berzerker
 				stunTurns = 2;
 			}
 
-			public void ExecuteStunningStrike(Creature attacker, Creature defender)
+			public void ExecuteStunningStrike(ICreature attacker, ICreature defender)
 			{
-					float damage;
+				float damage;
 
-					attacker.currentAbilityPool -= abilityPowerCost;
+				attacker.currentAbilityPool -= abilityPowerCost;
 
-					damage = attacker.GetDamageValue() + attacker.GetDamageValue() * physDamageModifier;
-					damage *= calcCritAndDamage.CalculateCritAndDamage(attacker);
+				damage = attacker.GetDamageValue() + attacker.GetDamageValue() * physDamageModifier;
+				damage *= calcCritAndDamage.CalculateCritAndDamage(attacker);
 
-					damage -= damage * defender.physDamageResist;
+				damage -= damage * defender.physDamageResist;
 
-					defender.currentHealth -= damage;
+				defender.currentHealth -= damage;
 
-					defender.speedPool -= stunTurns * 100;
+				defender.speedPool -= stunTurns * 100;
 
-					currentCooldown = cooldown;
+				currentCooldown = cooldown;
 			}
 	}
 }

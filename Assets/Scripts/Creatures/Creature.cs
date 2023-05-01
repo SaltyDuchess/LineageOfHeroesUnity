@@ -1,39 +1,36 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 using LineageOfHeroes.Randomization;
 
-public class Creature : Level, ICritStats
+public class Creature : MonoBehaviour, ICreature
 {
-    // Override currentLevel property from Level class
-    public new int currentLevel = 1;
+    public int currentLevel { get; set; }
+    public float healthPool { get; set; }
+    public float currentHealth { get; set; }
+    public float percentageHealth { get; set; }
+    public float speedPool { get; set; }
+    public IAbility queuedAbility { get; set; }
+    public float abilityPowerPool { get; set; }
+    public float currentAbilityPool { get; set; }
+    public float percentageAbilityPool { get; set; }
+    public float abilityRegeneration { get; set; }
+    public float healthRegeneration { get; set; }
+    public List<float> damageRange { get; set; }
+    public float dodgeChance { get; set; }
+    public float physDamageResist { get; set; }
+    public float magicDamageResist { get; set; }
+    public float invulnerabilityCharges { get; set; }
+    public float autoAttackRange { get; set; }
+    public float actionSpeedCost { get; set; }
+    public float damageOverTime { get; set; }
+    public float damageOverTimeTurns { get; set; }
+    public float critChanceModifier { get; set; }
+    public float critDamageMultiplier { get; set; }
 
-    public float healthPool = 100;
-    public float currentHealth = 100;
-    public float percentageHealth = 100;
-    public float speedPool = 100;
-    public IAbility queuedAbility = null;
-    public float abilityPowerPool = 100;
-    public float currentAbilityPool = 100;
-    public float percentageAbilityPool = 100;
-    public float abilityRegeneration = 1;
-    public float healthRegeneration = 0.2f;
-    public float critChanceModifier { get; set; } = 0;
-    public float critDamageMultiplier { get; set; } = 0;
-    public List<float> damageRange = new List<float>(2);
-    public float dodgeChance = 0;
-    public float physDamageResist = 0;
-    public float magicDamageResist = 0;
-    public float invulnerabilityCharges = 0;
-    public float autoAttackRange = 0;
-    public float actionSpeedCost = 100;
-    public float damageOverTime = 0;
-    public float damageOverTimeTurns = 0;
-    public int[] mobLevelArray = new int[0];
+    public float GetDamageValue()
+    {
+        return RandomGenerator.Range(damageRange[0], damageRange[1]);
+    }
 
-    // Add creature-specific functionality here.
-		public float GetDamageValue()
-		{
-			return RandomGenerator.Range(damageRange[0], damageRange[1]);
-		}
+    // Add any other MonoBehaviour-specific methods and properties here, if necessary.
 }

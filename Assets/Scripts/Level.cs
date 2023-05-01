@@ -1,11 +1,9 @@
-using UnityEngine;
-
-public class Level : MonoBehaviour
+public interface ILevel
 {
-    public int currentLevel = 0;
-    public int currentXP = 0;
-    public int XPToNextLevel = 0;
-    public int abilityPoints = 0;
+    public int currentLevel { get; set; }
+    public int currentXP { get; set; }
+    public int XPToNextLevel { get; set; }
+    public int abilityPoints { get; set; }
 
     // Add common functionality for leveling up and other level-related features here.
 }

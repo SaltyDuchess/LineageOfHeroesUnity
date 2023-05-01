@@ -8,7 +8,7 @@ namespace LineageOfHeroes.Items
 	public class SummonerShawl : Cape
 	{
 		[SerializeField] private Summoner summonerClass;
-			private void Awake()
+			new private void Awake()
 			{
 					displayName = "Summoner Shawl";
 					capeType = ItemTypes.CapeType.CapeType.SummonerShawl;

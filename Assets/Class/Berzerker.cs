@@ -13,7 +13,7 @@ namespace LineageOfHeroes.CharacterClasses
 					classSpells = new List<ISpell>
 					{
 							new SanguinarySwap(),
-							new WeepingWound(),
+							new WeepingWounds(),
 							new BeastlyBite(),
 							new StunningStrike(),
 							new FatalFinish(),

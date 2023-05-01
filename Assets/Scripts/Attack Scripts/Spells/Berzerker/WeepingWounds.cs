@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace LineageOfHeroes.Spells.Berzerker
 {
-	public class WeepingWound : SpellBase, ISpell
+	public class WeepingWounds : SpellBase, ISpell
 	{
-			[SerializeField] private Creature player;
+			[SerializeField] private ICreature player;
 
 			new private void Awake()
 			{
@@ -13,7 +13,7 @@ namespace LineageOfHeroes.Spells.Berzerker
 				physDamageModifier = -0.1f;
 			}
 
-			public void ExecuteWeepingWound(Creature attacker, Creature defender)
+			public void ExecuteWeepingWound(ICreature attacker, ICreature defender)
 			{
 					float damage;
 

@@ -10,12 +10,11 @@ namespace LineageOfHeroes.Spells.Magi
 				magicDamageModifier = 2;
 			}
 
-			public void MagicMissileScript(Creature castingCreature, Creature defender, bool isPlayerAttack)
+			public void MagicMissileScript(ICreature castingCreature, ICreature defender, bool isPlayerAttack)
 			{
 					if (defender != null)
 					{
 							castingCreature.currentAbilityPool -= abilityPowerCost;
-							isPlayerAttack = castingCreature.CompareTag("Player");
 
 							float damage = castingCreature.GetDamageValue() + castingCreature.GetDamageValue() * magicDamageModifier;
 							damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
@@ -27,7 +26,7 @@ namespace LineageOfHeroes.Spells.Magi
 							else
 							{
 									// This assumes the player is tagged "Player" in the game.
-									defender = GameObject.FindGameObjectWithTag("Player").GetComponent<Creature>();
+									defender = GameObject.FindGameObjectWithTag("Player").GetComponent<ICreature>();
 							}
 
 							damage -= damage * defender.magicDamageResist;

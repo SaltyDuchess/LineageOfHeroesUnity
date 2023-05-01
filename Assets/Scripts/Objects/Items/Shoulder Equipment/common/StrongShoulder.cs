@@ -7,15 +7,12 @@ namespace LineageOfHeroes.Items
 {
 	public class StrongShoulder : Shoulder
 	{
-			private void Awake()
+			new private void Awake()
 			{
-					displayName = "Strong Shoulder";
-					shoulderType = ItemTypes.ShoulderType.ShoulderType.StrongShoulder;
-					itemRarity = Rarity.Common;
+				base.Awake();
+				bonusHp = RandomGenerator.Range(15f, 25f);
 
-					bonusHp = RandomGenerator.Range(15f, 25f);
-
-					descriptionLong = $"{displayName}\nType - {type}\nIncreases hp by {bonusHp} %";
+				descriptionLong = $"{displayName}\nType - {type}\nIncreases hp by {bonusHp} %";
 			}
 	}
 }

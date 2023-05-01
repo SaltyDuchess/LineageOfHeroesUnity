@@ -7,15 +7,13 @@ namespace LineageOfHeroes.Items
 {
 	public class PhysicalProtection : Ring
 	{
-			private void Awake()
-			{
-					displayName = "Ring of Physical Protection";
-					ringType = ItemTypes.RingType.RingType.PhysicalProtection;
-					itemRarity = Rarity.Common;
+		new private void Awake()
+		{
+			base.Awake();
 
-					physDamageResist = RandomGenerator.Range(4f, 7f);
+			physDamageResist = RandomGenerator.Range(4f, 7f);
 
-					descriptionLong = $"{displayName}\nType - {type}\nIncreases physical damage resistance by {physDamageResist} %";
-			}
+			descriptionLong = $"{displayName}\nType - {type}\nIncreases physical damage resistance by {physDamageResist} %";
+		}
 	}
 }

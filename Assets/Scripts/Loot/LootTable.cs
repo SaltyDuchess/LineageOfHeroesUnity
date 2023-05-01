@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using LineageOfHeroes.Items;
 using UnityEngine;
-using static LineageOfHeroes.Items.IItem;
 
 namespace LineageOfHeroes.LootSystem
 {
@@ -8,9 +8,9 @@ namespace LineageOfHeroes.LootSystem
 	public class LootTable : ScriptableObject
 	{
 			[SerializeField] private Rarity tableRarity;
-			[SerializeField] private List<ItemDrop> itemDrops;
+			[SerializeField] private List<IItem.ItemDrop> itemDrops;
 
 			public Rarity TableRarity => tableRarity;
-			public List<ItemDrop> ItemDrops => itemDrops;
+			public List<IItem.ItemDrop> ItemDrops => itemDrops;
 	}
 }

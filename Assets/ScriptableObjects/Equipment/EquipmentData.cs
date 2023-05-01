@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentData : MonoBehaviour
+public class EquipmentData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public string displayName;
+	public Rarity itemRarity;
+	public string descriptionLong;
+	public Sprite uiElement;
 }

@@ -27,7 +27,7 @@ namespace LineageOfHeroes.Items
 			[System.Serializable]
 			public struct ItemDrop
 			{
-				public IItem item;
+				public EquipmentBase item;
 				public float dropWeight;
 			}
 	}

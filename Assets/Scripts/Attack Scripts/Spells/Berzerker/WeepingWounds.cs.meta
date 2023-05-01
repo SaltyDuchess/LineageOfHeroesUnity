@@ -3,7 +3,9 @@ guid: e113c000b2fd611478bd14f9d0173ae0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - spellData: {fileID: 11400000, guid: 92829ae44b2887842baa0c420e795baa, type: 2}
+  - player: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

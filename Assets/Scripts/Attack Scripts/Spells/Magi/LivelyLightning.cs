@@ -10,12 +10,12 @@ namespace LineageOfHeroes.Spells.Magi
 				magicDamageModifier = 4;
 			}
 
-			public void LivelyLightningScript(Creature castingCreature, Creature defender, bool isPlayerAttack)
+			public void LivelyLightningScript(ICreature castingICreature, ICreature defender, bool isPlayerAttack)
 			{
-					castingCreature.currentAbilityPool -= abilityPowerCost;
+					castingICreature.currentAbilityPool -= abilityPowerCost;
 
-					float damage = castingCreature.GetDamageValue() + castingCreature.GetDamageValue() * magicDamageModifier;
-					damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
+					float damage = castingICreature.GetDamageValue() + castingICreature.GetDamageValue() * magicDamageModifier;
+					damage *= calcCritAndDamage.CalculateCritAndDamage(castingICreature);
 
 					damage -= damage * defender.magicDamageResist;
 

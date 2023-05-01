@@ -11,7 +11,7 @@ namespace LineageOfHeroes.Spells.Summoner
 				magicDamageModifier = 1;
 			}
 
-			public void MeaslyMiasmaScript(Creature castingCreature, PlayerEquipment playerEquipment)
+			public void MeaslyMiasmaScript(ICreature castingCreature, PlayerEquipment playerEquipment)
 			{
 					castingCreature.currentAbilityPool -= abilityPowerCost;
 					float damage;

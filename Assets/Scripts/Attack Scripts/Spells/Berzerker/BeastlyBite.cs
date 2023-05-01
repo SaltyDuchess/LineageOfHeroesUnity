@@ -13,7 +13,7 @@ namespace LineageOfHeroes.Spells.Berzerker
 			}
 
 			// Add Beastly Bite-specific functionality here
-			public void ExecuteBeastlyBite(Creature attacker, Creature defender)
+			public void ExecuteBeastlyBite(ICreature attacker, ICreature defender)
 			{
 					float damage;
 

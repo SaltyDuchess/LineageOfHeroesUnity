@@ -7,15 +7,13 @@ namespace LineageOfHeroes.Items
 {
 	public class PauldronOfPertinacity : Shoulder
 	{
-			private void Awake()
-			{
-					displayName = "Pauldron of Pertinacity";
-					shoulderType = ItemTypes.ShoulderType.ShoulderType.PauldronOfPertinacity;
-					itemRarity = Rarity.Common;
+		new private void Awake()
+		{
+			base.Awake();
 
-					bonusAbilityPower = RandomGenerator.Range(15f, 25f);
+			bonusAbilityPower = RandomGenerator.Range(15f, 25f);
 
-					descriptionLong = $"{displayName}\nType - {type}\nIncreases stamina by {bonusAbilityPower} %";
-			}
+			descriptionLong = $"{displayName}\nType - {type}\nIncreases stamina by {bonusAbilityPower} %";
+		}
 	}
 }

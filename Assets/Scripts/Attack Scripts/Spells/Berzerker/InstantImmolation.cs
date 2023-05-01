@@ -10,7 +10,7 @@ namespace LineageOfHeroes.Spells.Berzerker
 				physDamageModifier = 0;
 			}
 
-			public void ExecuteInstantImmolation(Creature attacker, Creature defender)
+			public void ExecuteInstantImmolation(ICreature attacker, ICreature defender)
 			{
 					if (attacker.currentLevel >= defender.currentLevel)
 					{

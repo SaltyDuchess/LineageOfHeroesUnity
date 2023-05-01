@@ -13,4 +13,34 @@ MonoBehaviour:
   m_Name: CommonLootTable
   m_EditorClassIdentifier: 
   tableRarity: 0
-  itemDrops: []
+  itemDrops:
+  - item: {fileID: 2746925462706372375, guid: 878e00926f513824889b91d4d490e57b, type: 3}
+    dropWeight: 1
+  - item: {fileID: 5165588385046353271, guid: fc819765936ff5e42b0ccf94a956d73a, type: 3}
+    dropWeight: 1
+  - item: {fileID: 1077823177664852173, guid: 38e5438ace155eb42a078f4e04786d71, type: 3}
+    dropWeight: 1
+  - item: {fileID: 2825497718449745987, guid: ce82be3da6dbc674db6de3f3553f616a, type: 3}
+    dropWeight: 1
+  - item: {fileID: 5892440228763917431, guid: 9ce404a524ea238499b43dd256961c0b, type: 3}
+    dropWeight: 1
+  - item: {fileID: 3098851389970513088, guid: 7609baccf2580a4419037fa6468f622d, type: 3}
+    dropWeight: 1
+  - item: {fileID: 481646325732963515, guid: 6d6bfe1cc64b4f743a4c4d45690e3b3f, type: 3}
+    dropWeight: 1
+  - item: {fileID: 8005931309639036599, guid: 2c41dd8fccaa5fe4988add1deba5bc7a, type: 3}
+    dropWeight: 1
+  - item: {fileID: 9815144059868402, guid: 8c37c0fb0f7159a43b3717815bb0af11, type: 3}
+    dropWeight: 1
+  - item: {fileID: 8315793386513457153, guid: 150b67e3ab26d634fb1d16629d7f8163, type: 3}
+    dropWeight: 1
+  - item: {fileID: 6614155892496796509, guid: 6c30b31692fca8a40b8f4ac04c396618, type: 3}
+    dropWeight: 1
+  - item: {fileID: 7885195100492623984, guid: 056a73fcd53e10e4c9949e653fd6f0fd, type: 3}
+    dropWeight: 1
+  - item: {fileID: 7344650693014816323, guid: 406a6c91bb37701478978b2e579b673b, type: 3}
+    dropWeight: 1
+  - item: {fileID: 3843817347198014565, guid: 11f6dbf8eb910604097d61ca44d9c31a, type: 3}
+    dropWeight: 1
+  - item: {fileID: 7871451180931666999, guid: 8571f2e42952e714db7f46abe9afa0e5, type: 3}
+    dropWeight: 1

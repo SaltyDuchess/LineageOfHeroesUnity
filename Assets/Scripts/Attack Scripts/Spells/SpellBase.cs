@@ -16,7 +16,7 @@ namespace LineageOfHeroes.Spells
 			public bool instantCast { get; set; }
 			public float abilityPowerCost { get; set; }
 			public bool isCastable { get; set; }
-			public Creature targetedEnemy { get; set; }
+			public ICreature targetedEnemy { get; set; }
 
 			public float physDamageModifier { get; set; }
 			public float magicDamageModifier { get; set; }

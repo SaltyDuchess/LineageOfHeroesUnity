@@ -8,7 +8,7 @@ namespace LineageOfHeroes.Spells.Berzerker
 				physDamageModifier = 0.2f;
 			}
 
-		public void ExecuteFatalFinish(Creature attacker, Creature defender)
+		public void ExecuteFatalFinish(ICreature attacker, ICreature defender)
 			{
 					float damage;
 

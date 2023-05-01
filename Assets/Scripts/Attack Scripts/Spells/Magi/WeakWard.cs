@@ -2,17 +2,17 @@ namespace LineageOfHeroes.Spells.Magi
 {
 	public class WeakWard : SpellBase, ISpell
 	{
-			public void WeakWardScript(Creature castingCreature)
+			public void WeakWardScript(ICreature castingICreature)
 			{
-					castingCreature.currentAbilityPool -= abilityPowerCost;
+					castingICreature.currentAbilityPool -= abilityPowerCost;
 
-					if (castingCreature.invulnerabilityCharges == 0)
+					if (castingICreature.invulnerabilityCharges == 0)
 					{
-							castingCreature.invulnerabilityCharges += 1;
+							castingICreature.invulnerabilityCharges += 1;
 					}
 
 					currentCooldown = cooldown;
-					castingCreature.queuedAbility = null;
+					castingICreature.queuedAbility = null;
 			}
 	}
 }
