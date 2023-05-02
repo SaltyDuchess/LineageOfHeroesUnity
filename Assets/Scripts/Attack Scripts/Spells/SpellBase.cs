@@ -16,7 +16,7 @@ namespace LineageOfHeroes.Spells
 			public bool instantCast { get; set; }
 			public float abilityPowerCost { get; set; }
 			public bool isCastable { get; set; }
-			public ICreature targetedEnemy { get; set; }
+			public Creature targetedEnemy { get; set; }
 
 			public float physDamageModifier { get; set; }
 			public float magicDamageModifier { get; set; }
@@ -35,6 +35,12 @@ namespace LineageOfHeroes.Spells
 					descriptionLong = spellData.descriptionLong;
 					instantCast = spellData.instantCast;
 					abilityPowerCost = spellData.abilityPowerCost;
+			}
+
+			public virtual void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
+			{
+				castingCreature.stats.currentAbilityPool -= abilityPowerCost;
+				currentCooldown = cooldown;
 			}
 	}
 }

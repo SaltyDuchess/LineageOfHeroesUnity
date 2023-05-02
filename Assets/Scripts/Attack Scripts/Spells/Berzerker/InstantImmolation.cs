@@ -4,20 +4,19 @@ namespace LineageOfHeroes.Spells.Berzerker
 {
 	public class InstantImmolation : SpellBase, ISpell
 	{
-			new private void Awake()
-			{
-				base.Awake();
-				physDamageModifier = 0;
-			}
+		new private void Awake()
+		{
+			base.Awake();
+			physDamageModifier = 0;
+		}
 
-			public void ExecuteInstantImmolation(ICreature attacker, ICreature defender)
+		override public void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
+		{
+			base.ExecuteSpell(castingCreature, defender);
+			if (castingCreature.stats.currentLevel >= defender.stats.currentLevel)
 			{
-					if (attacker.currentLevel >= defender.currentLevel)
-					{
-							attacker.currentAbilityPool -= attacker.abilityPowerPool;
-							defender.currentHealth = 0;
-							currentCooldown = cooldown;
-					}
+				defender.stats.currentHealth = 0;
 			}
+		}
 	}
 }

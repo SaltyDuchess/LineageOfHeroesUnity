@@ -2,17 +2,16 @@ namespace LineageOfHeroes.Spells.Berzerker
 {
 	public class SanguinarySwap : SpellBase, ISpell
 	{
-			public void ExecuteSanguinarySwap(ICreature castingICreature)
-			{
-					float hp = castingICreature.percentageHealth;
-					float ap = castingICreature.percentageAbilityPool;
+		override public void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
+		{
+			base.ExecuteSpell(castingCreature, defender);
+			float hp = castingCreature.stats.percentageHealth;
+			float ap = castingCreature.stats.percentageAbilityPool;
 
-					castingICreature.currentHealth = (ap / 100 * castingICreature.healthPool);
-					castingICreature.currentAbilityPool = (hp / 100 * castingICreature.abilityPowerPool);
+			castingCreature.stats.currentHealth = (ap / 100 * castingCreature.stats.healthPool);
+			castingCreature.stats.currentAbilityPool = (hp / 100 * castingCreature.stats.abilityPowerPool);
 
-					currentCooldown = cooldown;
-
-					castingICreature.queuedAbility = null;
-			}
-}
+			castingCreature.queuedAbility = null;
+		}
+	}
 }

@@ -4,24 +4,23 @@ namespace LineageOfHeroes.Spells.Magi
 {
 	public class LivelyLightning : SpellBase, ISpell
 	{
-			new private void Awake()
-			{
-				base.Awake();
-				magicDamageModifier = 4;
-			}
+		new private void Awake()
+		{
+			base.Awake();
+			magicDamageModifier = 4;
+		}
 
-			public void LivelyLightningScript(ICreature castingICreature, ICreature defender, bool isPlayerAttack)
-			{
-					castingICreature.currentAbilityPool -= abilityPowerCost;
+		override public void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
+		{
+			base.ExecuteSpell(castingCreature, defender);
+			castingCreature.stats.currentAbilityPool -= abilityPowerCost;
 
-					float damage = castingICreature.GetDamageValue() + castingICreature.GetDamageValue() * magicDamageModifier;
-					damage *= calcCritAndDamage.CalculateCritAndDamage(castingICreature);
+			float damage = castingCreature.stats.GetDamageValue() + castingCreature.stats.GetDamageValue() * magicDamageModifier;
+			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
 
-					damage -= damage * defender.magicDamageResist;
+			damage -= damage * defender.stats.magicDamageResist;
 
-					defender.currentHealth -= damage;
-
-					currentCooldown = cooldown;
-			}
+			defender.stats.currentHealth -= damage;
+		}
 	}
 }

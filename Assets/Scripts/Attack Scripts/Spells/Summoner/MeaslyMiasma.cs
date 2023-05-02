@@ -1,41 +1,28 @@
-using LineageOfHeroes.Items;
-using UnityEngine;
-
 namespace LineageOfHeroes.Spells.Summoner
 {
 	public class MeaslyMiasma : SpellBase, ISpell
 	{
-			new private void Awake()
+		new private void Awake()
+		{
+			base.Awake();
+			magicDamageModifier = 1;
+		}
+
+		override public void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
+		{
+			base.ExecuteSpell(castingCreature, defender);
+			float damage;
+
+			damage = castingCreature.stats.GetDamageValue() + castingCreature.stats.GetDamageValue() * magicDamageModifier;
+			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
+
+			Mob[] mobs = FindObjectsOfType<Mob>();
+
+			foreach (Mob mob in mobs)
 			{
-				base.Awake();
-				magicDamageModifier = 1;
+				float finalDamage = damage - (damage * mob.stats.magicDamageResist);
+				mob.stats.currentHealth -= finalDamage;
 			}
-
-			public void MeaslyMiasmaScript(ICreature castingCreature, PlayerEquipment playerEquipment)
-			{
-					castingCreature.currentAbilityPool -= abilityPowerCost;
-					float damage;
-
-					if (playerEquipment.equippedWeapon != null)
-					{
-							damage = playerEquipment.GetDamageValue() + playerEquipment.GetDamageValue() * magicDamageModifier;
-							damage *= calcCritAndDamage.CalculateCritAndDamage(playerEquipment.equippedWeapon);
-					}
-					else
-					{
-							damage = castingCreature.GetDamageValue() + castingCreature.GetDamageValue() * magicDamageModifier;
-							damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
-					}
-
-					Mob[] mobs = FindObjectsOfType<Mob>();
-
-					foreach (Mob defender in mobs)
-					{
-							float finalDamage = damage - (damage * defender.magicDamageResist);
-							defender.currentHealth -= finalDamage;
-					}
-
-					currentCooldown = cooldown;
-			}
+		}
 	}
 }

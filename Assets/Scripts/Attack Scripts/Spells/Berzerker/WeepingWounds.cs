@@ -4,32 +4,29 @@ namespace LineageOfHeroes.Spells.Berzerker
 {
 	public class WeepingWounds : SpellBase, ISpell
 	{
-			[SerializeField] private ICreature player;
+		[SerializeField] private Player player;
 
-			new private void Awake()
-			{
-				base.Awake();
-				DOT = (float)(player.GetDamageValue() * .5);
-				physDamageModifier = -0.1f;
-			}
+		new private void Awake()
+		{
+			base.Awake();
+			DOT = (float)(player.stats.GetDamageValue() * .5);
+			physDamageModifier = -0.1f;
+		}
 
-			public void ExecuteWeepingWound(ICreature attacker, ICreature defender)
-			{
-					float damage;
+		override public void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
+		{
+			base.ExecuteSpell(castingCreature, defender);
+			float damage;
 
-					attacker.currentAbilityPool -= abilityPowerCost;
+			damage = castingCreature.stats.GetDamageValue() + castingCreature.stats.GetDamageValue() * physDamageModifier;
+			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
 
-					damage = attacker.GetDamageValue()  + attacker.GetDamageValue() * physDamageModifier;
-					damage *= calcCritAndDamage.CalculateCritAndDamage(attacker);
+			damage -= damage * defender.stats.physDamageResist;
 
-					damage -= damage * defender.physDamageResist;
+			defender.stats.currentHealth -= damage;
 
-					defender.currentHealth -= damage;
-
-					defender.damageOverTime = DOT;
-					defender.damageOverTimeTurns = DOTTurns;
-
-					currentCooldown = cooldown;
-			}
+			defender.stats.damageOverTime = DOT;
+			defender.stats.damageOverTimeTurns = DOTTurns;
+		}
 	}
 }

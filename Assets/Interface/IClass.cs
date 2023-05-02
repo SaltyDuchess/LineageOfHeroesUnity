@@ -3,8 +3,8 @@ using LineageOfHeroes.Spells;
 
 namespace LineageOfHeroes.CharacterClasses
 {
-	public interface IClass
-	{
-			List<ISpell> classSpells { get; set; }
-	}
+    public interface IClass
+    {
+        List<SpellBase> classSpells { get; set; }
+    }
 }

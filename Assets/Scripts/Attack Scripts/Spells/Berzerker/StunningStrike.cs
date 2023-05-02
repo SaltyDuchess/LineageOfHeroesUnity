@@ -2,29 +2,26 @@ namespace LineageOfHeroes.Spells.Berzerker
 {
 	public class StunningStrike : SpellBase, ISpell
 	{
-			new private void Awake()
-			{
-				base.Awake();
-				physDamageModifier = 0;
-				stunTurns = 2;
-			}
+		new private void Awake()
+		{
+			base.Awake();
+			physDamageModifier = 0;
+			stunTurns = 2;
+		}
 
-			public void ExecuteStunningStrike(ICreature attacker, ICreature defender)
-			{
-				float damage;
+		override public void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
+		{
+			base.ExecuteSpell(castingCreature, defender);
+			float damage;
 
-				attacker.currentAbilityPool -= abilityPowerCost;
+			damage = castingCreature.stats.GetDamageValue() + castingCreature.stats.GetDamageValue() * physDamageModifier;
+			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
 
-				damage = attacker.GetDamageValue() + attacker.GetDamageValue() * physDamageModifier;
-				damage *= calcCritAndDamage.CalculateCritAndDamage(attacker);
+			damage -= damage * defender.stats.physDamageResist;
 
-				damage -= damage * defender.physDamageResist;
+			defender.stats.currentHealth -= damage;
 
-				defender.currentHealth -= damage;
-
-				defender.speedPool -= stunTurns * 100;
-
-				currentCooldown = cooldown;
-			}
+			defender.stats.speedPool -= stunTurns * 100;
+		}
 	}
 }

@@ -33,7 +33,7 @@ namespace LineageOfHeroes.Items
 			public bool instantCast { get; set; }
 			public float abilityPowerCost { get; set; }
 			public bool isCastable { get; set; }
-			public ICreature targetedEnemy { get; set; }
+			public Creature targetedEnemy { get; set; }
 			public Rarity itemRarity { get; set; }
 
 			protected virtual void Awake()

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using LineageOfHeroes.Randomization;
 using LineageOfHeroes.Spells;
 using UnityEngine;
@@ -80,13 +81,13 @@ namespace LineageOfHeroes.Items
 							{
 									if (previousCape != null)
 									{
-											spellManager.RemoveSpell(previousCape.boundAbility);
+											spellManager.RemoveSpell(previousCape.boundAbility.displayName);
 											ClearAbilityBoxesWithSpell(previousCape.boundAbility);
 									}
 
-									if (!spellManager.GetUnlockedSpells().Contains(equippedCape.boundAbility))
+									if (!spellManager.GetUnlockedSpells().Contains(previousCape.boundAbility))
 									{
-											spellManager.UnlockSpell(equippedCape.boundAbility);
+											spellManager.UnlockSpell(previousCape.boundAbility.displayName);
 									}
 
 									previousCape = equippedCape;

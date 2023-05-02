@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 2a45062401113c24986591cba0fda19c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - magiSpellLibrary: {fileID: 11400000, guid: aedf7773c394dce4f9938b6eb16bfa4a, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

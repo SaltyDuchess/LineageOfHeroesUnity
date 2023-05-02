@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LineageOfHeroes.Items
 {
-	public interface IItem : IAbility, ICritStats
+	public interface IItem : IAbility
 	{
 			public int quantity { get; set; }
 			public Sprite UiElement { get; set; }
@@ -20,8 +20,8 @@ namespace LineageOfHeroes.Items
 			public float bonusDodgeChance { get; set; }
 			public float bonusCritChance { get; set; }
 			public float bonusCritDamage { get; set; }
-			public new float critChanceModifier { get; set; }
-			public new float critDamageMultiplier { get; set; }
+			public float critChanceModifier { get; set; }
+			public float critDamageMultiplier { get; set; }
 			public List<float> damageRange { get; set; }
 			public Rarity itemRarity { get; set; }
 			[System.Serializable]
