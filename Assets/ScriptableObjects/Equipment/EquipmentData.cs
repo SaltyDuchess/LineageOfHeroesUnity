@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EquipmentData : ScriptableObject
 {
-	public string displayName;
+	public StatRange lootDivergance;
 	public Rarity itemRarity;
-	public string descriptionLong;
 	public Sprite uiElement;
+	public EquipmentStats stats = new EquipmentStats();
 }

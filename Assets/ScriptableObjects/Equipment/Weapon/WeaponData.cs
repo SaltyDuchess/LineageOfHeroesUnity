@@ -5,5 +5,4 @@ using UnityEngine;
 public class WeaponData : EquipmentData
 {
 	public LineageOfHeroes.ItemTypes.WeaponType.WeaponType weaponType;
-	public List<float> damageRange = new List<float>(2);
 }

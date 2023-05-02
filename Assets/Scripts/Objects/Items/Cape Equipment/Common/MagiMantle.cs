@@ -7,7 +7,7 @@ namespace LineageOfHeroes.Items
 {
 	public class MagiMantle : Cape
 	{
-			[SerializeField] private Magi magiClass;
+			[SerializeField] private ClassSpellLibrary magiClass;
 			new private void Awake()
 			{
 				base.Awake();

@@ -13,7 +13,7 @@ namespace LineageOfHeroes.Items
 
 			if (RandomGenerator.Range(1, 101) <= 50)
 			{
-				bonusCritDamage = RandomGenerator.Range(5f, 10f);
+				bonusCritDamage = 0;
 			}
 
 			descriptionLong = $"{displayName}\nType - {type}\nIncreases critical damage probability by {bonusCritChance}%";

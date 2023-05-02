@@ -1,5 +1,3 @@
-using UnityEngine;
-using System.Collections.Generic;
 using LineageOfHeroes.Randomization;
 
 namespace LineageOfHeroes.Items
@@ -13,12 +11,11 @@ namespace LineageOfHeroes.Items
 			int randomValue = RandomGenerator.Range(1, 101);
 			if (randomValue <= 50)
 			{
-				bonusAbilityPower = RandomGenerator.Range(30f, 46f);
+				bonusAbilityPowerRegen = 0;
 			}
 			else
 			{
-				bonusAbilityPower = RandomGenerator.Range(15f, 26f);
-				bonusAbilityPowerRegen = RandomGenerator.Range(1f, 4f);
+				bonusAbilityPower = bonusAbilityPower / equipmentData.lootDivergance.GetRandomValue();
 			}
 
 			descriptionLong = displayName

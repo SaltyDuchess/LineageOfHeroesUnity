@@ -8,7 +8,7 @@ namespace LineageOfHeroes.Items
 {
 	public class PlayerEquipment : MonoBehaviour
 	{
-			public List<float> damageRange = new List<float>(2);
+			public StatRange damageRange;
 			public float bonusCritChance = 0;
 			public float bonusCritDamage = 0;
 			public float bonusHp = 0;
@@ -46,8 +46,8 @@ namespace LineageOfHeroes.Items
 					magicDamageResist = 0;
 					bonusCritChance = 0;
 					bonusCritDamage = 0;
-					damageRange[0] = 0;
-					damageRange[1] = 0;
+					damageRange.minValue = 0;
+					damageRange.maxValue = 0;
 
 					// Update stats based on equipped items
 					UpdateEquippedItemStats(ref equippedWeapon, ref previousWeapon, player);
@@ -114,7 +114,7 @@ namespace LineageOfHeroes.Items
 					bonusAbilityPower += item.bonusAbilityPower;
 					bonusAbilityPowerRegen += item.bonusAbilityPowerRegen;
 					physDamageResist += item.physDamageResist;
-					magicDamageResist += item.magicDamageResist;
+					magicDamageResist += item.eqMagicDamageResist;
 					bonusCritChance += item.bonusCritChance;
 					bonusCritDamage += item.bonusCritDamage;
 					damageRange = item.damageRange;
@@ -127,15 +127,16 @@ namespace LineageOfHeroes.Items
 					bonusAbilityPower -= item.bonusAbilityPower;
 					bonusAbilityPowerRegen -= item.bonusAbilityPowerRegen;
 					physDamageResist -= item.physDamageResist;
-					magicDamageResist -= item.magicDamageResist;
+					magicDamageResist -= item.eqMagicDamageResist;
 					bonusCritChance -= item.bonusCritChance;
 					bonusCritDamage -= item.bonusCritDamage;
-					damageRange = new List<float> { 0, 0 }; // Reset DamageRange to default values
+					damageRange.minValue -= item.damageRange.minValue; // Reset DamageRange to default values
+					damageRange.maxValue -= item.damageRange.maxValue;
 			}
 
 			public float GetDamageValue()
 			{
-				return RandomGenerator.Range(damageRange[0], damageRange[1]);
+				return RandomGenerator.Range(damageRange.minValue, damageRange.maxValue);
 			}
 	}
 }

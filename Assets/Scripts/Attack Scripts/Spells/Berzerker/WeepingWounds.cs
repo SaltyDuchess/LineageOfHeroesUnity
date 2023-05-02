@@ -9,7 +9,7 @@ namespace LineageOfHeroes.Spells.Berzerker
 		new private void Awake()
 		{
 			base.Awake();
-			DOT = (float)(player.stats.GetDamageValue() * .5);
+			DOT = (float)(player.creatureStats.GetDamageValue() * .5);
 			physDamageModifier = -0.1f;
 		}
 

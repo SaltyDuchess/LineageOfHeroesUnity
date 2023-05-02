@@ -12,8 +12,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153e5ef7ca113bc4298591ae45c9ce99, type: 3}
   m_Name: StaminaStandard
   m_EditorClassIdentifier: 
-  displayName: Stamina Standard
+  lootDivergance:
+    minValue: 1.77
+    maxValue: 2
   itemRarity: 0
-  descriptionLong: 
   uiElement: {fileID: 0}
+  stats:
+    speedPool: 0
+    abilityPowerPool: 0
+    currentAbilityPool: 0
+    percentageAbilityPool: 0
+    abilityRegeneration: 0
+    dodgeChance: 0
+    physDamageResist: 0
+    magicDamageResist: 0
+    invulnerabilityCharges: 0
+    autoAttackRange: 0
+    actionSpeedCost: 0
+    damageOverTime: 0
+    damageOverTimeTurns: 0
+    damageRange:
+      minValue: 0
+      maxValue: 0
+    healthRegeneration: 0
+    critDamageMultiplier: 0
+    critChanceModifier: 0
+    bonusHp:
+      minValue: 0
+      maxValue: 0
+    bonusHpRegen:
+      minValue: 0
+      maxValue: 0
+    bonusAbilityPower:
+      minValue: 30
+      maxValue: 46
+    bonusAbilityPowerRegen:
+      minValue: 1
+      maxValue: 4
+    bonusDodgeChance:
+      minValue: 0
+      maxValue: 0
+    bonusCritChance:
+      minValue: 0
+      maxValue: 0
+    bonusCritDamage:
+      minValue: 0
+      maxValue: 0
+    displayName: 
+    descriptionLong: 
+    bonusSpeedPool:
+      minValue: 0
+      maxValue: 0
   chestType: 1

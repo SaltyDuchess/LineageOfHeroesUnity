@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: -6980349990656452046}
   - component: {fileID: -5175268537623830880}
   - component: {fileID: 7422643291769307260}
+  - component: {fileID: 5332906049223456898}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -189,3 +190,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5332906049223456898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533892023633780812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ad3bfa2c9da6b48b677993df3fd7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+    currentLevel: 1
+    healthPool: 100
+    currentHealth: 100
+    percentageHealth: 100
+    speedPool: 100
+    abilityPowerPool: 100
+    currentAbilityPool: 100
+    percentageAbilityPool: 100
+    abilityRegeneration: 1
+    dodgeChance: 0
+    physDamageResist: 0
+    magicDamageResist: 0
+    invulnerabilityCharges: 0
+    autoAttackRange: 0
+    actionSpeedCost: 100
+    damageOverTime: 0
+    damageOverTimeTurns: 0
+    XPValue: 5
+    damageRange:
+    - 10.5
+    - 13.75
+    healthRegeneration: 0.5
+    critDamageMultiplier: 1
+    critChanceModifier: 0.1
+  characterClass: {fileID: 11400000, guid: a8fc586d56e1288449362c6a682c4be5, type: 2}

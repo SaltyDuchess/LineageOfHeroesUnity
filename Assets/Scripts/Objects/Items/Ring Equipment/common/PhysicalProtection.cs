@@ -10,10 +10,6 @@ namespace LineageOfHeroes.Items
 		new private void Awake()
 		{
 			base.Awake();
-
-			physDamageResist = RandomGenerator.Range(4f, 7f);
-
-			descriptionLong = $"{displayName}\nType - {type}\nIncreases physical damage resistance by {physDamageResist} %";
 		}
 	}
 }

@@ -17,13 +17,15 @@ namespace LineageOfHeroes.Items
 			public float bonusAbilityPower { get; set; }
 			public float bonusAbilityPowerRegen { get; set; }
 			public float physDamageResist { get; set; }
-			public float magicDamageResist { get; set; }
+			public float eqPhysDamageResist { get; set; }
+			public float eqMagicDamageResist { get; set; }
 			public float bonusDodgeChance { get; set; }
 			public float bonusCritChance { get; set; }
 			public float bonusCritDamage { get; set; }
+			public float bonusSpeedPool { get;set; }
 			public float critChanceModifier { get; set; }
 			public float critDamageMultiplier { get; set; }
-			public List<float> damageRange { get; set; }
+			public StatRange damageRange { get; set; }
 			public string displayName { get; set; }
 			public Sprite uiElement { get; set; }
 			public int cooldown { get; set; }
@@ -35,13 +37,32 @@ namespace LineageOfHeroes.Items
 			public bool isCastable { get; set; }
 			public Creature targetedEnemy { get; set; }
 			public Rarity itemRarity { get; set; }
+			public float autoAttackRange { get; set; }
+			public float damageOverTime { get; set; }
+			public int damageOverTimeTurns { get; set; }
 
-			protected virtual void Awake()
-			{
-				displayName = equipmentData.displayName;
-				itemRarity = equipmentData.itemRarity;
-				descriptionLong = equipmentData.descriptionLong;
-				uiElement = equipmentData.uiElement;
-			}
+		protected virtual void Awake()
+		{
+			displayName = equipmentData.stats.displayName;
+			itemRarity = equipmentData.itemRarity;
+			descriptionLong = equipmentData.stats.descriptionLong;
+			uiElement = equipmentData.uiElement;
+			bonusHp = equipmentData.stats.bonusHp.GetRandomValue();
+			bonusHpRegen = equipmentData.stats.bonusHpRegen.GetRandomValue();
+			bonusAbilityPower = equipmentData.stats.bonusAbilityPower.GetRandomValue();
+			bonusAbilityPowerRegen = equipmentData.stats.bonusAbilityPowerRegen.GetRandomValue();
+			bonusDodgeChance = equipmentData.stats.bonusDodgeChance.GetRandomValue();
+			bonusCritChance = equipmentData.stats.bonusCritChance.GetRandomValue();
+			bonusCritDamage = equipmentData.stats.bonusCritDamage.GetRandomValue();
+			bonusSpeedPool = equipmentData.stats.bonusSpeedPool.GetRandomValue();
+			physDamageResist = equipmentData.stats.eqPhysDamageResist.GetRandomValue();
+			eqMagicDamageResist = equipmentData.stats.eqMagicDamageResist.GetRandomValue();
+			autoAttackRange = equipmentData.stats.autoAttackRange;
+			damageOverTime = equipmentData.stats.damageOverTime;
+			damageOverTimeTurns = equipmentData.stats.damageOverTimeTurns;
+			damageRange = equipmentData.stats.damageRange;
+			critDamageMultiplier = equipmentData.stats.critDamageMultiplier;
+			critChanceModifier = equipmentData.stats.critChanceModifier;
+		}
 	}
 }

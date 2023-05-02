@@ -1,11 +1,10 @@
-using System.Collections.Generic;
 using LineageOfHeroes.CharacterClasses;
 using LineageOfHeroes.Items;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	public Stats stats = new Stats();
+	public CreatureStats creatureStats = new CreatureStats();
 	public bool IsPlayer => true;
 	[SerializeField] private CharacterClass characterClass;
 	public int XPToNextLevel { get; set; } = 10;

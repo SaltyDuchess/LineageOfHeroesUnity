@@ -1,5 +1,4 @@
 using LineageOfHeroes.Randomization;
-using UnityEngine;
 
 namespace LineageOfHeroes.Items
 {
@@ -10,14 +9,15 @@ namespace LineageOfHeroes.Items
 			base.Awake();
 
 			int randomValue = RandomGenerator.Range(1, 101);
-			if (randomValue <= 50)
+			// equipment will have hp regen, reduce bonus hp via loot divergance value
+			if (randomValue >= 50)
 			{
-				bonusHp = RandomGenerator.Range(25f, 51f);
+				bonusHp = bonusHp / equipmentData.lootDivergance.GetRandomValue();
 			}
+			// equipment will not have hp regen
 			else
 			{
-				bonusHp = RandomGenerator.Range(10f, 16f);
-				bonusHpRegen = RandomGenerator.Range(0.5f, 2.1f);
+				bonusHpRegen = 0;
 			}
 
 			descriptionLong = displayName

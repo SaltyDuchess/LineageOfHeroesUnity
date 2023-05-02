@@ -10,7 +10,7 @@ namespace LineageOfHeroes.Items
 			critChanceModifier = 20f;
 			critDamageMultiplier = 0.15f;
 
-			descriptionLong = $"{displayName}\nType - {type}\nIncreases damage by {damageRange[0]} - {damageRange[1]}," +
+			descriptionLong = $"{displayName}\nType - {type}\nIncreases damage by {damageRange.minValue} - {damageRange.maxValue}," +
 												$" increases crit chance by {critChanceModifier}% and increases critical damage by {critDamageMultiplier * 100}%";
 		}
 	}

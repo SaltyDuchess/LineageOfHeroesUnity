@@ -6,6 +6,6 @@ public class Creature : MonoBehaviour
 {
 	public virtual bool IsPlayer => false;
 	public IAbility queuedAbility { get; set; } = null;
-	public Stats stats = new Stats();
+	public CreatureStats stats = new CreatureStats();
 	// Add any other MonoBehaviour-specific methods and properties here, if necessary.
 }

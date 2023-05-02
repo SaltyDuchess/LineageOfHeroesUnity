@@ -12,8 +12,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84529db9bd4becb41883ac85a98431c1, type: 3}
   m_Name: PauldronOfPertinacity
   m_EditorClassIdentifier: 
-  displayName: Pauldron of Pertinacity
+  lootDivergance:
+    minValue: 0
+    maxValue: 0
   itemRarity: 0
-  descriptionLong: 
   uiElement: {fileID: 0}
+  stats:
+    speedPool: 0
+    abilityPowerPool: 0
+    currentAbilityPool: 0
+    percentageAbilityPool: 0
+    abilityRegeneration: 0
+    dodgeChance: 0
+    physDamageResist: 0
+    magicDamageResist: 0
+    invulnerabilityCharges: 0
+    autoAttackRange: 0
+    actionSpeedCost: 0
+    damageOverTime: 0
+    damageOverTimeTurns: 0
+    damageRange:
+      minValue: 0
+      maxValue: 0
+    healthRegeneration: 0
+    critDamageMultiplier: 0
+    critChanceModifier: 0
+    bonusHp:
+      minValue: 0
+      maxValue: 0
+    bonusHpRegen:
+      minValue: 0
+      maxValue: 0
+    bonusAbilityPower:
+      minValue: 15
+      maxValue: 25
+    bonusAbilityPowerRegen:
+      minValue: 0
+      maxValue: 0
+    bonusDodgeChance:
+      minValue: 0
+      maxValue: 0
+    bonusCritChance:
+      minValue: 0
+      maxValue: 0
+    bonusCritDamage:
+      minValue: 0
+      maxValue: 0
+    displayName: 
+    descriptionLong: $"{displayName}\nType - {type}\nIncreases stamina by {bonusAbilityPower}
+      %"
+    bonusSpeedPool:
+      minValue: 0
+      maxValue: 0
+    eqMagicDamageResist:
+      minValue: 0
+      maxValue: 0
+    eqPhysDamageResist:
+      minValue: 0
+      maxValue: 0
   shoulderType: 0

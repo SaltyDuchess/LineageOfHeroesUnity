@@ -16,13 +16,13 @@ namespace LineageOfHeroes.Items
 			public float bonusAbilityPower { get; set; }
 			public float bonusAbilityPowerRegen { get; set; }
 			public float physDamageResist { get; set; }
-			public float magicDamageResist { get; set; }
+			public float eqMagicDamageResist { get; set; }
 			public float bonusDodgeChance { get; set; }
 			public float bonusCritChance { get; set; }
 			public float bonusCritDamage { get; set; }
 			public float critChanceModifier { get; set; }
 			public float critDamageMultiplier { get; set; }
-			public List<float> damageRange { get; set; }
+			public StatRange damageRange { get; set; }
 			public Rarity itemRarity { get; set; }
 			[System.Serializable]
 			public struct ItemDrop

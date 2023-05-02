@@ -7,7 +7,7 @@ namespace LineageOfHeroes.Items
 {
 	public class SummonerShawl : Cape
 	{
-		[SerializeField] private Summoner summonerClass;
+		[SerializeField] private ClassSpellLibrary summonerClass;
 			new private void Awake()
 			{
 					displayName = "Summoner Shawl";

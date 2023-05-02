@@ -10,12 +10,11 @@ namespace LineageOfHeroes.Items
 			base.Awake();
 			if (RandomGenerator.Range(1, 101) <= 50)
 			{
-				bonusHp = RandomGenerator.Range(15f, 26f);
+				bonusHpRegen = 0;
 			}
 			else
 			{
-				bonusHp = RandomGenerator.Range(10f, 16f);
-				bonusHpRegen = RandomGenerator.Range(0.5f, 1.1f);
+				bonusHp = bonusHp / equipmentData.lootDivergance.GetRandomValue();
 			}
 
 			descriptionLong = $"{displayName}\nType - {type}\nIncreases HP by {bonusHp}";

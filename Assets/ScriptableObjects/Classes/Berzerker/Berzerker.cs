@@ -15,8 +15,8 @@ namespace LineageOfHeroes.CharacterClasses
         public override void ModifyPlayerStats(Player player)
         {
             // Example: Add 50 health points for Berzerker class
-            player.stats.healthPool += 50;
-            player.stats.currentHealth = player.stats.healthPool;
+            player.creatureStats.healthPool += 50;
+            player.creatureStats.currentHealth = player.creatureStats.healthPool;
         }
     }
 }
