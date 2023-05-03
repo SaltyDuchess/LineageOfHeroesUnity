@@ -7,7 +7,7 @@ namespace LineageOfHeroes.Items
 {
 	public class EquipmentBase : MonoBehaviour, IItem
 	{
-			[SerializeField] protected EquipmentData equipmentData;
+			protected EquipmentData equipmentData;
 			public int quantity { get; set; } = 1;
 			public ItemType type { get; set; }
 			public Sprite UiElement { get; set; }
@@ -18,13 +18,13 @@ namespace LineageOfHeroes.Items
 			public float bonusAbilityPowerRegen { get; set; }
 			public float physDamageResist { get; set; }
 			public float eqPhysDamageResist { get; set; }
-			public float eqMagicDamageResist { get; set; }
+			public float bonusMagicDamageResist { get; set; }
 			public float bonusDodgeChance { get; set; }
 			public float bonusCritChance { get; set; }
 			public float bonusCritDamage { get; set; }
 			public float bonusSpeedPool { get;set; }
-			public float critChanceModifier { get; set; }
-			public float critDamageMultiplier { get; set; }
+			public StatRange critChanceModifier { get; set; }
+			public StatRange critDamageMultiplier { get; set; }
 			public StatRange damageRange { get; set; }
 			public string displayName { get; set; }
 			public Sprite uiElement { get; set; }
@@ -41,6 +41,8 @@ namespace LineageOfHeroes.Items
 			public float damageOverTime { get; set; }
 			public int damageOverTimeTurns { get; set; }
 
+			
+
 		protected virtual void Awake()
 		{
 			displayName = equipmentData.stats.displayName;
@@ -55,14 +57,14 @@ namespace LineageOfHeroes.Items
 			bonusCritChance = equipmentData.stats.bonusCritChance.GetRandomValue();
 			bonusCritDamage = equipmentData.stats.bonusCritDamage.GetRandomValue();
 			bonusSpeedPool = equipmentData.stats.bonusSpeedPool.GetRandomValue();
-			physDamageResist = equipmentData.stats.eqPhysDamageResist.GetRandomValue();
-			eqMagicDamageResist = equipmentData.stats.eqMagicDamageResist.GetRandomValue();
+			physDamageResist = equipmentData.stats.bonusPhysDamageResist.GetRandomValue();
+			bonusMagicDamageResist = equipmentData.stats.bonusMagicDamageResist.GetRandomValue();
 			autoAttackRange = equipmentData.stats.autoAttackRange;
 			damageOverTime = equipmentData.stats.damageOverTime;
 			damageOverTimeTurns = equipmentData.stats.damageOverTimeTurns;
 			damageRange = equipmentData.stats.damageRange;
-			critDamageMultiplier = equipmentData.stats.critDamageMultiplier;
-			critChanceModifier = equipmentData.stats.critChanceModifier;
+			critDamageMultiplier = equipmentData.stats.bonusCritDamage;
+			critChanceModifier = equipmentData.stats.bonusCritChance;
 		}
 	}
 }

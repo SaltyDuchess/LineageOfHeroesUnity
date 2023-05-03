@@ -10,10 +10,8 @@ namespace LineageOfHeroes.ItemFactories.Ring
     {
         switch (ringType)
         {
-            case RingType.MagicalMuddling:
-                return new MagicalMuddling();
-						case RingType.PhysicalProtection:
-                return new PhysicalProtection();
+            case RingType.Ring:
+                return new LineageOfHeroes.Items.Ring();
             default:
                 throw new ArgumentException($"Invalid weapon type: {ringType}");
         }

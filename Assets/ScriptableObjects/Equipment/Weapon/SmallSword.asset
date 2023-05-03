@@ -12,12 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8190b3f3225207c47b990ce2fc6013bd, type: 3}
   m_Name: SmallSword
   m_EditorClassIdentifier: 
-  displayName: Small Sword
+  lootDivergance:
+    minValue: 0
+    maxValue: 0
   itemRarity: 0
-  descriptionLong: $"{displayName}\nType - {type}\nIncreases damage by {damageRange[0]}
-    - {damageRange[1]},
   uiElement: {fileID: 21300000, guid: 9722c041d48431f4e87ea5de2b8fdee5, type: 3}
+  stats:
+    bonusHp:
+      minValue: 0
+      maxValue: 0
+    bonusHpRegen:
+      minValue: 0
+      maxValue: 0
+    bonusAbilityPower:
+      minValue: 0
+      maxValue: 0
+    bonusAbilityPowerRegen:
+      minValue: 0
+      maxValue: 0
+    bonusDodgeChance:
+      minValue: 0
+      maxValue: 0
+    bonusCritChance:
+      minValue: 0
+      maxValue: 0
+    bonusCritDamage:
+      minValue: 0
+      maxValue: 0
+    displayName: Small Sword
+    descriptionLong: 
+    bonusSpeedPool:
+      minValue: 0
+      maxValue: 0
+    bonusMagicDamageResist:
+      minValue: 0
+      maxValue: 0
+    bonusPhysDamageResist:
+      minValue: 0
+      maxValue: 0
+    autoAttackRange: 0
+    damageOverTime: 0
+    damageOverTimeTurns: 0
+    damageRange:
+      minValue: 32.6
+      maxValue: 38.2
   weaponType: 1
-  damageRange:
-  - 32.6
-  - 38.2

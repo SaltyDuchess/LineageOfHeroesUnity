@@ -6,13 +6,14 @@ using LineageOfHeroes.ItemTypes.RingType;
 
 namespace LineageOfHeroes.Items
 {
-	public abstract class Ring : EquipmentBase
+	public class Ring : EquipmentBase
 	{
 		public RingType ringType { get; set; }
 		[SerializeField] RingData ringData;
 
 		new protected virtual void Awake()
 		{
+			base.equipmentData = ringData;
 			base.Awake();
 			ringType = ringData.ringType;
 		}

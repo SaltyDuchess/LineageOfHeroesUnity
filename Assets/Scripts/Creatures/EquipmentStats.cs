@@ -1,5 +1,5 @@
 [System.Serializable]
-public class EquipmentStats : Stats
+public class EquipmentStats
 {
 	public StatRange bonusHp;
 	public StatRange bonusHpRegen;
@@ -11,6 +11,10 @@ public class EquipmentStats : Stats
 	public string displayName;
 	public string descriptionLong;
 	public StatRange bonusSpeedPool;
-	public StatRange eqMagicDamageResist;
-	public StatRange eqPhysDamageResist;
+	public StatRange bonusMagicDamageResist;
+	public StatRange bonusPhysDamageResist;
+	public float autoAttackRange;
+	public float damageOverTime;
+	public int damageOverTimeTurns;
+	public StatRange damageRange;
 }

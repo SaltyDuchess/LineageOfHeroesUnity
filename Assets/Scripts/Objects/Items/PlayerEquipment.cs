@@ -114,7 +114,7 @@ namespace LineageOfHeroes.Items
 					bonusAbilityPower += item.bonusAbilityPower;
 					bonusAbilityPowerRegen += item.bonusAbilityPowerRegen;
 					physDamageResist += item.physDamageResist;
-					magicDamageResist += item.eqMagicDamageResist;
+					magicDamageResist += item.bonusMagicDamageResist;
 					bonusCritChance += item.bonusCritChance;
 					bonusCritDamage += item.bonusCritDamage;
 					damageRange = item.damageRange;
@@ -127,7 +127,7 @@ namespace LineageOfHeroes.Items
 					bonusAbilityPower -= item.bonusAbilityPower;
 					bonusAbilityPowerRegen -= item.bonusAbilityPowerRegen;
 					physDamageResist -= item.physDamageResist;
-					magicDamageResist -= item.eqMagicDamageResist;
+					magicDamageResist -= item.bonusMagicDamageResist;
 					bonusCritChance -= item.bonusCritChance;
 					bonusCritDamage -= item.bonusCritDamage;
 					damageRange.minValue -= item.damageRange.minValue; // Reset DamageRange to default values

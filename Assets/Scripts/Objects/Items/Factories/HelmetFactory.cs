@@ -10,10 +10,8 @@ namespace LineageOfHeroes.ItemFactories.Helmet
     {
         switch (helmetType)
         {
-            case HelmetType.RegenerationRemedy:
-                return new RegenerationRemedy();
-						case HelmetType.StaminaSurge:
-                return new StaminaSurge();
+            case HelmetType.Helmet:
+                return new LineageOfHeroes.Items.Helmet();
             default:
                 throw new ArgumentException($"Invalid weapon type: {helmetType}");
         }

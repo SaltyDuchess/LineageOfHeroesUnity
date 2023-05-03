@@ -10,10 +10,8 @@ public static class WeaponFactory
     {
         switch (weaponType)
         {
-            case WeaponType.DamagedDagger:
-                return new DamagedDagger();
-            case WeaponType.SmallSword:
-                return new SmallSword();
+            case WeaponType.Weapon:
+                return new LineageOfHeroes.Items.Weapon();
             default:
                 throw new ArgumentException($"Invalid weapon type: {weaponType}");
         }

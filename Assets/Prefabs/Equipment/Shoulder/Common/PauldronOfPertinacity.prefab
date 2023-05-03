@@ -41,8 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 389602549511283787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20546223ff1474744925a607beeabff9, type: 3}
+  m_Script: {fileID: 11500000, guid: 25b3e8ad893e0844799bfdd2a57c79e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipmentData: {fileID: 11400000, guid: 3d852654f7a2abb4aacb4e3c6f41eb7c, type: 2}
   shoulderData: {fileID: 11400000, guid: 3d852654f7a2abb4aacb4e3c6f41eb7c, type: 2}

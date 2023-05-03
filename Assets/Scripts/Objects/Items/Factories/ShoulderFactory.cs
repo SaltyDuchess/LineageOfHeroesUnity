@@ -10,10 +10,8 @@ namespace LineageOfHeroes.ItemFactories.Shoulder
     {
         switch (shoulderType)
         {
-            case ShoulderType.PauldronOfPertinacity:
-                return new PauldronOfPertinacity();
-						case ShoulderType.StrongShoulder:
-                return new StrongShoulder();
+            case ShoulderType.Shoulder:
+                return new LineageOfHeroes.Items.Shoulder();
             default:
                 throw new ArgumentException($"Invalid weapon type: {shoulderType}");
         }

@@ -12,8 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edffad79e001bab4db67d6060e7b8a6e, type: 3}
   m_Name: MagiMantle
   m_EditorClassIdentifier: 
-  displayName: Magi Mantle
+  lootDivergance:
+    minValue: 0
+    maxValue: 0
   itemRarity: 0
-  descriptionLong: $"{displayName}\nType - {type}\nAdds {boundAbility.displayName}
-    to your available abilities"
+  uiElement: {fileID: 0}
+  stats:
+    bonusHp:
+      minValue: 0
+      maxValue: 0
+    bonusHpRegen:
+      minValue: 0
+      maxValue: 0
+    bonusAbilityPower:
+      minValue: 0
+      maxValue: 0
+    bonusAbilityPowerRegen:
+      minValue: 0
+      maxValue: 0
+    bonusDodgeChance:
+      minValue: 0
+      maxValue: 0
+    bonusCritChance:
+      minValue: 0
+      maxValue: 0
+    bonusCritDamage:
+      minValue: 0
+      maxValue: 0
+    displayName: Magi Mantle
+    descriptionLong: 
+    bonusSpeedPool:
+      minValue: 0
+      maxValue: 0
+    bonusMagicDamageResist:
+      minValue: 0
+      maxValue: 0
+    bonusPhysDamageResist:
+      minValue: 0
+      maxValue: 0
+    autoAttackRange: 0
+    damageOverTime: 0
+    damageOverTimeTurns: 0
+    damageRange:
+      minValue: 0
+      maxValue: 0
   capeType: 0

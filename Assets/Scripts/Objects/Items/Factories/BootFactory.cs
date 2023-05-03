@@ -10,8 +10,8 @@ namespace LineageOfHeroes.ItemFactories.Boot
     {
         switch (bootType)
         {
-            case BootType.SneakySneakers:
-                return new SneakySneakers();
+            case BootType.Boot:
+                return new LineageOfHeroes.Items.Boot();
             default:
                 throw new ArgumentException($"Invalid weapon type: {bootType}");
         }
