@@ -39,8 +39,6 @@ MonoBehaviour:
     bonusCritDamage:
       minValue: 0
       maxValue: 0
-    displayName: Magi Mantle
-    descriptionLong: 
     bonusSpeedPool:
       minValue: 0
       maxValue: 0
@@ -56,4 +54,6 @@ MonoBehaviour:
     damageRange:
       minValue: 0
       maxValue: 0
+  displayName: Magi Mantle
+  descriptionLong: 
   capeType: 0

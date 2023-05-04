@@ -39,9 +39,6 @@ MonoBehaviour:
     bonusCritDamage:
       minValue: 0
       maxValue: 0
-    displayName: Magical Muddling
-    descriptionLong: $"{displayName}\nType - {type}\nIncreases magical damage resistance
-      by {eqMagicDamageResist} %"
     bonusSpeedPool:
       minValue: 0
       maxValue: 0
@@ -57,4 +54,6 @@ MonoBehaviour:
     damageRange:
       minValue: 0
       maxValue: 0
+  displayName: Magical Muddling
+  descriptionLong: 
   ringType: 0

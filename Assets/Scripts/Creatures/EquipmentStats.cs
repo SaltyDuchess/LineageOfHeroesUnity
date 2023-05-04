@@ -8,8 +8,6 @@ public class EquipmentStats
 	public StatRange bonusDodgeChance;
 	public StatRange bonusCritChance;
 	public StatRange bonusCritDamage;
-	public string displayName;
-	public string descriptionLong;
 	public StatRange bonusSpeedPool;
 	public StatRange bonusMagicDamageResist;
 	public StatRange bonusPhysDamageResist;

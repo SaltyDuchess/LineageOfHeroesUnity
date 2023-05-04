@@ -39,9 +39,6 @@ MonoBehaviour:
     bonusCritDamage:
       minValue: 0
       maxValue: 0
-    displayName: Pauldron of Pertinacity
-    descriptionLong: $"{displayName}\nType - {type}\nIncreases stamina by {bonusAbilityPower}
-      %"
     bonusSpeedPool:
       minValue: 0
       maxValue: 0
@@ -57,4 +54,6 @@ MonoBehaviour:
     damageRange:
       minValue: 0
       maxValue: 0
+  displayName: Pauldron of Pertinacity
+  descriptionLong: 
   shoulderType: 0

@@ -39,8 +39,6 @@ MonoBehaviour:
     bonusCritDamage:
       minValue: 0
       maxValue: 0
-    displayName: Small Sword
-    descriptionLong: 
     bonusSpeedPool:
       minValue: 0
       maxValue: 0
@@ -56,4 +54,6 @@ MonoBehaviour:
     damageRange:
       minValue: 32.6
       maxValue: 38.2
-  weaponType: 1
+  displayName: Small Sword
+  descriptionLong: 
+  weaponType: 0

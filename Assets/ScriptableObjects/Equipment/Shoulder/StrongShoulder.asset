@@ -39,8 +39,6 @@ MonoBehaviour:
     bonusCritDamage:
       minValue: 0
       maxValue: 0
-    displayName: Strong Shoulder
-    descriptionLong: $"{displayName}\nType - {type}\nIncreases hp by {bonusHp} %"
     bonusSpeedPool:
       minValue: 0
       maxValue: 0
@@ -56,4 +54,6 @@ MonoBehaviour:
     damageRange:
       minValue: 0
       maxValue: 0
-  shoulderType: 1
+  displayName: Strong Shoulder
+  descriptionLong: 
+  shoulderType: 0

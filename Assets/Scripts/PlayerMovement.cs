@@ -44,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position = targetPosition;
         isMoving = false;
+
+        // End the player's turn after moving
+        GetComponent<Player>().EndTurn();
     }
 
     void OnMove(InputValue value)

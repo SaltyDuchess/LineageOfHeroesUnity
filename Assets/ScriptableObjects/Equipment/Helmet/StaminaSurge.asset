@@ -39,9 +39,6 @@ MonoBehaviour:
     bonusCritDamage:
       minValue: 0
       maxValue: 0
-    displayName: Stamina Surge
-    descriptionLong: $"{displayName}\nType - {type}\nIncreases ability power regen
-      by {bonusAbilityPowerRegen}"
     bonusSpeedPool:
       minValue: 0
       maxValue: 0
@@ -57,4 +54,6 @@ MonoBehaviour:
     damageRange:
       minValue: 0
       maxValue: 0
-  helmetType: 1
+  displayName: Stamina Surge
+  descriptionLong: 
+  helmetType: 0

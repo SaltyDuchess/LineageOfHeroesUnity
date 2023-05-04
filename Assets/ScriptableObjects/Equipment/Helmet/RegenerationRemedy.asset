@@ -39,9 +39,6 @@ MonoBehaviour:
     bonusCritDamage:
       minValue: 0
       maxValue: 0
-    displayName: Regeneration Remedy
-    descriptionLong: $"{displayName}\nType - {type}\nIncreases hp regen regen by
-      {bonusHpRegen}"
     bonusSpeedPool:
       minValue: 0
       maxValue: 0
@@ -57,4 +54,6 @@ MonoBehaviour:
     damageRange:
       minValue: 0
       maxValue: 0
+  displayName: Regeneration Remedy
+  descriptionLong: 
   helmetType: 0

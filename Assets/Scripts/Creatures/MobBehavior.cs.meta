@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: de758d51f0fe5354fb899e146783492f
+guid: dece7cca0358db74dbb74a5e95ec8b2e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - creatureData: {instanceID: 0}
-  - noPushMaterial: {fileID: 6200000, guid: 7401bd8c685ab4145830f3336c6ca2e1, type: 2}
+  - player: {fileID: 5533892023633780812, guid: 73bfb4f960585e145a424f7eb30d243a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -39,8 +39,6 @@ MonoBehaviour:
     bonusCritDamage:
       minValue: 5
       maxValue: 10
-    displayName: Fatal Fists
-    descriptionLong: 
     bonusSpeedPool:
       minValue: 0
       maxValue: 0
@@ -56,4 +54,6 @@ MonoBehaviour:
     damageRange:
       minValue: 0
       maxValue: 0
+  displayName: Fatal Fists
+  descriptionLong: 
   gauntletType: 0

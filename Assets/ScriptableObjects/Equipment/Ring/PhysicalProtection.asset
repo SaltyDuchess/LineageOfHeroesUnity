@@ -39,9 +39,6 @@ MonoBehaviour:
     bonusCritDamage:
       minValue: 0
       maxValue: 0
-    displayName: Physical Protection
-    descriptionLong: $"{displayName}\nType - {type}\nIncreases physical damage resistance
-      by {physDamageResist} %"
     bonusSpeedPool:
       minValue: 0
       maxValue: 0
@@ -57,4 +54,6 @@ MonoBehaviour:
     damageRange:
       minValue: 0
       maxValue: 0
-  ringType: 1
+  displayName: Physical Protection
+  descriptionLong: 
+  ringType: 0

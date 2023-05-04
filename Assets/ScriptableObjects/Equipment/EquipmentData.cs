@@ -6,4 +6,6 @@ public class EquipmentData : ScriptableObject
 	public Rarity itemRarity;
 	public Sprite uiElement;
 	public EquipmentStats stats = new EquipmentStats();
+	public string displayName;
+	public string descriptionLong;
 }

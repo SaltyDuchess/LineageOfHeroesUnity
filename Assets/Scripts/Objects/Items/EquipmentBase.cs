@@ -45,9 +45,9 @@ namespace LineageOfHeroes.Items
 
 		protected virtual void Awake()
 		{
-			displayName = equipmentData.stats.displayName;
+			displayName = equipmentData.displayName;
 			itemRarity = equipmentData.itemRarity;
-			descriptionLong = equipmentData.stats.descriptionLong;
+			descriptionLong = equipmentData.descriptionLong;
 			uiElement = equipmentData.uiElement;
 			bonusHp = equipmentData.stats.bonusHp.GetRandomValue();
 			bonusHpRegen = equipmentData.stats.bonusHpRegen.GetRandomValue();

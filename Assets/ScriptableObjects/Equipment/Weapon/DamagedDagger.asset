@@ -39,11 +39,6 @@ MonoBehaviour:
     bonusCritDamage:
       minValue: 0
       maxValue: 0
-    displayName: Damaged Dagger
-    descriptionLong: "$\"{displayName}\\nType - {type}\\nIncreases damage by {damageRange.minValue}
-      - {damageRange.maxValue},\" + \t\t\t\t\t\t\t\t\t\t\t\t$\" increases crit chance
-      by {critChanceModifier}% and increases critical damage by {bonusCritDamage
-      * 100}%\""
     bonusSpeedPool:
       minValue: 0
       maxValue: 0
@@ -59,4 +54,6 @@ MonoBehaviour:
     damageRange:
       minValue: 25.2
       maxValue: 29.4
+  displayName: Damaged Dagger
+  descriptionLong: 
   weaponType: 0
