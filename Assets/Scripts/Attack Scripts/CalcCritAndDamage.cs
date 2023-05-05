@@ -9,11 +9,11 @@ public class CalcCritAndDamage : MonoBehaviour
 	{
 			float universalCritChance = damageSystem.universalCritChance;
 			float universalCritMultiplier = damageSystem.universalCritMultiplier;
-			float finalCritChance = universalCritChance + attacker.stats.critChanceModifier;
+			float finalCritChance = universalCritChance + attacker.critChanceModifier;
 
 			if (RandomGenerator.Range(1, 101) <= finalCritChance)
 			{
-					return universalCritMultiplier + attacker.stats.critDamageMultiplier;
+					return universalCritMultiplier + attacker.critDamageMultiplier;
 			}
 			else
 			{

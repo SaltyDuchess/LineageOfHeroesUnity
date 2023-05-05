@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class HealthBarController : MonoBehaviour
 {
     public GameObject healthBarPrefab;
-    public float offsetX = 50.0f;
+    public float offsetX = -31.0f;
 
     private ICreature creature;
     private RectTransform healthBarRectTransform;
@@ -17,6 +17,7 @@ public class HealthBarController : MonoBehaviour
 
         canvas = FindObjectOfType<Canvas>();
         GameObject healthBarObject = Instantiate(healthBarPrefab, canvas.transform);
+				creature.healthBarObject = healthBarObject;
         healthBarRectTransform = healthBarObject.GetComponent<RectTransform>();
         healthBarForegroundImage = healthBarObject.transform.Find("Foreground").GetComponent<Image>();
         healthBarForegroundImage.type = Image.Type.Filled;

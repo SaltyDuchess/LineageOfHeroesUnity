@@ -46,6 +46,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de758d51f0fe5354fb899e146783492f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsPlayer: 0
+  stats:
+    speedPool: 100
+    abilityPowerPool: 100
+    currentAbilityPool: 100
+    percentageAbilityPool: 100
+    abilityRegeneration: 1
+    dodgeChance: 0
+    physDamageResist: 0
+    magicDamageResist: 0
+    invulnerabilityCharges: 0
+    autoAttackRange: 0
+    actionSpeedCost: 100
+    damageOverTime: 0
+    damageOverTimeTurns: 0
+    damageRange:
+      minValue: 6.5
+      maxValue: 13.2
+    healthRegeneration: 0.5
+    critDamageMultiplier: 1
+    critChanceModifier: 0.1
+    currentLevel: 1
+    healthPool: 100
+    currentHealth: 100
+    percentageHealth: 100
+    XPValue: 5
   creatureData: {fileID: 11400000, guid: 9980ecaf55896f54db51c9a12513c32c, type: 2}
   noPushMaterial: {fileID: 6200000, guid: 7401bd8c685ab4145830f3336c6ca2e1, type: 2}
 --- !u!114 &1715472891
@@ -75,5 +101,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d071c800f6937884b9bd52cecaa710f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarPrefab: {fileID: 8159389681446251719, guid: 9ea2df74bf359be4dbcbea97c4b62736, type: 3}
-  offsetX: 2
+  healthBarPrefab: {fileID: 3703653179928866903, guid: 9ea2df74bf359be4dbcbea97c4b62736, type: 3}
+  offsetX: -31

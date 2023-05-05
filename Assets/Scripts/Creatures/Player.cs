@@ -2,25 +2,22 @@ using LineageOfHeroes.CharacterClasses;
 using LineageOfHeroes.Items;
 using UnityEngine;
 
-public class Player : MonoBehaviour, ICreature
+public class Player : Creature
 {
-	public CreatureStats creatureStats = new CreatureStats();
-	public bool IsPlayer => true;
 	[SerializeField] private CharacterClass characterClass;
 	public int XPToNextLevel { get; set; } = 10;
-	public IAbility queuedAbility { get; set; } = null;
 	public SpellManager playerSpellbook { get; set; } = null;
 	public IClass playerClass { get; set; } = null;
 	public PlayerInventory inventory { get; set; } = null;
 	public int previousRoom { get; set; } = -1;
-	public string displayName { get; set; } = "A mob";
-	public string mobDescription { get; set; } = "Ya forgot a mob description";
-	public float speedPool { get; set; } = 100;
-	public float healthPool { get; set; } = 100;
-	public float currentHealth { get; set; } = 100;
+	public string displayName { get; set; }
+	public string mobDescription { get; set; }
+	public int abilityPoints { get; set; }
 
-	private void Awake()
+	new private void Awake()
 	{
+		base.Awake();
+		IsPlayer = true;
 		// Initialize the player class using the assigned character class ScriptableObject
 		playerClass = characterClass;
 
@@ -28,20 +25,31 @@ public class Player : MonoBehaviour, ICreature
 		characterClass.ModifyPlayerStats(this);
 	}
 
-	    public void OnTurn()
-    {
-        // Enable player input
-        GetComponent<PlayerMovement>().enabled = true;
-    }
+	new public void OnTurn()
+	{
+		// Enable player input
+		GetComponent<PlayerMovement>().enabled = true;
+	}
 
-    public void EndTurn()
-    {
-			GetComponent<PlayerMovement>().enabled = false;
-			speedPool -= 100;
-			TurnManager turnManager = FindObjectOfType<TurnManager>();
-			if (speedPool <= 100)
-			{
-					turnManager.NextTurn();
-			}
-    }
+	public void EndTurn()
+	{
+		GetComponent<PlayerMovement>().enabled = false;
+		speedPool -= 100;
+		TurnManager turnManager = FindObjectOfType<TurnManager>();
+		if (speedPool <= 100)
+		{
+			turnManager.NextTurn();
+		}
+	}
+
+	public void AddXP(int amount)
+	{
+		XPToNextLevel -= amount;
+		if (XPToNextLevel <= 0)
+		{
+			abilityPoints++;
+			currentLevel++;
+			XPToNextLevel = 100;
+		}
+	}
 }

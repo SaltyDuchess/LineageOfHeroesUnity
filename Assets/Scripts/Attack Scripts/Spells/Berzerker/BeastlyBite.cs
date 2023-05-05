@@ -18,7 +18,7 @@ namespace LineageOfHeroes.Spells.Berzerker
 			base.ExecuteSpell(castingCreature, defender);
 			float damage;
 
-			damage = castingCreature.stats.GetDamageValue() + castingCreature.stats.GetDamageValue() * physDamageModifier;
+			damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * physDamageModifier;
 			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
 
 			damage -= damage * defender.stats.physDamageResist;

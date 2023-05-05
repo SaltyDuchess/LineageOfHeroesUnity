@@ -9,7 +9,7 @@ namespace LineageOfHeroes.Spells.Berzerker
 		new private void Awake()
 		{
 			base.Awake();
-			DOT = (float)(player.creatureStats.GetDamageValue() * .5);
+			DOT = (float)(player.damageRange.GetRandomValue() * .5);
 			physDamageModifier = -0.1f;
 		}
 
@@ -18,7 +18,7 @@ namespace LineageOfHeroes.Spells.Berzerker
 			base.ExecuteSpell(castingCreature, defender);
 			float damage;
 
-			damage = castingCreature.stats.GetDamageValue() + castingCreature.stats.GetDamageValue() * physDamageModifier;
+			damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * physDamageModifier;
 			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
 
 			damage -= damage * defender.stats.physDamageResist;

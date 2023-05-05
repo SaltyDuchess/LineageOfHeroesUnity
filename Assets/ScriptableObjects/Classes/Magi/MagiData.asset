@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a45062401113c24986591cba0fda19c, type: 3}
   m_Name: MagiData
   m_EditorClassIdentifier: 
-  magiSpellLibrary: {fileID: 0}
+  magiSpellLibrary: {fileID: 11400000, guid: aedf7773c394dce4f9938b6eb16bfa4a, type: 2}

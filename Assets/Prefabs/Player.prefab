@@ -204,7 +204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4ad3bfa2c9da6b48b677993df3fd7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureStats:
+  IsPlayer: 1
+  stats:
     speedPool: 100
     abilityPowerPool: 100
     currentAbilityPool: 100
@@ -219,8 +220,8 @@ MonoBehaviour:
     damageOverTime: 0
     damageOverTimeTurns: 0
     damageRange:
-      minValue: 0
-      maxValue: 0
+      minValue: 10.5
+      maxValue: 13.75
     healthRegeneration: 0.5
     critDamageMultiplier: 1
     critChanceModifier: 0.1
@@ -263,5 +264,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d071c800f6937884b9bd52cecaa710f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarPrefab: {fileID: 8159389681446251719, guid: 9ea2df74bf359be4dbcbea97c4b62736, type: 3}
-  offsetX: 2
+  healthBarPrefab: {fileID: 3703653179928866903, guid: 9ea2df74bf359be4dbcbea97c4b62736, type: 3}
+  offsetX: -31

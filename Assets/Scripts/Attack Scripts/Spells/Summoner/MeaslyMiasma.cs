@@ -13,7 +13,7 @@ namespace LineageOfHeroes.Spells.Summoner
 			base.ExecuteSpell(castingCreature, defender);
 			float damage;
 
-			damage = castingCreature.stats.GetDamageValue() + castingCreature.stats.GetDamageValue() * magicDamageModifier;
+			damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * magicDamageModifier;
 			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
 
 			Mob[] mobs = FindObjectsOfType<Mob>();

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4970b329949e4f34cbbe432a37ebfa11, type: 3}
   m_Name: BerzerkerData
   m_EditorClassIdentifier: 
-  berzerkerSpellLibrary: {fileID: 11400000, guid: aedf7773c394dce4f9938b6eb16bfa4a, type: 2}
+  berzerkerSpellLibrary: {fileID: 11400000, guid: 67352d46f3d518546a9ad176604f8ac7, type: 2}

@@ -13,19 +13,32 @@ public class MobBehavior : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
-public void MoveTowardsPlayer(System.Action onMoveComplete)
-{
-    if (player == null) return;
+	public void MoveTowardsPlayer(System.Action onMoveComplete)
+	{
+		if (player == null) return;
 
-    Vector2Int currentPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
-    Vector2Int playerPosition = new Vector2Int(Mathf.RoundToInt(player.transform.position.x), Mathf.RoundToInt(player.transform.position.y));
+		Vector2Int currentPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+		Vector2Int playerPosition = new Vector2Int(Mathf.RoundToInt(player.transform.position.x), Mathf.RoundToInt(player.transform.position.y));
 
-    Vector2Int direction = playerPosition - currentPosition;
-    Vector2Int gridDirection = new Vector2Int(Mathf.Clamp(direction.x, -1, 1), Mathf.Clamp(direction.y, -1, 1));
+		Vector2Int direction = playerPosition - currentPosition;
+		Vector2Int gridDirection = new Vector2Int(Mathf.Clamp(direction.x, -1, 1), Mathf.Clamp(direction.y, -1, 1));
 
-    Vector2Int targetGridPosition = currentPosition + gridDirection;
-    StartCoroutine(MoveToTargetPosition(targetGridPosition, onMoveComplete));
-}
+		Vector2Int targetGridPosition = currentPosition + gridDirection;
+		ICreature targetCreature = Creature.GetCreatureAtGridPosition(targetGridPosition);
+
+		// Check if there is a creature at the target position
+		if (targetCreature != null)
+		{
+			// If an attack is performed, skip the movement step
+			if (GetComponent<ICreature>().TryAttack(targetCreature))
+			{
+				onMoveComplete?.Invoke();
+				return;
+			}
+		}
+
+		StartCoroutine(MoveToTargetPosition(targetGridPosition, onMoveComplete));
+	}
 
 	IEnumerator MoveToTargetPosition(Vector2Int targetGridPosition, System.Action onMoveComplete)
 	{

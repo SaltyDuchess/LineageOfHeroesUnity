@@ -15,7 +15,7 @@ namespace LineageOfHeroes.Spells.Magi
 			base.ExecuteSpell(castingCreature, defender);
 			if (defender != null)
 			{
-				float damage = castingCreature.stats.GetDamageValue() + castingCreature.stats.GetDamageValue() * magicDamageModifier;
+				float damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * magicDamageModifier;
 				damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
 
 				if (castingCreature.IsPlayer)

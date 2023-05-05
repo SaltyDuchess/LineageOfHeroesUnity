@@ -18,10 +18,4 @@ public class Stats
 	public float healthRegeneration;
 	public float critDamageMultiplier;
 	public float critChanceModifier;
-
-	
-	public float GetDamageValue()
-	{
-		return damageRange.GetRandomValue();
-	}
 }

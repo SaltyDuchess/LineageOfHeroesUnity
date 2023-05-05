@@ -15,7 +15,7 @@ namespace LineageOfHeroes.Spells.Magi
 			base.ExecuteSpell(castingCreature, defender);
 			castingCreature.stats.currentAbilityPool -= abilityPowerCost;
 
-			float damage = castingCreature.stats.GetDamageValue() + castingCreature.stats.GetDamageValue() * magicDamageModifier;
+			float damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * magicDamageModifier;
 			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
 
 			damage -= damage * defender.stats.magicDamageResist;
