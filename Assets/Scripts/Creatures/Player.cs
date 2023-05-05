@@ -16,6 +16,8 @@ public class Player : MonoBehaviour, ICreature
 	public string displayName { get; set; } = "A mob";
 	public string mobDescription { get; set; } = "Ya forgot a mob description";
 	public float speedPool { get; set; } = 100;
+	public float healthPool { get; set; } = 100;
+	public float currentHealth { get; set; } = 100;
 
 	private void Awake()
 	{

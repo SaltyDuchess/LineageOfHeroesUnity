@@ -8,6 +8,8 @@ public class Creature : MonoBehaviour, ICreature
 	public IAbility queuedAbility { get; set; } = null;
 	public CreatureStats stats = new CreatureStats();
 	public float speedPool { get; set; }
+	public float healthPool { get; set; } = 100;
+	public float currentHealth { get; set; } = 100;
 	// Add any other MonoBehaviour-specific methods and properties here, if necessary.
 
 	public void OnTurn()
