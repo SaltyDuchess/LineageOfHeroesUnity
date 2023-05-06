@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1634929639437553766}
   - component: {fileID: 1634929639437553767}
   - component: {fileID: 1634929639437553760}
+  - component: {fileID: 1303212605}
   m_Layer: 0
   m_Name: GameSystem
   m_TagString: Untagged
@@ -59,3 +60,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSystem: {fileID: 2017479537354669116, guid: c12310275c1d4b74ba78cd522ee703b1, type: 3}
+--- !u!114 &1303212605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634929639437553765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00285b50b1ec3b943b34b49545634368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityPointIndicatorPrefab: {fileID: 700623851018419412, guid: 56a4799843ba3b642a0442163340c0d7, type: 3}
+  overlayPrefab: {fileID: 1490537020102507909, guid: 06403165b4d939f4eba18d38b4b687ae, type: 3}
+  spellPrefab: {fileID: 361443205256219422, guid: 41c117dbc4b33c0449d70f37c888a012, type: 3}

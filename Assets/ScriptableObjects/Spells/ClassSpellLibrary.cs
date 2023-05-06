@@ -6,4 +6,6 @@ using UnityEngine;
 public class ClassSpellLibrary : ScriptableObject
 {
     public List<SpellBase> classSpells;
+
+		public ClassSpellLibrary(){}
 }

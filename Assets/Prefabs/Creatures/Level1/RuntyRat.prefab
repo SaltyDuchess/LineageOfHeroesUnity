@@ -71,7 +71,7 @@ MonoBehaviour:
     healthPool: 100
     currentHealth: 100
     percentageHealth: 100
-    XPValue: 5
+    XPValue: 10
   creatureData: {fileID: 11400000, guid: 9980ecaf55896f54db51c9a12513c32c, type: 2}
   noPushMaterial: {fileID: 6200000, guid: 7401bd8c685ab4145830f3336c6ca2e1, type: 2}
 --- !u!114 &1715472891
