@@ -57,7 +57,7 @@ namespace LineageOfHeroes.Items
 					UpdateEquippedItemStats(ref equippedHelmet, ref previousHelmet, player);
 					UpdateEquippedItemStats(ref equippedBoot, ref previousBoot, player);
 					UpdateEquippedItemStats(ref equippedShoulder, ref previousShoulder, player);
-					UpdateEquippedCape(ref equippedCape, ref previousCape, player, spellbook);
+					UpdateEquippedCape(equippedCape, previousCape, player, spellbook);
 			}
 
 			private void UpdateEquippedItemStats<T>(ref T equippedItem, ref T previousItem, Player player) where T : IItem
@@ -73,7 +73,7 @@ namespace LineageOfHeroes.Items
 					}
 			}
 
-			private void UpdateEquippedCape(ref Cape equippedCape, ref Cape previousCape, Player player, SpellManager spellManager)
+			private void UpdateEquippedCape(Cape equippedCape, Cape previousCape, Player player, SpellManager spellManager)
 			{
 					if (equippedCape != null)
 					{
@@ -81,13 +81,13 @@ namespace LineageOfHeroes.Items
 							{
 									if (previousCape != null)
 									{
-											spellManager.RemoveSpell(previousCape.boundAbility.displayName);
+											spellManager.RemoveSpell(previousCape.boundAbility.spellName);
 											ClearAbilityBoxesWithSpell(previousCape.boundAbility);
 									}
 
-									if (!spellManager.GetUnlockedSpells().Contains(previousCape.boundAbility))
+									if (!spellManager.GetUnlockedSpells().Find(s => s.name == equippedCape.boundAbility.spellName))
 									{
-											spellManager.UnlockSpell(previousCape.boundAbility.displayName);
+											spellManager.UnlockSpell(previousCape.boundAbility.spellName);
 									}
 
 									previousCape = equippedCape;
@@ -95,7 +95,7 @@ namespace LineageOfHeroes.Items
 					}
 			}
 
-			private void ClearAbilityBoxesWithSpell(ISpell spellToRemove)
+			private void ClearAbilityBoxesWithSpell(SpellData spellToRemove)
 			{
 					// UIAbilityBox[] abilityBoxes = FindObjectsOfType<UIAbilityBox>();
 					// foreach (UIAbilityBox abilityBox in abilityBoxes)

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2600720800174506688}
   - component: {fileID: 8847199309721405469}
+  - component: {fileID: -9176393300995805566}
   m_Layer: 0
   m_Name: WeakWard
   m_TagString: Untagged
@@ -44,4 +45,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855d05df7554b394fb27a29fd5435603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellData: {fileID: 11400000, guid: 81187228a723d934c96e4ed7a9814729, type: 2}
+  magiSpellData: {fileID: 11400000, guid: 09f566558512d8849866fecdb786cb1c, type: 2}
+--- !u!114 &-9176393300995805566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681651750890935773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

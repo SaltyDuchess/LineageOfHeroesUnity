@@ -5,5 +5,6 @@ public enum Rarity
     Rare,
     Epic,
     Legendary,
+		Abyssal,
 		Celestial
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3887796536126889771}
   - component: {fileID: 21999731796401248}
+  - component: {fileID: -6375191896928009558}
   m_Layer: 0
   m_Name: MeaslyMiasma
   m_TagString: Untagged
@@ -44,4 +45,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076bfafc4ef6fcd41814e285b7d628d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellData: {fileID: 11400000, guid: e70a31400ea438b4487c0068a40780eb, type: 2}
+  summonerSpellData: {fileID: 11400000, guid: 8920bd4ae68765d4ab91a25f6a30488c, type: 2}
+--- !u!114 &-6375191896928009558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5121768461222665254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

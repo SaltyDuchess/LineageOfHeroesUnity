@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 0BerzerkerLibrary
   m_EditorClassIdentifier: 
   classSpells:
-  - {fileID: 6430956752691251246, guid: 02a04ba4e714b9742971247881449570, type: 3}
-  - {fileID: 8658505833738302117, guid: 1a393b17db054df4589cdc7a7362379a, type: 3}
-  - {fileID: 1322415270139341896, guid: 06c63942f4170b24284797c8522cb845, type: 3}
-  - {fileID: 204392857868709055, guid: 387cb20415590e540a9b28ea9dfcc4ca, type: 3}
-  - {fileID: 4364763797403504601, guid: f997d77722bd28048bdb45e054a9e8f0, type: 3}
-  - {fileID: 4798953537112159206, guid: 41c117dbc4b33c0449d70f37c888a012, type: 3}
+  - {fileID: 11400000, guid: ea030f220f5eb454481df42dddc07606, type: 2}
+  - {fileID: 11400000, guid: d21638024aefaac45b152c2a0539004a, type: 2}
+  - {fileID: 11400000, guid: dfbcc168496c98a4c8fba90d495c8dad, type: 2}
+  - {fileID: 11400000, guid: e40cb8356a288844487f08c610dac9bd, type: 2}
+  - {fileID: 11400000, guid: 6933602e278a2e74ea5b8fd3f03f8b2d, type: 2}
+  - {fileID: 11400000, guid: a2ed7070caac67a4c85c6ccab5e4359d, type: 2}

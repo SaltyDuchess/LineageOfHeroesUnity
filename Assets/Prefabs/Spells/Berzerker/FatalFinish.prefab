@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7493947069453070791}
-  - component: {fileID: 6430956752691251246}
+  - component: {fileID: -7078141299033740922}
+  - component: {fileID: 3655003662515436815}
   m_Layer: 0
   m_Name: FatalFinish
   m_TagString: Untagged
@@ -32,7 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6430956752691251246
+--- !u!114 &-7078141299033740922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4802373124264339832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 
+--- !u!114 &3655003662515436815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,4 +58,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c75855d2e64644496359656f04b81e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellData: {fileID: 11400000, guid: 45bcbb7e7f61d9f4cb2add55e9ad54db, type: 2}
+  berzerkerSpellData: {fileID: 11400000, guid: d21638024aefaac45b152c2a0539004a, type: 2}

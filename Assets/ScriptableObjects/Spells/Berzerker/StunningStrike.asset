@@ -9,15 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625cfbb72175c90489bfda57b6fde3f4, type: 3}
+  m_Script: {fileID: 11500000, guid: fee18effdc4d13541827b82a5bac1915, type: 3}
   m_Name: StunningStrike
   m_EditorClassIdentifier: 
+  spellType: 0
   spellName: Stunning Strike
-  uiElement: {fileID: 21300000, guid: ec799368f40bfc04ca74968314d43653, type: 3}
+  uiElement: {fileID: 1461251831, guid: ec799368f40bfc04ca74968314d43653, type: 3}
   levelRequirement: 3
   abilityPowerCost: 20
-  descriptionLong: $"{displayName}\nCost - {abilityPowerCost} Stamina\nRequired Level
-    - {levelRequirement}\nDescription - Deals {physDamageModifier * 100}% physical
-    damage and applies {DOT} damage over time for {DOTTurns} turns"
   cooldown: 8
   instantCast: 0
+  physDamageModifier: 0
+  magicDamageModifier: 0
+  DOT: 0
+  DOTTurns: 0
+  stunTurns: 2
+  berzerkerSpellType: 4

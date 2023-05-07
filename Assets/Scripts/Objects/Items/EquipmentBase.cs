@@ -11,7 +11,7 @@ namespace LineageOfHeroes.Items
 			public int quantity { get; set; } = 1;
 			public ItemType type { get; set; }
 			public Sprite UiElement { get; set; }
-			public ISpell boundAbility { get; set; }
+			public SpellData boundAbility { get; set; }
 			public float bonusHp { get; set; }
 			public float bonusHpRegen { get; set; }
 			public float bonusAbilityPower { get; set; }

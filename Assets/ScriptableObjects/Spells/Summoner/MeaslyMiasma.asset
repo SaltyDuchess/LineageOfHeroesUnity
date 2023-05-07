@@ -9,15 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625cfbb72175c90489bfda57b6fde3f4, type: 3}
+  m_Script: {fileID: 11500000, guid: e765ab3af4b1669458f3de003d1a6a96, type: 3}
   m_Name: MeaslyMiasma
   m_EditorClassIdentifier: 
+  spellType: 2
   spellName: Measly Miasma
-  uiElement: {fileID: 21300000, guid: e7960d2d1ae01c84aad9b8bd647b3a34, type: 3}
+  uiElement: {fileID: -579472197, guid: e7960d2d1ae01c84aad9b8bd647b3a34, type: 3}
   levelRequirement: 2
   abilityPowerCost: 17
-  descriptionLong: $"{displayName}\nCost - {abilityPowerCost} Stamina\nRequired Level
-    - {levelRequirement}\nDescription - Deals {magicDamageModifier * 100} magic damage
-    to all enemies"
   cooldown: 8
   instantCast: 1
+  physDamageModifier: 0
+  magicDamageModifier: 0
+  DOT: 0
+  DOTTurns: 0
+  stunTurns: 0
+  summonerSpellType: 0

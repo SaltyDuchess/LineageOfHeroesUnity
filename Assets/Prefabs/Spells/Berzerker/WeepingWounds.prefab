@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3735735205587548565}
   - component: {fileID: 4364763797403504601}
+  - component: {fileID: -747211122740706475}
   m_Layer: 0
   m_Name: WeepingWounds
   m_TagString: Untagged
@@ -44,4 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e113c000b2fd611478bd14f9d0173ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellData: {fileID: 11400000, guid: 92829ae44b2887842baa0c420e795baa, type: 2}
+  berzerkerSpellData: {fileID: 11400000, guid: a2ed7070caac67a4c85c6ccab5e4359d, type: 2}
+  player: {fileID: 5332906049223456898, guid: 73bfb4f960585e145a424f7eb30d243a, type: 3}
+--- !u!114 &-747211122740706475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4480416858028115904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

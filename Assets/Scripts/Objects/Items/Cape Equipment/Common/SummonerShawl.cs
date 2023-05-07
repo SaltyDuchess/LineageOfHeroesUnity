@@ -29,7 +29,7 @@ namespace LineageOfHeroes.Items
 							boundAbility = null;
 					}
 
-					descriptionLong = $"{displayName}\nType - {type}\nAdds {boundAbility.displayName} to your available abilities";
+					descriptionLong = $"{displayName}\nType - {type}\nAdds {boundAbility.spellName} to your available abilities";
 			}
 	}
 }

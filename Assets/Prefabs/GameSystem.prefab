@@ -72,6 +72,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00285b50b1ec3b943b34b49545634368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityPointIndicatorPrefab: {fileID: 700623851018419412, guid: 56a4799843ba3b642a0442163340c0d7, type: 3}
+  abilityPointIndicatorPrefab: {fileID: 6303921339507610929, guid: 1201ffcc7e93f134caabff4fbd330d97, type: 3}
   overlayPrefab: {fileID: 1490537020102507909, guid: 06403165b4d939f4eba18d38b4b687ae, type: 3}
-  spellPrefab: {fileID: 361443205256219422, guid: 41c117dbc4b33c0449d70f37c888a012, type: 3}
+  spellLevelUpPrefab: {fileID: 4518702802256442738, guid: a2bd9ccce014b1048b7280172a38e67b, type: 3}

@@ -1,13 +1,18 @@
+using LineageOfHeroes.Spells.SpellTypes;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewSpellData", menuName = "ScriptableObjects/SpellData", order = 1)]
 public class SpellData : ScriptableObject
 {
+	public SpellType spellType;
 	public string spellName;
 	public Sprite uiElement;
 	public int levelRequirement;
 	public float abilityPowerCost;
-	public string descriptionLong;
 	public int cooldown;
 	public bool instantCast;
+	public float physDamageModifier;
+	public float magicDamageModifier;
+	public float DOT;
+	public int DOTTurns;
+	public int stunTurns;
 }

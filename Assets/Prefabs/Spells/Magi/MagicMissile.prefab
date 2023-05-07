@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5853664640402910385}
   - component: {fileID: 2308012370240962057}
+  - component: {fileID: -4663817470263921461}
   m_Layer: 0
   m_Name: MagicMissile
   m_TagString: Untagged
@@ -44,4 +45,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3e6137306981b459ac6afcd6ed237d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellData: {fileID: 11400000, guid: 831f9b49e6c4a7b4fb366ddcc3bbbde5, type: 2}
+  magiSpellData: {fileID: 11400000, guid: d28d26b2b0548da46af501e798ea45b6, type: 2}
+--- !u!114 &-4663817470263921461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8058997970775083574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

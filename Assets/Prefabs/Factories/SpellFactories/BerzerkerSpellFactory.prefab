@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7162493202947375073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7162493202947375075}
+  - component: {fileID: 7162493202947375072}
+  m_Layer: 0
+  m_Name: BerzerkerSpellFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7162493202947375075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162493202947375073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 365.1912, y: 245.1705, z: 3.70944}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7162493202947375072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162493202947375073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811e00dec833e4c4d93a042613258edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beastlyBitePrefab: {fileID: 6649152378453098735, guid: fd792c95fe3e3c24eacf598c31e3826e, type: 3}
+  fatalFinishPrefab: {fileID: 3655003662515436815, guid: 02a04ba4e714b9742971247881449570, type: 3}
+  instantImmolationPrefab: {fileID: 8658505833738302117, guid: 1a393b17db054df4589cdc7a7362379a, type: 3}
+  sanguinarySwapPrefab: {fileID: 1322415270139341896, guid: 06c63942f4170b24284797c8522cb845, type: 3}
+  stunningStrikePrefab: {fileID: 204392857868709055, guid: 387cb20415590e540a9b28ea9dfcc4ca, type: 3}
+  weepingWoundsPrefab: {fileID: 4364763797403504601, guid: f997d77722bd28048bdb45e054a9e8f0, type: 3}

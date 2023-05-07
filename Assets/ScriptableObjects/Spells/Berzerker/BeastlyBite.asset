@@ -9,16 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625cfbb72175c90489bfda57b6fde3f4, type: 3}
+  m_Script: {fileID: 11500000, guid: fee18effdc4d13541827b82a5bac1915, type: 3}
   m_Name: BeastlyBite
   m_EditorClassIdentifier: 
+  spellType: 0
   spellName: Beastly Bite
-  uiElement: {fileID: 21300000, guid: ba38366109aee6a4190f2ccf47265dd5, type: 3}
+  uiElement: {fileID: -612832175, guid: ba38366109aee6a4190f2ccf47265dd5, type: 3}
   levelRequirement: 2
   abilityPowerCost: 33
-  descriptionLong: descriptionLong = $"{displayName}\nCost - {abilityPowerCost} Stamina\nRequired
-    Level - {levelRequirement}\nDescription - Deals {physDamageModifier * 100}% additional
-    physical damage and heals for {healPercentage * 100}% of damage dealt after enemy
-    damage reduction."
   cooldown: 3
   instantCast: 0
+  physDamageModifier: 0.45
+  magicDamageModifier: 0
+  DOT: 0
+  DOTTurns: 0
+  stunTurns: 0
+  berzerkerSpellType: 0

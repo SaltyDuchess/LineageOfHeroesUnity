@@ -230,7 +230,7 @@ MonoBehaviour:
     currentHealth: 100
     percentageHealth: 100
     XPValue: 5
-  characterClass: {fileID: 11400000, guid: a8fc586d56e1288449362c6a682c4be5, type: 2}
+  playerClassPrefab: {fileID: 1996358812128121427, guid: 53d9eb6060f26e747af3d4c0245a2187, type: 3}
 --- !u!50 &5332906049223456901
 Rigidbody2D:
   serializedVersion: 4

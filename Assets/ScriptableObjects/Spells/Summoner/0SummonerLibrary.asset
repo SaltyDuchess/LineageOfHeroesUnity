@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 0SummonerLibrary
   m_EditorClassIdentifier: 
   classSpells:
-  - {fileID: 21999731796401248, guid: 61082eab1c0f60145b032377c296fb64, type: 3}
-  - {fileID: 6770108613055320339, guid: 52da72ec7f1e58b42955549ef4a1e54c, type: 3}
+  - {fileID: 11400000, guid: 8920bd4ae68765d4ab91a25f6a30488c, type: 2}
+  - {fileID: 11400000, guid: b0dff06e1c7443d4290c52d58341e41a, type: 2}

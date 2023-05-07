@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6186625113340673186}
   - component: {fileID: 204392857868709055}
+  - component: {fileID: -2180448948036827127}
   m_Layer: 0
   m_Name: StunningStrike
   m_TagString: Untagged
@@ -44,4 +45,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb39986c2878b2e409e8c860ebc962fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellData: {fileID: 11400000, guid: d0cb606e142ab4b479be6ab656287f36, type: 2}
+  berzerkerSpellData: {fileID: 11400000, guid: 6933602e278a2e74ea5b8fd3f03f8b2d, type: 2}
+--- !u!114 &-2180448948036827127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749264132591947216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

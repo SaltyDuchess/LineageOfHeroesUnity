@@ -8,7 +8,7 @@ namespace LineageOfHeroes.CharacterClasses
 	public class CharacterClass : MonoBehaviour, IClass
 	{
 		public CharacterClassData classData { get; set; }
-		public List<SpellBase> classSpells {get; set; }
+		public List<SpellData> classSpells {get; set; }
 		public string className { get; set; }
 		public void ModifyPlayerStats(Player player)
 		{}

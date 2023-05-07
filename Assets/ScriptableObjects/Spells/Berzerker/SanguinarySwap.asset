@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625cfbb72175c90489bfda57b6fde3f4, type: 3}
+  m_Script: {fileID: 11500000, guid: fee18effdc4d13541827b82a5bac1915, type: 3}
   m_Name: SanguinarySwap
   m_EditorClassIdentifier: 
+  spellType: 0
   spellName: Sanguinary Swap
-  uiElement: {fileID: 21300000, guid: 29b2031b0f5698843afd150b790affa4, type: 3}
+  uiElement: {fileID: 880463799, guid: 29b2031b0f5698843afd150b790affa4, type: 3}
   levelRequirement: 2
   abilityPowerCost: 0
-  descriptionLong: $"{displayName}\nCost - {abilityPowerCost} Stamina\nRequired Level
-    - {levelRequirement}\nDescription - Swaps your percentage health and your percentage
-    stamina.\nDoes not end your turn"
   cooldown: 10
   instantCast: 1
+  berzerkerSpellType: 3
