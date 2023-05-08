@@ -5,7 +5,7 @@ namespace LineageOfHeroes.Spells
 {
 	public class SpellBase : MonoBehaviour, ISpell
 	{
-		protected SpellData spellData;
+		public SpellData spellData;
 		public SpellType type { get; set; }
 		public string displayName { get; set; }
 		public Sprite uiElement { get; set; }

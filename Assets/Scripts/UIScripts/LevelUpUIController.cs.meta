@@ -3,7 +3,11 @@ guid: 00285b50b1ec3b943b34b49545634368
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - abilityPointIndicatorPrefab: {fileID: 6303921339507610929, guid: 1201ffcc7e93f134caabff4fbd330d97, type: 3}
+  - overlayPrefab: {fileID: 1490537020102507909, guid: 06403165b4d939f4eba18d38b4b687ae, type: 3}
+  - spellLevelUpPrefab: {instanceID: 0}
+  - playerStatsText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

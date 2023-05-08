@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
-using LineageOfHeroes.Spells;
 using UnityEngine;
 
 public class SpellLibrary : MonoBehaviour
 {
-    [SerializeField] private List<SpellBase> allSpells; // List of all available spells in the game
+    [SerializeField] private List<SpellData> allSpells; // List of all available spells in the game
 
-    public SpellBase GetSpellByName(string spellName)
+    public SpellData GetSpellByName(string spellName)
     {
-        return allSpells.FirstOrDefault(spell => spell.displayName == spellName);
+      return allSpells.FirstOrDefault(spell => spell.spellName == spellName);
     }
 
     // Add more methods to search for spells if needed
