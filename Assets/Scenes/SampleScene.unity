@@ -1089,6 +1089,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1303212605, guid: 6215be9e1cce88042af87ab86da62c38, type: 3}
+      propertyPath: playerStatsText
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1634929639437553765, guid: 6215be9e1cce88042af87ab86da62c38, type: 3}
       propertyPath: m_Name
       value: GameSystem
