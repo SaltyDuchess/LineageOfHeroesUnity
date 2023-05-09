@@ -3,7 +3,7 @@ using UnityEngine;
 public interface ICreature
 {
     void OnTurn();
-		public bool TryAttack(ICreature target);
+		public bool TryAttack(Creature target);
 
     float speedPool { get; set; }
     float abilityPowerPool { get; set; }

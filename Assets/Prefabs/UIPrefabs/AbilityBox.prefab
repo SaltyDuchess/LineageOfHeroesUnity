@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6303921339507610929
+--- !u!1 &630221219369467914
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6303921339507610933}
-  - component: {fileID: 6303921339507610932}
-  - component: {fileID: 6303921339507610931}
-  - component: {fileID: 6303921339507610930}
-  m_Layer: 5
-  m_Name: AbilityPointIndicator
+  - component: {fileID: 7999205019341219964}
+  - component: {fileID: 2336723160303914818}
+  - component: {fileID: 916936721326185972}
+  - component: {fileID: 2935195680049992237}
+  - component: {fileID: 1412174769994137339}
+  m_Layer: 0
+  m_Name: AbilityBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6303921339507610933
+--- !u!224 &7999205019341219964
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6303921339507610929}
+  m_GameObject: {fileID: 630221219369467914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,26 +35,26 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 37.1, y: 24}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6303921339507610932
+--- !u!222 &2336723160303914818
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6303921339507610929}
+  m_GameObject: {fileID: 630221219369467914}
   m_CullTransparentMesh: 1
---- !u!114 &6303921339507610931
+--- !u!114 &916936721326185972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6303921339507610929}
+  m_GameObject: {fileID: 630221219369467914}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5a32a488669a2c5468ff07d97496fdc3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50fd4d426b7a8f34db988f549f1443cb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -77,13 +78,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6303921339507610930
+--- !u!114 &2935195680049992237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6303921339507610929}
+  m_GameObject: {fileID: 630221219369467914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968937acdb260b846bba0c44d5ddac6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellUIPrefab: {fileID: 5342323430648595292, guid: 51db7ed9579136a4ab69aa60073fefc5, type: 3}
+  spellSelectionPanelPrefab: {fileID: 8811263506496211491, guid: f4c572ec22e9dd14595875d28b0f1c06, type: 3}
+  masterSpellFactory: {fileID: 3371941194925560120, guid: 9bc4f04751fa9554d82a96479050ae4b, type: 3}
+  activeAbilityBoxColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+--- !u!114 &1412174769994137339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630221219369467914}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -117,19 +134,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 6303921339507610931}
+  m_TargetGraphic: {fileID: 916936721326185972}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1303212605, guid: 6215be9e1cce88042af87ab86da62c38, type: 3}
-        m_TargetAssemblyTypeName: LevelUpUIController, Assembly-CSharp
-        m_MethodName: OnAbilityPointIndicatorClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []

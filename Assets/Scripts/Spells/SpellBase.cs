@@ -46,12 +46,15 @@ namespace LineageOfHeroes.Spells
 
 			// Set the tooltipText using SetTooltipText method
 			tooltipTrigger.SetTooltipText(descriptionLong);
+
+			calcCritAndDamage = FindObjectOfType<CalcCritAndDamage>();
 		}
 
 		public virtual void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
 		{
-			castingCreature.stats.currentAbilityPool -= abilityPowerCost;
+			castingCreature.currentAbilityPool -= abilityPowerCost;
 			currentCooldown = cooldown;
+			castingCreature.queuedAbility = null;
 		}
 	}
 }

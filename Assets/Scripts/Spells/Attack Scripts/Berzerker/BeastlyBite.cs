@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace LineageOfHeroes.Spells.Berzerker
 {
 	public class BeastlyBite : BerzerkerSpellBase
@@ -21,15 +19,15 @@ namespace LineageOfHeroes.Spells.Berzerker
 			damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * physDamageModifier;
 			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
 
-			damage -= damage * defender.stats.physDamageResist;
+			damage -= damage * defender.physDamageResist;
 
-			defender.stats.currentHealth -= damage;
+			defender.currentHealth -= damage;
 
-			castingCreature.stats.currentHealth += damage * healPercentage;
+			castingCreature.currentHealth += damage * healPercentage;
 
-			if (castingCreature.stats.currentHealth > castingCreature.stats.healthPool)
+			if (castingCreature.currentHealth > castingCreature.healthPool)
 			{
-				castingCreature.stats.currentHealth = castingCreature.stats.healthPool;
+				castingCreature.currentHealth = castingCreature.healthPool;
 			}
 		}
 	}

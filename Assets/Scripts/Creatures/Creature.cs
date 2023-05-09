@@ -1,9 +1,10 @@
+using LineageOfHeroes.Spells;
 using UnityEngine;
 
 public class Creature : MonoBehaviour, ICreature
 {
 	public bool IsPlayer;
-	public IAbility queuedAbility { get; set; } = null;
+	public SpellBase queuedAbility { get; set; } = null;
 	public CreatureStats stats = new CreatureStats();
 	public float speedPool { get; set; }
 	public float healthPool { get; set; } = 100;
@@ -65,9 +66,23 @@ public class Creature : MonoBehaviour, ICreature
 	{
 	}
 
-	public bool TryAttack(ICreature target)
+	public bool TryAttack(Creature target)
 	{
 		if (target == null) return false;
+
+		// Apply invulnerability charges if the target has any
+		if (target.invulnerabilityCharges > 0)
+		{
+			target.invulnerabilityCharges--;
+			return true;
+		}
+
+		// if the creature has a queued ability, trigger the ability rather than the auto attack
+		if (queuedAbility != null)
+		{
+			queuedAbility.ExecuteSpell(this, target);
+			return true;
+		}
 
 		// Calculate the damage based on the damage range
 		float damage = damageRange.GetRandomValue();
@@ -78,23 +93,16 @@ public class Creature : MonoBehaviour, ICreature
 		// Apply damage reduction based on the target's physical damage resistance
 		damage -= damage * (target.physDamageResist / 100);
 
-		// Apply invulnerability charges if the target has any
-		if (target.invulnerabilityCharges > 0)
-		{
-			target.invulnerabilityCharges--;
-		}
-		else
-		{
-			// Deal damage to the target
-			target.currentHealth -= damage;
-			target.currentHealth = Mathf.Max(0, target.currentHealth);
-		}
+
+		// Deal damage to the target
+		target.currentHealth -= damage;
+		target.currentHealth = Mathf.Max(0, target.currentHealth);
 
 		// Return true if an attack has been performed
 		return true;
 	}
 
-	public static ICreature GetCreatureAtGridPosition(Vector2Int gridPosition)
+	public static Creature GetCreatureAtGridPosition(Vector2Int gridPosition)
 	{
 		// Convert grid position to world position
 		Vector3 worldPosition = new Vector3(gridPosition.x, gridPosition.y, 0);
@@ -105,7 +113,7 @@ public class Creature : MonoBehaviour, ICreature
 		// If a collider is hit, try to get the ICreature component
 		if (hit.collider != null)
 		{
-			return hit.collider.GetComponent<ICreature>();
+			return hit.collider.GetComponent<Creature>();
 		}
 
 		return null;

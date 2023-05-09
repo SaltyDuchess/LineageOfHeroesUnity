@@ -134,14 +134,21 @@ public class LevelUpUIController : MonoBehaviour
 
 	public void CloseLevelUpUI()
 	{
-		// Destroy the overlay GameObject along with all its child elements
-		Destroy(overlay);
-
-		// Destroy the created SpellBase instances and clear the list
+		// Destroy the created SpellBase instances
 		foreach (SpellBase spellInstance in createdSpellInstances)
 		{
-			Destroy(spellInstance.gameObject);
+			if (spellInstance != null)
+			{
+				Destroy(spellInstance.gameObject);
+			}
 		}
+
+		// Clear the list of createdSpellInstances
 		createdSpellInstances.Clear();
+
+		// Destroy the overlay GameObject along with all its child elements
+		Destroy(overlay);
 	}
+
+
 }

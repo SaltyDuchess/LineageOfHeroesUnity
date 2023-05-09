@@ -24,13 +24,13 @@ public class MobBehavior : MonoBehaviour
 		Vector2Int gridDirection = new Vector2Int(Mathf.Clamp(direction.x, -1, 1), Mathf.Clamp(direction.y, -1, 1));
 
 		Vector2Int targetGridPosition = currentPosition + gridDirection;
-		ICreature targetCreature = Creature.GetCreatureAtGridPosition(targetGridPosition);
+		Creature targetCreature = Creature.GetCreatureAtGridPosition(targetGridPosition);
 
 		// Check if there is a creature at the target position
 		if (targetCreature != null)
 		{
 			// If an attack is performed, skip the movement step
-			if (GetComponent<ICreature>().TryAttack(targetCreature))
+			if (GetComponent<Creature>().TryAttack(targetCreature))
 			{
 				onMoveComplete?.Invoke();
 				return;

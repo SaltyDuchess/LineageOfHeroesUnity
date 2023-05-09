@@ -75,4 +75,3 @@ MonoBehaviour:
   abilityPointIndicatorPrefab: {fileID: 6303921339507610929, guid: 1201ffcc7e93f134caabff4fbd330d97, type: 3}
   overlayPrefab: {fileID: 1490537020102507909, guid: 06403165b4d939f4eba18d38b4b687ae, type: 3}
   spellLevelUpPrefab: {fileID: 4518702802256442738, guid: a2bd9ccce014b1048b7280172a38e67b, type: 3}
-  playerStatsText: {fileID: 0}

@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
 		Vector2Int currentGridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
 		Vector2Int targetGridPosition = currentGridPosition + moveDirection * gridSize;
-		ICreature targetCreature = Creature.GetCreatureAtGridPosition(targetGridPosition);
+		Creature targetCreature = Creature.GetCreatureAtGridPosition(targetGridPosition);
 
 		// Check if there is a creature at the target position
 		if (targetCreature != null)
