@@ -21,8 +21,8 @@ namespace LineageOfHeroes.Spells.Summoner
 
 			foreach (Mob mob in mobs)
 			{
-				float finalDamage = damage - (damage * mob.creatureData.stats.magicDamageResist);
-				mob.creatureData.stats.currentHealth -= finalDamage;
+				float finalDamage = damage - (damage * mob.magicDamageResist);
+				mob.currentHealth -= finalDamage;
 			}
 		}
 	}

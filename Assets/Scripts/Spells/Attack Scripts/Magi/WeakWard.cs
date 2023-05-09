@@ -11,11 +11,10 @@ namespace LineageOfHeroes.Spells.Magi
 		{
 			base.ExecuteSpell(castingCreature, defender);
 
-			if (castingCreature.stats.invulnerabilityCharges == 0)
+			if (castingCreature.invulnerabilityCharges == 0)
 			{
-				castingCreature.stats.invulnerabilityCharges += 1;
+				castingCreature.invulnerabilityCharges += 1;
 			}
-			castingCreature.queuedAbility = null;
 		}
 	}
 }

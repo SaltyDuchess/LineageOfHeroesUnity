@@ -10,11 +10,11 @@ namespace LineageOfHeroes.Spells.Berzerker
 		override public void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
 		{
 			base.ExecuteSpell(castingCreature, defender);
-			float hp = castingCreature.stats.percentageHealth;
-			float ap = castingCreature.stats.percentageAbilityPool;
+			float hp = castingCreature.percentageHealth;
+			float ap = castingCreature.percentageAbilityPool;
 
-			castingCreature.stats.currentHealth = (ap / 100 * castingCreature.stats.healthPool);
-			castingCreature.stats.currentAbilityPool = (hp / 100 * castingCreature.stats.abilityPowerPool);
+			castingCreature.currentHealth = (ap / 100 * castingCreature.healthPool);
+			castingCreature.currentAbilityPool = (hp / 100 * castingCreature.abilityPowerPool);
 
 			castingCreature.queuedAbility = null;
 		}

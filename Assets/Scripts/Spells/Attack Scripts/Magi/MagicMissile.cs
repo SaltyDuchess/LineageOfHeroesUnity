@@ -29,9 +29,9 @@ namespace LineageOfHeroes.Spells.Magi
 					defender = GameObject.FindGameObjectWithTag("Player").GetComponent<Creature>();
 				}
 
-				damage -= damage * defender.stats.magicDamageResist;
+				damage -= damage * defender.magicDamageResist;
 
-				defender.stats.currentHealth -= damage;
+				defender.currentHealth -= damage;
 			}
 		}
 	}

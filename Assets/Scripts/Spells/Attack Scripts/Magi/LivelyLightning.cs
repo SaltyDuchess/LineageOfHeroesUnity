@@ -14,14 +14,14 @@ namespace LineageOfHeroes.Spells.Magi
 		override public void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
 		{
 			base.ExecuteSpell(castingCreature, defender);
-			castingCreature.stats.currentAbilityPool -= abilityPowerCost;
+			castingCreature.currentAbilityPool -= abilityPowerCost;
 
 			float damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * magicDamageModifier;
 			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
 
-			damage -= damage * defender.stats.magicDamageResist;
+			damage -= damage * defender.magicDamageResist;
 
-			defender.stats.currentHealth -= damage;
+			defender.currentHealth -= damage;
 		}
 	}
 }

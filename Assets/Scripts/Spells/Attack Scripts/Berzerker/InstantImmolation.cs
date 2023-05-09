@@ -14,9 +14,9 @@ namespace LineageOfHeroes.Spells.Berzerker
 		override public void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
 		{
 			base.ExecuteSpell(castingCreature, defender);
-			if (castingCreature.stats.currentLevel >= defender.stats.currentLevel)
+			if (castingCreature.currentLevel >= defender.currentLevel)
 			{
-				defender.stats.currentHealth = 0;
+				defender.currentHealth = 0;
 			}
 		}
 	}

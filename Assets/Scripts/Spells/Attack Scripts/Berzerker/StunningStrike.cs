@@ -16,11 +16,11 @@ namespace LineageOfHeroes.Spells.Berzerker
 			damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * physDamageModifier;
 			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
 
-			damage -= damage * defender.stats.physDamageResist;
+			damage -= damage * defender.physDamageResist;
 
-			defender.stats.currentHealth -= damage;
+			defender.currentHealth -= damage;
 
-			defender.stats.speedPool -= stunTurns * 100;
+			defender.speedPool -= stunTurns * 100;
 		}
 	}
 }
