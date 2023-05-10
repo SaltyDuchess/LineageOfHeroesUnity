@@ -26,19 +26,27 @@ public class MobBehavior : MonoBehaviour
 		Vector2Int targetGridPosition = currentPosition + gridDirection;
 		Creature targetCreature = Creature.GetCreatureAtGridPosition(targetGridPosition);
 
+		bool attacked = false;
+
 		// Check if there is a creature at the target position
 		if (targetCreature != null)
 		{
 			// If an attack is performed, skip the movement step
-			if (GetComponent<Creature>().TryAttack(targetCreature))
-			{
-				onMoveComplete?.Invoke();
-				return;
-			}
+			attacked = GetComponent<Creature>().TryAttack(targetCreature);
 		}
 
-		StartCoroutine(MoveToTargetPosition(targetGridPosition, onMoveComplete));
+		if (!attacked)
+		{
+			StartCoroutine(MoveToTargetPosition(targetGridPosition, onMoveComplete));
+		}
+		else
+		{
+			onMoveComplete?.Invoke();
+		}
 	}
+
+
+
 
 	IEnumerator MoveToTargetPosition(Vector2Int targetGridPosition, System.Action onMoveComplete)
 	{

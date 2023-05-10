@@ -94,6 +94,7 @@ MonoBehaviour:
   spellSelectionPanelPrefab: {fileID: 8811263506496211491, guid: f4c572ec22e9dd14595875d28b0f1c06, type: 3}
   masterSpellFactory: {fileID: 3371941194925560120, guid: 9bc4f04751fa9554d82a96479050ae4b, type: 3}
   activeAbilityBoxColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  notEnoughPowerColor: {r: 1, g: 1, b: 1, a: 0.49803922}
 --- !u!114 &1412174769994137339
 MonoBehaviour:
   m_ObjectHideFlags: 0

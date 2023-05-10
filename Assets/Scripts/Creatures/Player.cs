@@ -34,7 +34,6 @@ public class Player : Creature
 	public void EndTurn()
 	{
 		GetComponent<PlayerMovement>().enabled = false;
-		speedPool -= 100;
 		TurnManager turnManager = FindObjectOfType<TurnManager>();
 		if (speedPool <= 100)
 		{

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Mob : Creature, IMob
 {
 	[SerializeField] public CreatureData creatureData;
+	public static int instanceCounter = 0;
 	public virtual bool isPlayer => false;
 	public PhysicsMaterial2D noPushMaterial;
 	public string displayName { get; set; }
@@ -11,6 +12,7 @@ public class Mob : Creature, IMob
 	new protected virtual void Awake()
 	{
 		base.Awake();
+		Mob.instanceCounter++;
 		CreatureStats stats = creatureData.stats;
 
 		displayName = creatureData.displayName;
@@ -41,37 +43,39 @@ public class Mob : Creature, IMob
 			mobBehavior.MoveTowardsPlayer(() =>
 			{
 				// End the turn
-				speedPool -= this.creatureData.stats.actionSpeedCost;
 				FindObjectOfType<TurnManager>().NextTurn();
 			});
 		}
 	}
 
-private void Die()
-{
-    // Destroy health bar
-    if (healthBarObject != null)
-    {
-        Destroy(healthBarObject);
-    }
+	private void Die()
+	{
+		// Destroy health bar
+		if (healthBarObject != null)
+		{
+			Destroy(healthBarObject);
+		}
 
-    // Remove the mob from the TurnManager
-    TurnManager turnManager = FindObjectOfType<TurnManager>();
-    if (turnManager != null)
-    {
-        turnManager.RemoveActor(this);
-    }
-		
-    // Add XP to the player
-    Player player = FindObjectOfType<Player>();
-    if (player != null)
-    {
-        player.AddXP(XPValue);
-    }
+		// Remove the mob from the TurnManager
+		TurnManager turnManager = FindObjectOfType<TurnManager>();
+		if (turnManager != null)
+		{
+			turnManager.RemoveActor(this);
+		}
 
-    // Destroy the mob instance
-    Destroy(gameObject);
-}
+		// Add XP to the player
+		Player player = FindObjectOfType<Player>();
+		if (player != null)
+		{
+			player.AddXP(XPValue);
+		}
 
+		// Destroy the mob instance
+		Destroy(gameObject);
+	}
 
+	private void OnDestroy()
+	{
+		Mob.instanceCounter--;
+	}
 }

@@ -11,6 +11,7 @@ public class AbilityBoxController : MonoBehaviour
 	public GameObject spellSelectionPanelPrefab;
 	public SpellFactory masterSpellFactory;
 	public Color activeAbilityBoxColor = Color.yellow;
+	public Color notEnoughPowerColor = new Color(1, 0, 0, 0.3f);
 
 	private SpellBase boundSpellInstance;
 	private SpellData boundSpellData;
@@ -19,6 +20,7 @@ public class AbilityBoxController : MonoBehaviour
 	private Sprite originalSprite;
 	private Color originalAbilityBoxColor;
 	private bool isSpellActive;
+	private Player player;
 
 	void Start()
 	{
@@ -39,6 +41,8 @@ public class AbilityBoxController : MonoBehaviour
 		entry.eventID = EventTriggerType.PointerClick;
 		entry.callback.AddListener((eventData) => OnPointerClick((PointerEventData)eventData));
 		eventTrigger.triggers.Add(entry);
+
+		player = FindObjectOfType<Player>();
 	}
 
 	void Update()
@@ -48,6 +52,14 @@ public class AbilityBoxController : MonoBehaviour
 			abilityBoxImage.color = originalAbilityBoxColor;
 			isSpellActive = false;
 		}
+		if (boundSpellInstance != null)
+		{
+			// Check if the player has enough ability power for the spell cost
+			if (player.currentAbilityPool < boundSpellInstance.abilityPowerCost)
+			{
+				abilityBoxImage.color = notEnoughPowerColor;
+			}
+		}
 	}
 
 	private void ToggleUnlockedSpells()
@@ -55,21 +67,28 @@ public class AbilityBoxController : MonoBehaviour
 		// If a spell is bound to the ability box
 		if (boundSpellInstance != null)
 		{
-			// If the spell is currently active, unset the player's queued ability and reset the color
-			if (isSpellActive)
+			if (player.currentAbilityPool >= boundSpellInstance.abilityPowerCost)
 			{
-				FindObjectOfType<Player>().queuedAbility = null;
-				abilityBoxImage.color = originalAbilityBoxColor;
-				isSpellActive = false;
+				// If the spell is currently active, unset the player's queued ability and reset the color
+				if (isSpellActive)
+				{
+					FindObjectOfType<Player>().queuedAbility = null;
+					abilityBoxImage.color = originalAbilityBoxColor;
+					isSpellActive = false;
+				}
+				else
+				{
+					// Set the player's queued ability to the bound spell
+					FindObjectOfType<Player>().queuedAbility = boundSpellInstance;
+
+					// Change the ability box's appearance to indicate that the spell is active
+					abilityBoxImage.color = activeAbilityBoxColor;
+					isSpellActive = true;
+				}
 			}
 			else
 			{
-				// Set the player's queued ability to the bound spell
-				FindObjectOfType<Player>().queuedAbility = boundSpellInstance;
-
-				// Change the ability box's appearance to indicate that the spell is active
-				abilityBoxImage.color = activeAbilityBoxColor;
-				isSpellActive = true;
+				abilityBoxImage.color = notEnoughPowerColor;
 			}
 
 			return;

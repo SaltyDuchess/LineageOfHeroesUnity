@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPlayer: 0
   stats:
-    speedPool: 100
+    speedPool: 0
     abilityPowerPool: 100
     currentAbilityPool: 100
     percentageAbilityPool: 100

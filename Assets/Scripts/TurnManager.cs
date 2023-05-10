@@ -10,6 +10,13 @@ public class TurnManager : MonoBehaviour
 
 	void Start()
 	{
+		StartCoroutine(InitializeActors());
+	}
+
+	IEnumerator InitializeActors()
+	{
+		yield return new WaitUntil(() => Mob.instanceCounter == FindObjectsOfType<Mob>().Length);
+
 		actors = new List<ICreature>(FindObjectsOfType<Mob>());
 		actors.Add(FindObjectOfType<Player>());
 		actors.Sort((a, b) => b.speedPool.CompareTo(a.speedPool));
@@ -21,8 +28,9 @@ public class TurnManager : MonoBehaviour
 		currentPlayerIndex = (currentPlayerIndex + 1) % actors.Count;
 		actors[currentPlayerIndex].speedPool += 100;
 
-		if (actors[currentPlayerIndex].speedPool >= 100)
+		if (actors[currentPlayerIndex].speedPool >= actors[currentPlayerIndex].actionSpeedCost)
 		{
+			actors[currentPlayerIndex].speedPool -= actors[currentPlayerIndex].actionSpeedCost;
 			actors[currentPlayerIndex].OnTurn();
 		}
 		else
@@ -30,6 +38,8 @@ public class TurnManager : MonoBehaviour
 			NextTurn();
 		}
 	}
+
+
 
 	public void RemoveActor(ICreature actor)
 	{
