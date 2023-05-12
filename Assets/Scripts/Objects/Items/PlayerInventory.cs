@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace LineageOfHeroes.Items
 {
-	public class PlayerInventory
+	public class PlayerInventory: MonoBehaviour
 	{
 			public List<IItem> InventoryList { get; set; }
 

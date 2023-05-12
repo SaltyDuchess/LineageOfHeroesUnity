@@ -7,7 +7,8 @@ using UnityEngine;
 
 namespace LineageOfHeroes.LootSystem
 {
-	public class LootManager : MonoBehaviour {
+	public class LootManager : MonoBehaviour
+	{
 		public void GenerateLootFromTable(LootTable lootTable, PlayerInventory playerInventory)
 		{
 			Rarity chestRarity = lootTable.TableRarity;
@@ -19,29 +20,30 @@ namespace LineageOfHeroes.LootSystem
 
 		public void GenerateLoot(Rarity chestRarity, List<EquipmentBase> allItems, PlayerInventory playerInventory)
 		{
-				// Example: Filter items with the same or higher rarity than the chest
-				List<EquipmentBase> eligibleItems = allItems.Where(item => item.itemRarity >= chestRarity).ToList();
+			// Example: Filter items with the same or higher rarity than the chest
+			List<EquipmentBase> eligibleItems = allItems.Where(item => item.itemRarity >= chestRarity).ToList();
 
-				// Example: Add a higher rarity item with a certain chance (e.g., 10%)
-				if (RandomGenerator.Range(0, 100) < 5 && chestRarity < Rarity.Legendary)
+			// Example: Add a higher rarity item with a certain chance (e.g., 10%)
+			if (RandomGenerator.Range(0, 100) < 5 && chestRarity < Rarity.Legendary)
+			{
+				List<EquipmentBase> higherRarityItems = allItems.Where(item => item.itemRarity == chestRarity + 1).ToList();
+				if (higherRarityItems.Count > 0)
 				{
-						List<EquipmentBase> higherRarityItems = allItems.Where(item => item.itemRarity == chestRarity + 1).ToList();
-						if (higherRarityItems.Count > 0)
-						{
-								IItem higherRarityItem = higherRarityItems[RandomGenerator.Range(0, higherRarityItems.Count)];
-								playerInventory.InventoryList.Add(higherRarityItem);
-						}
+					IItem higherRarityItem = higherRarityItems[RandomGenerator.Range(0, higherRarityItems.Count)];
+					playerInventory.InventoryList.Add(higherRarityItem);
 				}
+			}
 
-				// Example: Add 3 random items from the eligible items
-				for (int i = 0; i < 3; i++)
+			// Example: Add 3 random items from the eligible items
+			for (int i = 0; i < 3; i++)
+			{
+				if (eligibleItems.Count > 0)
 				{
-						if (eligibleItems.Count > 0)
-						{
-								IItem randomItem = eligibleItems[RandomGenerator.Range(0, eligibleItems.Count)];
-								playerInventory.InventoryList.Add(randomItem);
-						}
+					IItem randomItem = eligibleItems[RandomGenerator.Range(0, eligibleItems.Count)];
+					playerInventory.InventoryList.Add(randomItem);
+					Debug.Log($"Looted  {randomItem}");
 				}
+			}
 		}
 	}
 }

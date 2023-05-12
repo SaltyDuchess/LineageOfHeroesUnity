@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1634929639437553767}
   - component: {fileID: 1634929639437553760}
   - component: {fileID: 1303212605}
+  - component: {fileID: 7729674798154772839}
   m_Layer: 0
   m_Name: GameSystem
   m_TagString: Untagged
@@ -75,3 +76,15 @@ MonoBehaviour:
   abilityPointIndicatorPrefab: {fileID: 6303921339507610929, guid: 1201ffcc7e93f134caabff4fbd330d97, type: 3}
   overlayPrefab: {fileID: 1490537020102507909, guid: 06403165b4d939f4eba18d38b4b687ae, type: 3}
   spellLevelUpPrefab: {fileID: 4518702802256442738, guid: a2bd9ccce014b1048b7280172a38e67b, type: 3}
+--- !u!114 &7729674798154772839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634929639437553765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea68121b89875dd46a121601e038df15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

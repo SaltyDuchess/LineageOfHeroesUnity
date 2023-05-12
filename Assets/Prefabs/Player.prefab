@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 5332906049223456898}
   - component: {fileID: 5332906049223456901}
   - component: {fileID: 5332906049223456902}
+  - component: {fileID: 2114093501985195510}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -266,3 +267,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 3703653179928866903, guid: 9ea2df74bf359be4dbcbea97c4b62736, type: 3}
   offsetX: -31
+--- !u!114 &2114093501985195510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533892023633780812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9abc44ef4d64ce42876a5eaa5b81755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
