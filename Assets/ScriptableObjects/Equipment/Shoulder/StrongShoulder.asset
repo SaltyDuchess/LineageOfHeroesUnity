@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84529db9bd4becb41883ac85a98431c1, type: 3}
   m_Name: StrongShoulder
   m_EditorClassIdentifier: 
+  itemType: 6
   lootDivergance:
     minValue: 0
     maxValue: 0
@@ -56,4 +57,4 @@ MonoBehaviour:
       maxValue: 0
   displayName: Strong Shoulder
   descriptionLong: 
-  shoulderType: 0
+  shoulderType: 1

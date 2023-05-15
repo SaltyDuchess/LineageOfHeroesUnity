@@ -17,41 +17,51 @@ using LineageOfHeroes.ItemTypes.HelmetType;
 using LineageOfHeroes.ItemTypes.RingType;
 using LineageOfHeroes.ItemTypes.ShoulderType;
 using LineageOfHeroes.ItemTypes.WeaponType;
+using UnityEngine;
 
 namespace LineageOfHeroes.ItemFactories
 {
-	public class ItemFactory
+	public class ItemFactory : MonoBehaviour
 	{
-    public IItem CreateItem(ItemType itemType, object specificType = null)
+		[SerializeField] public WeaponFactory weaponFactory;
+		[SerializeField] public BootFactory bootFactory;
+		[SerializeField] public CapeFactory capeFactory;
+		[SerializeField] public ChestFactory chestFactory;
+		[SerializeField] public GauntletFactory gauntletFactory;
+		[SerializeField] public HelmetFactory helmetFactory;
+		[SerializeField] public RingFactory ringFactory;
+		[SerializeField] public ShoulderFactory shoulderFactory;
+    public EquipmentBase CreateItem(EquipmentData equipmentData, object specificType = null)
     {
-        switch (itemType)
+			string formattedItemName = equipmentData.displayName.Replace(" ", "");
+        switch (equipmentData.itemType)
         {
             case ItemType.Weapon:
-                if (specificType is not WeaponType weaponType) throw new ArgumentException("Expected a WeaponType");
-                return WeaponFactory.CreateWeapon(weaponType);
+                if (!Enum.TryParse(formattedItemName, out WeaponType weaponType)) throw new ArgumentException("Expected a WeaponType");
+                return weaponFactory.CreateWeapon(weaponType);
             case ItemType.Boot:
-                if (specificType is not BootType bootType) throw new ArgumentException("Expected a BootType");
-                return BootFactory.CreateBoot(bootType);
+                if (!Enum.TryParse(formattedItemName, out BootType bootType)) throw new ArgumentException("Expected a BootType");
+                return bootFactory.CreateBoot(bootType);
             case ItemType.Cape:
-                if (specificType is not CapeType capeType) throw new ArgumentException("Expected a CapeType");
-                return CapeFactory.CreateCape(capeType);
+                if (!Enum.TryParse(formattedItemName, out CapeType capeType)) throw new ArgumentException("Expected a CapeType");
+                return capeFactory.CreateCape(capeType);
             case ItemType.Chest:
-                if (specificType is not ChestType chestType) throw new ArgumentException("Expected a ChestType");
-                return ChestFactory.CreateChest(chestType);
+                if (!Enum.TryParse(formattedItemName, out ChestType chestType)) throw new ArgumentException("Expected a ChestType");
+                return chestFactory.CreateChest(chestType);
             case ItemType.Gauntlet:
-                if (specificType is not GauntletType gauntletType) throw new ArgumentException("Expected a GauntletType");
-                return GauntletFactory.CreateGauntlet(gauntletType);
+                if (!Enum.TryParse(formattedItemName, out GauntletType gauntletType)) throw new ArgumentException("Expected a GauntletType");
+                return gauntletFactory.CreateGauntlet(gauntletType);
             case ItemType.Helmet:
-                if (specificType is not HelmetType helmetType) throw new ArgumentException("Expected a HelmetType");
-                return HelmetFactory.CreateHelmet(helmetType);
+                if (!Enum.TryParse(formattedItemName, out HelmetType helmetType)) throw new ArgumentException("Expected a HelmetType");
+                return helmetFactory.CreateHelmet(helmetType);
             case ItemType.Ring:
-                if (specificType is not RingType ringType) throw new ArgumentException("Expected a RingType");
-                return RingFactory.CreateRing(ringType);
+                if (!Enum.TryParse(formattedItemName, out RingType ringType)) throw new ArgumentException("Expected a RingType");
+                return ringFactory.CreateRing(ringType);
             case ItemType.Shoulder:
-                if (specificType is not ShoulderType shoulderType) throw new ArgumentException("Expected a ShoulderType");
-                return ShoulderFactory.CreateShoulder(shoulderType);
+                if (!Enum.TryParse(formattedItemName, out ShoulderType shoulderType)) throw new ArgumentException("Expected a ShoulderType");
+                return shoulderFactory.CreateShoulder(shoulderType);
             default:
-                throw new ArgumentException($"Invalid item type: {itemType}");
+                throw new ArgumentException($"Invalid item type: {equipmentData.itemType}");
         }
     }
 	}

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a93083dd89f694142b7dc2be087a659a, type: 3}
   m_Name: StaminaSurge
   m_EditorClassIdentifier: 
+  itemType: 4
   lootDivergance:
     minValue: 0
     maxValue: 0
@@ -56,4 +57,4 @@ MonoBehaviour:
       maxValue: 0
   displayName: Stamina Surge
   descriptionLong: 
-  helmetType: 0
+  helmetType: 1

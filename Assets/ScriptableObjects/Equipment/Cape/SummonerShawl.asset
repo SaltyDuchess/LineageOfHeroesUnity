@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edffad79e001bab4db67d6060e7b8a6e, type: 3}
   m_Name: SummonerShawl
   m_EditorClassIdentifier: 
+  itemType: 1
   lootDivergance:
     minValue: 0
     maxValue: 0

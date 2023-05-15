@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2952836281406065455}
   - component: {fileID: 5892440228763917431}
+  - component: {fileID: 2594265704407253970}
   m_Layer: 0
   m_Name: StaminaStandard
   m_TagString: Untagged
@@ -46,3 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentData: {fileID: 11400000, guid: 0b6bb71a780839747b75c9332dfe67a3, type: 2}
   chestData: {fileID: 11400000, guid: 0b6bb71a780839747b75c9332dfe67a3, type: 2}
+--- !u!114 &2594265704407253970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2332312677851938820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

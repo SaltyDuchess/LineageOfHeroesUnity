@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7605efbfea7b3c54497a66a355f4331b, type: 3}
   m_Name: PhysicalProtection
   m_EditorClassIdentifier: 
+  itemType: 5
   lootDivergance:
     minValue: 0
     maxValue: 0
@@ -56,4 +57,4 @@ MonoBehaviour:
       maxValue: 0
   displayName: Physical Protection
   descriptionLong: 
-  ringType: 0
+  ringType: 1

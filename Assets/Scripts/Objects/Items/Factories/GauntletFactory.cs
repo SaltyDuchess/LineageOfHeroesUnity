@@ -1,19 +1,22 @@
 using System;
 using LineageOfHeroes.Items;
 using LineageOfHeroes.ItemTypes.GauntletType;
+using UnityEngine;
 
 namespace LineageOfHeroes.ItemFactories.Gauntlet
 {
-	public static class GauntletFactory
+	public class GauntletFactory : MonoBehaviour
 	{
-    public static IItem CreateGauntlet(GauntletType gauntletType)
+		[SerializeField] private LineageOfHeroes.Items.GrittyGauntlet grittyGauntletPrefab;
+		[SerializeField] private LineageOfHeroes.Items.FatalFists fatalFistsPrefab;
+    public EquipmentBase CreateGauntlet(GauntletType gauntletType)
     {
         switch (gauntletType)
         {
             case GauntletType.FatalFists:
-                return new FatalFists();
+                return Instantiate(fatalFistsPrefab);
 						case GauntletType.GrittyGauntlet:
-                return new GrittyGauntlet();
+                return Instantiate(grittyGauntletPrefab);
             default:
                 throw new ArgumentException($"Invalid weapon type: {gauntletType}");
         }

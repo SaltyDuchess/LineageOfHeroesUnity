@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1073297918006693381}
   - component: {fileID: 3843817347198014565}
+  - component: {fileID: -5754614222541750703}
   m_Layer: 0
   m_Name: DamagedDagger
   m_TagString: Untagged
@@ -44,4 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e1242d5609b5342a4f3755e394d1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipmentData: {fileID: 11400000, guid: 3cd50626551ebe74b93cd6ffc500e466, type: 2}
   weaponData: {fileID: 11400000, guid: 3cd50626551ebe74b93cd6ffc500e466, type: 2}
+--- !u!114 &-5754614222541750703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579289155319548470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

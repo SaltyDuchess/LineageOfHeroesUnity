@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7747359066103264147}
   - component: {fileID: 3098851389970513088}
+  - component: {fileID: -3994815427018492976}
   m_Layer: 0
   m_Name: FatalFists
   m_TagString: Untagged
@@ -46,3 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentData: {fileID: 11400000, guid: a0d6d541b4f8d304a8c8f2ff0ab07f19, type: 2}
   gauntletData: {fileID: 11400000, guid: a0d6d541b4f8d304a8c8f2ff0ab07f19, type: 2}
+--- !u!114 &-3994815427018492976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156825855379528592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

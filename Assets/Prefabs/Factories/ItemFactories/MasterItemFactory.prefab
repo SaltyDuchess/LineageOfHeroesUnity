@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4019806571301236392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8302406441066273215}
+  - component: {fileID: 8240047923052962464}
+  m_Layer: 0
+  m_Name: MasterItemFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8302406441066273215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4019806571301236392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 475.4881, y: 301.8381, z: 1.2508507}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8240047923052962464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4019806571301236392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16e8e6da9764da40beef5a49acd630a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponFactory: {fileID: 3790681850279771501, guid: 6f5c98b9720e0084cb39d3c15af256bc, type: 3}
+  bootFactory: {fileID: 4921803928669847958, guid: dde1aef66b638c141a4f9fb74a128cf1, type: 3}
+  capeFactory: {fileID: 3403187684035677846, guid: 833a72eb41e5c944e8f866328a7439fa, type: 3}
+  chestFactory: {fileID: 5896185593904115780, guid: 1358d68ffe297ca41a5a4e3113324006, type: 3}
+  gauntletFactory: {fileID: 3554954526977655334, guid: 19dc10337a545e744828aa4bd4e0ff1f, type: 3}
+  helmetFactory: {fileID: 4365932907533405937, guid: d91d725223ac5f94e99ed2f5855defc6, type: 3}
+  ringFactory: {fileID: 8412600173574376018, guid: 8db614fef5a445b4b9ebdf86d2667615, type: 3}
+  shoulderFactory: {fileID: 7561243783844496327, guid: 5064aee6e5cfbd144b7191a81707bf44, type: 3}

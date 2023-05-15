@@ -1,7 +1,9 @@
+using LineageOfHeroes.ItemTypes;
 using UnityEngine;
 
 public class EquipmentData : ScriptableObject
 {
+	public ItemType itemType;
 	public StatRange lootDivergance;
 	public Rarity itemRarity;
 	public Sprite uiElement;

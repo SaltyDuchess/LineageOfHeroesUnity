@@ -5,11 +5,11 @@ namespace LineageOfHeroes.Items
 {
 	public class PlayerInventory: MonoBehaviour
 	{
-			public List<IItem> InventoryList { get; set; }
+			public List<EquipmentData> InventoryList { get; set; }
 
 			public PlayerInventory()
 			{
-					InventoryList = new List<IItem>();
+					InventoryList = new List<EquipmentData>();
 			}
 	}
 }

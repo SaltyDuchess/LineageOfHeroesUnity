@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1401857270281198136}
   - component: {fileID: 5165588385046353271}
+  - component: {fileID: 2422760849801452494}
   m_Layer: 0
   m_Name: MagiMantle
   m_TagString: Untagged
@@ -47,3 +48,16 @@ MonoBehaviour:
   equipmentData: {fileID: 11400000, guid: 978612b8c9625dd4385d768e2749e5fc, type: 2}
   capeData: {fileID: 11400000, guid: 978612b8c9625dd4385d768e2749e5fc, type: 2}
   magiClass: {fileID: 11400000, guid: aedf7773c394dce4f9938b6eb16bfa4a, type: 2}
+--- !u!114 &2422760849801452494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472121921741911728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

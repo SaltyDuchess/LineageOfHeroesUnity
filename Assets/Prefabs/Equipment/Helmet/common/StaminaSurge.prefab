@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4426181238805352754}
   - component: {fileID: 9815144059868402}
+  - component: {fileID: 1823191626162366509}
   m_Layer: 0
   m_Name: StaminaSurge
   m_TagString: Untagged
@@ -46,3 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentData: {fileID: 11400000, guid: 929ac4158ed20be42a83df8332d3bb16, type: 2}
   helmetData: {fileID: 11400000, guid: 929ac4158ed20be42a83df8332d3bb16, type: 2}
+--- !u!114 &1823191626162366509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218462675478441096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

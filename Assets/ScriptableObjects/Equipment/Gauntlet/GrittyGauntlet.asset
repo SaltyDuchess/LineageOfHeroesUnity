@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde482814bf91cc429968771554c3972, type: 3}
   m_Name: GrittyGauntlet
   m_EditorClassIdentifier: 
+  itemType: 3
   lootDivergance:
     minValue: 1.5
     maxValue: 1.7

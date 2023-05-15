@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3462903425650097380}
   - component: {fileID: 2746925462706372375}
+  - component: {fileID: -4205588107642692466}
   m_Layer: 0
   m_Name: SneakySneakers
   m_TagString: Untagged
@@ -45,3 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipmentData: {fileID: 11400000, guid: c9bb1726730d0db4d872d8ff97816b05, type: 2}
+  bootData: {fileID: 11400000, guid: c9bb1726730d0db4d872d8ff97816b05, type: 2}
+--- !u!114 &-4205588107642692466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4903414962786468720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

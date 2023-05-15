@@ -15,4 +15,5 @@ public class EquipmentStats
 	public float damageOverTime;
 	public int damageOverTimeTurns;
 	public StatRange damageRange;
+
 }

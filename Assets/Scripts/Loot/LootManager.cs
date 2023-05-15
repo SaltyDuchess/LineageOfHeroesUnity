@@ -29,7 +29,7 @@ namespace LineageOfHeroes.LootSystem
 				List<EquipmentBase> higherRarityItems = allItems.Where(item => item.itemRarity == chestRarity + 1).ToList();
 				if (higherRarityItems.Count > 0)
 				{
-					IItem higherRarityItem = higherRarityItems[RandomGenerator.Range(0, higherRarityItems.Count)];
+					EquipmentData higherRarityItem = higherRarityItems[RandomGenerator.Range(0, higherRarityItems.Count)].equipmentData;
 					playerInventory.InventoryList.Add(higherRarityItem);
 				}
 			}
@@ -39,9 +39,9 @@ namespace LineageOfHeroes.LootSystem
 			{
 				if (eligibleItems.Count > 0)
 				{
-					IItem randomItem = eligibleItems[RandomGenerator.Range(0, eligibleItems.Count)];
+					EquipmentData randomItem = eligibleItems[RandomGenerator.Range(0, eligibleItems.Count)].equipmentData;
 					playerInventory.InventoryList.Add(randomItem);
-					Debug.Log($"Looted  {randomItem}");
+					Debug.Log($"Looted  {randomItem.itemType} {randomItem.displayName}");
 				}
 			}
 		}

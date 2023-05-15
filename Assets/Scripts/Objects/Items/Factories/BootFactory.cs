@@ -1,17 +1,19 @@
 using System;
 using LineageOfHeroes.Items;
 using LineageOfHeroes.ItemTypes.BootType;
+using UnityEngine;
 
 namespace LineageOfHeroes.ItemFactories.Boot
 {
-	public static class BootFactory
+	public class BootFactory : MonoBehaviour
 	{
-    public static IItem CreateBoot(BootType bootType)
+		[SerializeField] private LineageOfHeroes.Items.Boot sneakySneakersPrefab;
+    public EquipmentBase CreateBoot(BootType bootType)
     {
         switch (bootType)
         {
-            case BootType.Boot:
-                return new LineageOfHeroes.Items.Boot();
+            case BootType.SneakySneakers:
+                return Instantiate(sneakySneakersPrefab);
             default:
                 throw new ArgumentException($"Invalid weapon type: {bootType}");
         }

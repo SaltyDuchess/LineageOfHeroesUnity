@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 524370303474715905}
   - component: {fileID: 2825497718449745987}
+  - component: {fileID: -1694333660077823270}
   m_Layer: 0
   m_Name: HealthyHauberk
   m_TagString: Untagged
@@ -46,3 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentData: {fileID: 11400000, guid: 02985229a1000a5478f9edba8a1dea9a, type: 2}
   chestData: {fileID: 11400000, guid: 02985229a1000a5478f9edba8a1dea9a, type: 2}
+--- !u!114 &-1694333660077823270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5063341205209899065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

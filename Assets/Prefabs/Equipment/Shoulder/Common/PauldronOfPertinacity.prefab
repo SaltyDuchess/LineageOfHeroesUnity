@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1340113439395808486}
   - component: {fileID: 7885195100492623984}
+  - component: {fileID: -4637572929603086192}
   m_Layer: 0
   m_Name: PauldronOfPertinacity
   m_TagString: Untagged
@@ -44,4 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b3e8ad893e0844799bfdd2a57c79e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipmentData: {fileID: 11400000, guid: 3d852654f7a2abb4aacb4e3c6f41eb7c, type: 2}
   shoulderData: {fileID: 11400000, guid: 3d852654f7a2abb4aacb4e3c6f41eb7c, type: 2}
+--- !u!114 &-4637572929603086192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389602549511283787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7650303742440284597}
   - component: {fileID: 8005931309639036599}
+  - component: {fileID: 8858281042087403217}
   m_Layer: 0
   m_Name: RegenerationRemedy
   m_TagString: Untagged
@@ -46,3 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentData: {fileID: 11400000, guid: 13cfcc6e47dc9364594079f8a2d974f2, type: 2}
   helmetData: {fileID: 11400000, guid: 13cfcc6e47dc9364594079f8a2d974f2, type: 2}
+--- !u!114 &8858281042087403217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2316550341998667752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

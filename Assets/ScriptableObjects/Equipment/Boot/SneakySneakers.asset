@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62faa880b3234cf4da5cc2ff6c0d4e92, type: 3}
   m_Name: SneakySneakers
   m_EditorClassIdentifier: 
+  itemType: 0
   lootDivergance:
     minValue: 0
     maxValue: 0

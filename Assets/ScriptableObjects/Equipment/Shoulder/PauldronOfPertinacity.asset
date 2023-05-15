@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84529db9bd4becb41883ac85a98431c1, type: 3}
   m_Name: PauldronOfPertinacity
   m_EditorClassIdentifier: 
+  itemType: 6
   lootDivergance:
     minValue: 0
     maxValue: 0
@@ -54,6 +55,6 @@ MonoBehaviour:
     damageRange:
       minValue: 0
       maxValue: 0
-  displayName: Pauldron of Pertinacity
+  displayName: Pauldron Of Pertinacity
   descriptionLong: 
   shoulderType: 0

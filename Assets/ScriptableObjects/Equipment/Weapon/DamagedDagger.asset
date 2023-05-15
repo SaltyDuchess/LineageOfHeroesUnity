@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8190b3f3225207c47b990ce2fc6013bd, type: 3}
   m_Name: DamagedDagger
   m_EditorClassIdentifier: 
+  itemType: 7
   lootDivergance:
     minValue: 0
     maxValue: 0

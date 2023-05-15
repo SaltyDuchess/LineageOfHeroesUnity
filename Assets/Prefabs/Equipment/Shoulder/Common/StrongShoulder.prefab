@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2578192022912369776}
   - component: {fileID: 7344650693014816323}
+  - component: {fileID: -8661050545567881733}
   m_Layer: 0
   m_Name: StrongShoulder
   m_TagString: Untagged
@@ -44,4 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b3e8ad893e0844799bfdd2a57c79e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipmentData: {fileID: 11400000, guid: cb0fb0968b5943d4cb14b1524479dcab, type: 2}
   shoulderData: {fileID: 11400000, guid: cb0fb0968b5943d4cb14b1524479dcab, type: 2}
+--- !u!114 &-8661050545567881733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494424354457909189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

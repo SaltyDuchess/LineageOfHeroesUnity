@@ -1,19 +1,22 @@
 using System;
 using LineageOfHeroes.Items;
 using LineageOfHeroes.ItemTypes.ChestType;
+using UnityEngine;
 
 namespace LineageOfHeroes.ItemFactories.Chest
 {
-	public static class ChestFactory
+	public class ChestFactory : MonoBehaviour
 	{
-    public static IItem CreateChest(ChestType chestType)
+		[SerializeField] private LineageOfHeroes.Items.HealthyHauberk healthyHauberkPrefab;
+		[SerializeField] private LineageOfHeroes.Items.StaminaStandard staminaStandardPrefab;
+    public EquipmentBase CreateChest(ChestType chestType)
     {
         switch (chestType)
         {
             case ChestType.HealthyHauberk:
-                return new HealthyHauberk();
+                return Instantiate(healthyHauberkPrefab);
 						case ChestType.StaminaStandard:
-                return new StaminaStandard();
+                return Instantiate(staminaStandardPrefab);
             default:
                 throw new ArgumentException($"Invalid weapon type: {chestType}");
         }

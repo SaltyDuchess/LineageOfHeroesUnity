@@ -1,19 +1,22 @@
 using System;
 using LineageOfHeroes.Items;
 using LineageOfHeroes.ItemTypes.CapeType;
+using UnityEngine;
 
 namespace LineageOfHeroes.ItemFactories.Cape
 {
-	public static class CapeFactory
+	public class CapeFactory : MonoBehaviour
 	{
-    public static IItem CreateCape(CapeType capeType)
+		[SerializeField] private LineageOfHeroes.Items.MagiMantle magiMantlePrefab;
+		[SerializeField] private LineageOfHeroes.Items.SummonerShawl summonerShawlPrefab;
+    public EquipmentBase CreateCape(CapeType capeType)
     {
         switch (capeType)
         {
             case CapeType.MagiMantle:
-                return new MagiMantle();
+                return Instantiate(magiMantlePrefab);
 						case CapeType.SummonerShawl:
-                return new SummonerShawl();
+                return Instantiate(summonerShawlPrefab);
             default:
                 throw new ArgumentException($"Invalid weapon type: {capeType}");
         }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1073502786457975940}
   - component: {fileID: 481646325732963515}
+  - component: {fileID: -5355516175324812671}
   m_Layer: 0
   m_Name: GrittyGauntlet
   m_TagString: Untagged
@@ -46,3 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentData: {fileID: 11400000, guid: 60e3277dc7b9b1e47b9ace0bde6c4f93, type: 2}
   gauntletData: {fileID: 11400000, guid: 60e3277dc7b9b1e47b9ace0bde6c4f93, type: 2}
+--- !u!114 &-5355516175324812671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579670130602646634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 

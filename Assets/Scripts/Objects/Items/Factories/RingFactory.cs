@@ -1,17 +1,22 @@
 using System;
 using LineageOfHeroes.Items;
 using LineageOfHeroes.ItemTypes.RingType;
+using UnityEngine;
 
 namespace LineageOfHeroes.ItemFactories.Ring
 {
-	public static class RingFactory
+	public class RingFactory : MonoBehaviour
 	{
-    public static IItem CreateRing(RingType ringType)
+		[SerializeField] private LineageOfHeroes.Items.Ring magicalMuddlingPrefab;
+		[SerializeField] private LineageOfHeroes.Items.Ring physicalProtectionPrefab;
+    public EquipmentBase CreateRing(RingType ringType)
     {
         switch (ringType)
         {
-            case RingType.Ring:
-                return new LineageOfHeroes.Items.Ring();
+            case RingType.MagicalMuddling:
+                return Instantiate(magicalMuddlingPrefab);
+						case RingType.PhysicalProtection:
+                return Instantiate(physicalProtectionPrefab);
             default:
                 throw new ArgumentException($"Invalid weapon type: {ringType}");
         }
