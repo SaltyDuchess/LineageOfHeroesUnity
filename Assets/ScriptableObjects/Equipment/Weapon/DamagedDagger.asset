@@ -35,11 +35,11 @@ MonoBehaviour:
       minValue: 0
       maxValue: 0
     bonusCritChance:
-      minValue: 0
-      maxValue: 0
+      minValue: 20
+      maxValue: 20
     bonusCritDamage:
-      minValue: 0
-      maxValue: 0
+      minValue: 0.15
+      maxValue: 0.15
     bonusSpeedPool:
       minValue: 0
       maxValue: 0

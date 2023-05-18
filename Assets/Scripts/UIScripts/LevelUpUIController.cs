@@ -149,6 +149,4 @@ public class LevelUpUIController : MonoBehaviour
 		// Destroy the overlay GameObject along with all its child elements
 		Destroy(overlay);
 	}
-
-
 }

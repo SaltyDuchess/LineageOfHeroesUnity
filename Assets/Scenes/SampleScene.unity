@@ -1321,6 +1321,7 @@ MonoBehaviour:
   inventoryPanel: {fileID: 371162023}
   itemUIBoxPrefab: {fileID: 5356505489679609614, guid: 3953772c6f3ea524f83506bd471458d3, type: 3}
   playerInventory: {fileID: 5332906049223456897}
+  playerEquipment: {fileID: 5332906049223456898}
 --- !u!1 &1452083577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,6 +1755,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9abc44ef4d64ce42876a5eaa5b81755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5332906049223456898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7619972745871910477, guid: 73bfb4f960585e145a424f7eb30d243a, type: 3}
+  m_PrefabInstance: {fileID: 5332906049223456895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c215bfc7426074ca8b4b046d883d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6815147936889782588

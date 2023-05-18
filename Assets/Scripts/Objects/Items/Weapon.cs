@@ -9,7 +9,7 @@ namespace LineageOfHeroes.Items
 	public class Weapon : EquipmentBase
 	{
 		public WeaponType weaponType { get; set; }
-		[SerializeField] WeaponData weaponData;
+		[SerializeField] protected WeaponData weaponData;
 
 		new protected virtual void Awake()
 		{

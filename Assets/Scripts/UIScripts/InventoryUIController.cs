@@ -8,6 +8,7 @@ public class InventoryUIController : MonoBehaviour
 	public GameObject inventoryPanel;
 	public GameObject itemUIBoxPrefab;
 	public PlayerInventory playerInventory;
+	public PlayerEquipment playerEquipment;
 
 	private ItemFactory itemFactory;
 	private TooltipTrigger tooltipTrigger;
@@ -48,7 +49,12 @@ public class InventoryUIController : MonoBehaviour
 			GameObject newItemUIBox = Instantiate(itemUIBoxPrefab, inventoryPanel.transform);
 
 			EquipmentBase itemInstance = itemFactory.CreateItem(item);
+			itemInstance.transform.SetParent(inventoryPanel.transform);
 			newItemUIBox.GetComponent<Image>().sprite = itemInstance.uiElement;
+
+			// Add button listener
+			Button button = newItemUIBox.GetComponent<Button>();
+			button.onClick.AddListener(() => playerEquipment.EquipItem(itemInstance));
 
 			// Get the reference to TooltipTrigger component
 			tooltipTrigger = newItemUIBox.GetComponent<TooltipTrigger>();
