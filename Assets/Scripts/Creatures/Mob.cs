@@ -70,6 +70,13 @@ public class Mob : Creature, IMob
 			player.AddXP(XPValue);
 		}
 
+		// Remove the mob from the EnemyManager
+		EnemyManager enemyManager = FindObjectOfType<EnemyManager>();
+		if (enemyManager != null)
+		{
+			enemyManager.UnregisterEnemy(this);
+		}
+
 		// Destroy the mob instance
 		Destroy(gameObject);
 	}

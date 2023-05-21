@@ -4,7 +4,7 @@ using LineageOfHeroes.Items;
 
 public class Chest : MonoBehaviour
 {
-	[SerializeField] private LootTable lootTable; // assign in inspector
+	[SerializeField] public LootTable lootTable; // assign in inspector
 	[SerializeField] private Sprite openedChestSprite; // assign in inspector
 	[SerializeField] private Sprite closedChestSprite; // assign in inspector
 

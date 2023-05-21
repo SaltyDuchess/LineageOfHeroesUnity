@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace LineageOfHeroes.Spells.Berzerker
 {
 	public class SanguinarySwap : BerzerkerSpellBase
@@ -9,13 +11,13 @@ namespace LineageOfHeroes.Spells.Berzerker
 		}
 		override public void ExecuteSpell(Creature castingCreature = null, Creature defender = null)
 		{
-			base.ExecuteSpell(castingCreature, defender);
 			float hp = castingCreature.percentageHealth;
 			float ap = castingCreature.percentageAbilityPool;
 
 			castingCreature.currentHealth = (ap / 100 * castingCreature.healthPool);
 			castingCreature.currentAbilityPool = (hp / 100 * castingCreature.abilityPowerPool);
 
+			currentCooldown = cooldown;
 			castingCreature.queuedAbility = null;
 		}
 	}

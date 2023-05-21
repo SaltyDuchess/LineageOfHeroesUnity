@@ -56,7 +56,8 @@ public class SpawnController : MonoBehaviour
 			}
 
 			// Spawn the mob at the random position
-			Instantiate(mob, randomPosition, Quaternion.identity);
+			Mob mobinstance = Instantiate(mob, randomPosition, Quaternion.identity);
+			FindObjectOfType<EnemyManager>().RegisterEnemy(mobinstance);
 		}
 
     void OnDestroy()

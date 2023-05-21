@@ -1,12 +1,10 @@
 using LineageOfHeroes.CharacterClasses;
 using LineageOfHeroes.Items;
-using UnityEngine;
 
 
 public class Player : Creature
 {
 	public CharacterClass playerClassPrefab;
-
 	public CharacterClass playerClass { get; set; }
 	public int XPToNextLevel { get; set; } = 10;
 	public PlayerInventory inventory { get; set; } = null;

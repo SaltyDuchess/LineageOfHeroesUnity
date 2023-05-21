@@ -13,7 +13,6 @@ namespace LineageOfHeroes.CharacterClasses
 		new public void ModifyPlayerStats(Player player)
 		{
 			base.ModifyPlayerStats(player);
-		  Debug.Log("hello");
 			// Example: Add 50 health points for Berzerker class
 			player.healthPool += 50;
 			player.currentHealth = player.healthPool;

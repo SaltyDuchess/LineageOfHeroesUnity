@@ -36,6 +36,11 @@ public class Creature : MonoBehaviour, ICreature
 		AssignStatsFromCreatureStats(stats);
 	}
 
+	private void Update() {
+		percentageHealth = (currentHealth / healthPool) * 100;
+		percentageAbilityPool = (currentAbilityPool / abilityPowerPool) * 100;
+	}
+
 	protected void AssignStatsFromCreatureStats(CreatureStats stats)
 	{
 		speedPool = stats.speedPool;
@@ -64,6 +69,19 @@ public class Creature : MonoBehaviour, ICreature
 
 	public void OnTurn()
 	{
+		if (currentAbilityPool < abilityPowerPool)
+		{
+			currentAbilityPool += abilityRegeneration;
+		}
+		if (damageOverTimeTurns > 0)
+		{
+			currentHealth -= damageOverTime;
+			damageOverTimeTurns--;
+		}
+		if (currentHealth < healthPool)
+		{
+			currentHealth += healthRegeneration;
+		}
 	}
 
 	public bool TryAttack(Creature target)

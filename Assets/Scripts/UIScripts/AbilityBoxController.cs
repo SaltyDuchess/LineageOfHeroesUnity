@@ -84,6 +84,14 @@ public class AbilityBoxController : MonoBehaviour
 					// Change the ability box's appearance to indicate that the spell is active
 					abilityBoxImage.color = activeAbilityBoxColor;
 					isSpellActive = true;
+
+					if (boundSpellInstance.instantCast)
+					{
+						Player player = FindObjectOfType<Player>();
+						player.queuedAbility.ExecuteSpell(player);
+						abilityBoxImage.color = originalAbilityBoxColor;
+						isSpellActive = false;
+					}
 				}
 			}
 			else
