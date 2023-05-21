@@ -29,10 +29,86 @@ public class MobBehavior : MonoBehaviour
 		bool attacked = false;
 
 		// Check if there is a creature at the target position
-		if (targetCreature != null)
+		if (targetCreature != null && targetCreature.IsPlayer)
 		{
 			// If an attack is performed, skip the movement step
 			attacked = GetComponent<Creature>().TryAttack(targetCreature);
+		}
+
+		// If there is a non-player creature in the target position
+		if (targetCreature != null && !targetCreature.IsPlayer)
+		{
+			// Define the order of direction checks depending on the player's direction
+			Vector2Int[] directions;
+			if (gridDirection == Vector2Int.up)
+			{
+				directions = new Vector2Int[]
+				{
+								new Vector2Int(-1, 1),
+								new Vector2Int(1, 1),
+								new Vector2Int(0, 1),
+								new Vector2Int(-1, 0),
+								new Vector2Int(1, 0),
+								new Vector2Int(-1, -1),
+								new Vector2Int(1, -1),
+								new Vector2Int(0, -1)
+				};
+			}
+			else if (gridDirection == Vector2Int.right)
+			{
+				directions = new Vector2Int[]
+				{
+								new Vector2Int(1, 1),
+								new Vector2Int(1, -1),
+								new Vector2Int(1, 0),
+								new Vector2Int(0, 1),
+								new Vector2Int(0, -1),
+								new Vector2Int(-1, 1),
+								new Vector2Int(-1, -1),
+								new Vector2Int(-1, 0)
+				};
+			}
+			else if (gridDirection == Vector2Int.down)
+			{
+				directions = new Vector2Int[]
+				{
+								new Vector2Int(-1, -1),
+								new Vector2Int(1, -1),
+								new Vector2Int(0, -1),
+								new Vector2Int(-1, 0),
+								new Vector2Int(1, 0),
+								new Vector2Int(-1, 1),
+								new Vector2Int(1, 1),
+								new Vector2Int(0, 1)
+				};
+			}
+			else
+			{
+				directions = new Vector2Int[]
+				{
+								new Vector2Int(-1, 1),
+								new Vector2Int(-1, -1),
+								new Vector2Int(-1, 0),
+								new Vector2Int(0, 1),
+								new Vector2Int(0, -1),
+								new Vector2Int(1, 1),
+								new Vector2Int(1, -1),
+								new Vector2Int(1, 0)
+				};
+			}
+
+			// Check directions for a free cell
+			foreach (Vector2Int dir in directions)
+			{
+				Vector2Int potentialTargetPosition = currentPosition + dir;
+				Creature potentialTargetCreature = Creature.GetCreatureAtGridPosition(potentialTargetPosition);
+
+				if (potentialTargetCreature == null || potentialTargetCreature.IsPlayer)
+				{
+					targetGridPosition = potentialTargetPosition;
+					break;
+				}
+			}
 		}
 
 		if (!attacked)
@@ -44,6 +120,8 @@ public class MobBehavior : MonoBehaviour
 			onMoveComplete?.Invoke();
 		}
 	}
+
+
 
 
 
