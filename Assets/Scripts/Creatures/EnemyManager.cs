@@ -17,7 +17,18 @@ public class EnemyManager : MonoBehaviour
         if (activeEnemies.Count == 0)
         {
             // All enemies have been killed
+						UnlockDoors();
             SpawnChest();
+        }
+    }
+
+		private void UnlockDoors()
+    {
+				// Get all DoorController instances in the scene
+				var doors = FindObjectsOfType<DoorController>();
+        foreach (var door in doors)
+        {
+            door.Unlock(); // Assuming DoorController has an Unlock method
         }
     }
 
