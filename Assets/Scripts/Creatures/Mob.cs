@@ -23,7 +23,6 @@ public class Mob : Creature, IMob
 		SpriteRenderer spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
 		spriteRenderer.sprite = creatureData.uiElement;
 		BoxCollider2D collider = gameObject.AddComponent<BoxCollider2D>();
-		collider.size = creatureData.uiElement.bounds.size;
 		Rigidbody2D rigidBody = gameObject.AddComponent<Rigidbody2D>();
 		rigidBody.gravityScale = 0;
 		rigidBody.isKinematic = true;
