@@ -1,5 +1,6 @@
 using UnityEngine;
 using LineageOfHeroes.ItemTypes.ChestType;
+using LineageOfHeroes.ItemTypes;
 
 namespace LineageOfHeroes.Items
 {
@@ -11,8 +12,9 @@ namespace LineageOfHeroes.Items
 			new protected virtual void Awake()
 			{
 				base.equipmentData = chestData;
-				base.Awake();
+				type = ItemType.Chest;
 				chestType = chestData.chestType;
+				base.Awake();
 			}
 	}
 }

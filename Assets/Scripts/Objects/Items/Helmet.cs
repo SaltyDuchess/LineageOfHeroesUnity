@@ -1,5 +1,6 @@
 using UnityEngine;
 using LineageOfHeroes.ItemTypes.HelmetType;
+using LineageOfHeroes.ItemTypes;
 
 namespace LineageOfHeroes.Items
 {
@@ -11,8 +12,9 @@ namespace LineageOfHeroes.Items
 			new protected virtual void Awake()
 			{
 				base.equipmentData = helmetData;
-				base.Awake();
+				type = ItemType.Helmet;
 				helmetType = helmetData.helmetType;
+				base.Awake();
 			}
 	}
 }

@@ -14,8 +14,9 @@ namespace LineageOfHeroes.Items
 		new protected virtual void Awake()
 		{
 			base.equipmentData = ringData;
-			base.Awake();
+			type = ItemType.Ring;
 			ringType = ringData.ringType;
+			base.Awake();
 		}
 	}
 }

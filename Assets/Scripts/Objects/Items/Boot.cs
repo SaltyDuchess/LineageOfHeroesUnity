@@ -1,3 +1,4 @@
+using LineageOfHeroes.ItemTypes;
 using LineageOfHeroes.ItemTypes.BootType;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace LineageOfHeroes.Items
 		{
 			base.equipmentData = bootData;
 			base.Awake();
+			type = ItemType.Boot;
 			bootType = bootData.bootType;
 		}
 	}

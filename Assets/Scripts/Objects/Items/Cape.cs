@@ -1,3 +1,4 @@
+using LineageOfHeroes.ItemTypes;
 using LineageOfHeroes.ItemTypes.CapeType;
 using UnityEngine;
 
@@ -11,8 +12,9 @@ namespace LineageOfHeroes.Items
 		new protected virtual void Awake()
 		{
 			base.equipmentData = capeData;
-			base.Awake();
+			type = ItemType.Cape;
 			capeType = capeData.capeType;
+			base.Awake();
 		}
 	}
 }

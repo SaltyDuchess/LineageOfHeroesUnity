@@ -14,8 +14,9 @@ namespace LineageOfHeroes.Items
 			new protected virtual void Awake()
 			{
 				base.equipmentData = gauntletData;
-				base.Awake();
+				type = ItemType.Gauntlet;
 				gauntletType = gauntletData.gauntletType;
+				base.Awake();
 			}
 	}
 }

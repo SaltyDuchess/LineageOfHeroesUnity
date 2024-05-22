@@ -46,7 +46,6 @@ namespace LineageOfHeroes.Items
 		{
 			displayName = equipmentData.displayName;
 			itemRarity = equipmentData.itemRarity;
-			descriptionLong = equipmentData.descriptionLong;
 			uiElement = equipmentData.uiElement;
 			bonusHp = equipmentData.stats.bonusHp.GetRandomValue();
 			bonusHpRegen = equipmentData.stats.bonusHpRegen.GetRandomValue();
@@ -58,6 +57,7 @@ namespace LineageOfHeroes.Items
 			bonusSpeedPool = equipmentData.stats.bonusSpeedPool.GetRandomValue();
 			physDamageResist = equipmentData.stats.bonusPhysDamageResist.GetRandomValue();
 			bonusMagicDamageResist = equipmentData.stats.bonusMagicDamageResist.GetRandomValue();
+			physDamageResist = equipmentData.stats.bonusPhysDamageResist.GetRandomValue();
 			autoAttackRange = equipmentData.stats.autoAttackRange;
 			damageOverTime = equipmentData.stats.damageOverTime;
 			damageOverTimeTurns = equipmentData.stats.damageOverTimeTurns;
@@ -65,10 +65,13 @@ namespace LineageOfHeroes.Items
 			critDamageMultiplier = equipmentData.stats.bonusCritDamage;
 			critChanceModifier = equipmentData.stats.bonusCritChance;
 
-			AddStatsToDescriptionLong();
-
 			// Get the reference to TooltipTrigger component
 			tooltipTrigger = GetComponent<TooltipTrigger>();
+
+			// Set display name and type on description long
+			descriptionLong = $"{displayName}\nType - {type}\n";
+
+			AddStatsToDescriptionLong();
 
 			// Set the tooltipText using SetTooltipText method
 			tooltipTrigger.SetTooltipText(descriptionLong);
@@ -78,34 +81,34 @@ namespace LineageOfHeroes.Items
 		public void AddStatsToDescriptionLong()
 		{
 			if (bonusHp != 0)
-				descriptionLong += $"Bonus HP: {bonusHp} ";
+				descriptionLong += $"Bonus HP: {bonusHp}\n";
 
 			if (bonusHpRegen != 0)
-				descriptionLong += $"Bonus HP Regen: {bonusHpRegen} ";
+				descriptionLong += $"Bonus HP Regen: {bonusHpRegen}\n";
 
 			if (bonusAbilityPower != 0)
-				descriptionLong += $"Bonus Ability Power: {bonusAbilityPower} ";
+				descriptionLong += $"Bonus Ability Power: {bonusAbilityPower}\n";
 
 			if (bonusAbilityPowerRegen != 0)
-				descriptionLong += $"Bonus Ability Power Regen: {bonusAbilityPowerRegen} ";
+				descriptionLong += $"Bonus Ability Power Regen: {bonusAbilityPowerRegen}\n";
 
 			if (bonusDodgeChance != 0)
-				descriptionLong += $"Bonus Dodge Chance: {bonusDodgeChance} ";
+				descriptionLong += $"Bonus Dodge Chance: {bonusDodgeChance}\n";
 
 			if (bonusCritChance != 0)
-				descriptionLong += $"Bonus Crit Chance: {bonusCritChance} ";
+				descriptionLong += $"Bonus Crit Chance: {bonusCritChance}\n";
 
 			if (bonusCritDamage != 0)
-				descriptionLong += $"Bonus Crit Damage: {bonusCritDamage} ";
+				descriptionLong += $"Bonus Crit Damage: {bonusCritDamage}\n";
 
 			if (bonusSpeedPool != 0)
-				descriptionLong += $"Bonus Speed Pool: {bonusSpeedPool} ";
+				descriptionLong += $"Bonus Speed Pool: {bonusSpeedPool}\n";
 
 			if (bonusMagicDamageResist != 0)
-				descriptionLong += $"Bonus Magic Damage Resist: {bonusMagicDamageResist} ";
+				descriptionLong += $"Bonus Magic Damage Resist: {bonusMagicDamageResist}\n";
 
 			if (physDamageResist != 0)
-				descriptionLong += $"Bonus Physical Damage Resist: {physDamageResist} ";
+				descriptionLong += $"Bonus Physical Damage Resist: {physDamageResist}\n";
 
 			if (autoAttackRange != 0)
 				descriptionLong += $"Auto Attack Range: {autoAttackRange}\n";

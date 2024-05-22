@@ -5,15 +5,24 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 {
     [TextArea]
     public string tooltipText;
+    private TooltipController tooltipController;
+
+    private void Start()
+    {
+        tooltipController = FindObjectOfType<TooltipController>();
+        Debug.Log("TooltipTrigger attached and initialized for: " + gameObject.name);
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipController.Instance.ShowTooltip(tooltipText, Input.mousePosition);
+        Debug.Log("Pointer entered: " + gameObject.name);
+        tooltipController.ShowTooltip(tooltipText, eventData.position);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        TooltipController.Instance.HideTooltip();
+        Debug.Log("Pointer exited: " + gameObject.name);
+        tooltipController.HideTooltip();
     }
 
 		public void SetTooltipText(string newText)

@@ -1,5 +1,6 @@
 using System.Linq;
 using LineageOfHeroes.CharacterClasses;
+using LineageOfHeroes.ItemTypes;
 using LineageOfHeroes.Randomization;
 using UnityEngine;
 

@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class Mob : Creature, IMob
@@ -8,6 +9,7 @@ public class Mob : Creature, IMob
 	public PhysicsMaterial2D noPushMaterial;
 	public string displayName { get; set; }
 	public string mobDescription { get; set; }
+	private TooltipTrigger tooltipTrigger;
 
 	new protected virtual void Awake()
 	{
@@ -21,9 +23,22 @@ public class Mob : Creature, IMob
 		SpriteRenderer spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
 		spriteRenderer.sprite = creatureData.uiElement;
 		BoxCollider2D collider = gameObject.AddComponent<BoxCollider2D>();
+		collider.size = creatureData.uiElement.bounds.size;
 		Rigidbody2D rigidBody = gameObject.AddComponent<Rigidbody2D>();
 		rigidBody.gravityScale = 0;
 		rigidBody.isKinematic = true;
+
+    // Get the reference to TooltipTrigger component
+    tooltipTrigger = GetComponent<TooltipTrigger>();
+    if (tooltipTrigger != null)
+    {
+        // Set the tooltipText using SetTooltipText method
+        tooltipTrigger.SetTooltipText(mobDescription);
+    }
+    else
+    {
+        Debug.LogWarning("TooltipTrigger component is missing on " + gameObject.name);
+    }
 	}
 
 	new public void OnTurn()

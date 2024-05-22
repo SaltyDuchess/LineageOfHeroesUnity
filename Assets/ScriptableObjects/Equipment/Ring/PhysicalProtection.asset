@@ -47,8 +47,8 @@ MonoBehaviour:
       minValue: 0
       maxValue: 0
     bonusPhysDamageResist:
-      minValue: 0
-      maxValue: 0
+      minValue: 4
+      maxValue: 7
     autoAttackRange: 0
     damageOverTime: 0
     damageOverTimeTurns: 0

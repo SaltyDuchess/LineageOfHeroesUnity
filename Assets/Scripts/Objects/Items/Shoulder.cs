@@ -14,8 +14,9 @@ namespace LineageOfHeroes.Items
 		new protected virtual void Awake()
 		{
 			base.equipmentData = shoulderData;
-			base.Awake();
+			type = ItemType.Shoulder;
 			shoulderType = shoulderData.shoulderType;
+			base.Awake();
 		}
 	}
 }
