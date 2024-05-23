@@ -10,18 +10,15 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private void Start()
     {
         tooltipController = FindObjectOfType<TooltipController>();
-        Debug.Log("TooltipTrigger attached and initialized for: " + gameObject.name);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Pointer entered: " + gameObject.name);
         tooltipController.ShowTooltip(tooltipText, eventData.position);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Pointer exited: " + gameObject.name);
         tooltipController.HideTooltip();
     }
 

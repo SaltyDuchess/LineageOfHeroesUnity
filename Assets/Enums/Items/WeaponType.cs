@@ -5,5 +5,6 @@ namespace LineageOfHeroes.ItemTypes.WeaponType
 		DamagedDagger,
 		SmallSword,
 		SharpenedSword,
+		BrutalBlade,
 	}
 }

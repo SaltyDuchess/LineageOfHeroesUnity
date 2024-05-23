@@ -1,3 +1,4 @@
+using LineageOfHeroes.ItemTypes;
 using LineageOfHeroes.Randomization;
 using UnityEngine;
 
@@ -5,16 +6,7 @@ namespace LineageOfHeroes.Items
 {
 	public class PlayerEquipment : MonoBehaviour
 	{
-		public StatRange damageRange;
-		public float bonusCritChance = 0;
-		public float bonusCritDamage = 0;
-		public float bonusHp = 0;
-		public float bonusAbilityPower = 0;
-		public float bonusHpRegen = 0;
-		public float bonusAbilityPowerRegen = 0;
-		public float physDamageResist = 0;
-		public float magicDamageResist = 0;
-		public float bonusDodgeChance = 0;
+		public Player player;
 		public Weapon equippedWeapon = null;
 		public Chest equippedChest = null;
 		public Gauntlet equippedGauntlet = null;
@@ -32,6 +24,11 @@ namespace LineageOfHeroes.Items
 		public Shoulder previousShoulder = null;
 		public Cape previousCape = null;
 
+		public void Awake()
+		{
+			player = FindObjectOfType<Player>();
+		}
+
 		public void EquipItem(EquipmentBase item)
 		{
 			switch (item)
@@ -40,7 +37,7 @@ namespace LineageOfHeroes.Items
 					if (equippedWeapon != null)
 					{
 						UnequipItem(equippedWeapon);
-						previousWeapon = null;
+						previousWeapon = equippedWeapon;
 					}
 					equippedWeapon = weapon;
 					break;
@@ -49,7 +46,7 @@ namespace LineageOfHeroes.Items
 					if (equippedChest != null)
 					{
 						UnequipItem(equippedChest);
-						previousChest = null;
+						previousChest = equippedChest;
 					}
 					equippedChest = chest;
 					break;
@@ -58,7 +55,7 @@ namespace LineageOfHeroes.Items
 					if (equippedGauntlet != null)
 					{
 						UnequipItem(equippedGauntlet);
-						previousGauntlet = null;
+						previousGauntlet = equippedGauntlet;
 					}
 					equippedGauntlet = gauntlet;
 					break;
@@ -67,7 +64,7 @@ namespace LineageOfHeroes.Items
 					if (equippedRing != null)
 					{
 						UnequipItem(equippedRing);
-						previousRing = null;
+						previousRing = equippedRing;
 					}
 					equippedRing = ring;
 					break;
@@ -76,7 +73,7 @@ namespace LineageOfHeroes.Items
 					if (equippedHelmet != null)
 					{
 						UnequipItem(equippedHelmet);
-						previousHelmet = null;
+						previousHelmet = equippedHelmet;
 					}
 					equippedHelmet = helmet;
 					break;
@@ -85,7 +82,7 @@ namespace LineageOfHeroes.Items
 					if (equippedBoot != null)
 					{
 						UnequipItem(equippedBoot);
-						previousBoot = null;
+						previousBoot = equippedBoot;
 					}
 					equippedBoot = boot;
 					break;
@@ -94,7 +91,7 @@ namespace LineageOfHeroes.Items
 					if (equippedShoulder != null)
 					{
 						UnequipItem(equippedShoulder);
-						previousShoulder = null;
+						previousShoulder = equippedShoulder;
 					}
 					equippedShoulder = shoulder;
 					break;
@@ -103,41 +100,52 @@ namespace LineageOfHeroes.Items
 					if (equippedCape != null)
 					{
 						UnequipItem(equippedCape);
-						previousCape = null;
+						previousCape = equippedCape;
 					}
 					equippedCape = cape;
 					break;
 			}
-
+			Debug.Log("Equipped " + item.displayName);
 			// Call the UpdateStats method after equipping an item
-			UpdateStats(FindObjectOfType<Player>(), FindObjectOfType<SpellManager>());
+			UpdateStats(FindObjectOfType<Player>(), FindObjectOfType<SpellManager>(), item.type);
 		}
 
 
 
-		public void UpdateStats(Player player, SpellManager spellbook)
+		public void UpdateStats(Player player, SpellManager spellbook, ItemType itemType)
 		{
-			// Reset stats
-			bonusHp = 0;
-			bonusHpRegen = 0;
-			bonusAbilityPower = 0;
-			bonusAbilityPowerRegen = 0;
-			physDamageResist = 0;
-			magicDamageResist = 0;
-			bonusCritChance = 0;
-			bonusCritDamage = 0;
-			damageRange.minValue = 0;
-			damageRange.maxValue = 0;
-
-			// Update stats based on equipped items
-			UpdateEquippedItemStats(ref equippedWeapon, ref previousWeapon, player);
-			UpdateEquippedItemStats(ref equippedChest, ref previousChest, player);
-			UpdateEquippedItemStats(ref equippedGauntlet, ref previousGauntlet, player);
-			UpdateEquippedItemStats(ref equippedRing, ref previousRing, player);
-			UpdateEquippedItemStats(ref equippedHelmet, ref previousHelmet, player);
-			UpdateEquippedItemStats(ref equippedBoot, ref previousBoot, player);
-			UpdateEquippedItemStats(ref equippedShoulder, ref previousShoulder, player);
-			UpdateEquippedCape(equippedCape, previousCape, player, spellbook);
+			if (itemType == ItemType.Weapon)
+			{
+				UpdateEquippedItemStats(ref equippedWeapon, ref previousWeapon, player);
+			}
+			if (itemType == ItemType.Chest)
+			{
+				UpdateEquippedItemStats(ref equippedChest, ref previousChest, player);
+			}
+			if (itemType == ItemType.Gauntlet)
+			{
+				UpdateEquippedItemStats(ref equippedGauntlet, ref previousGauntlet, player);
+			}
+			if (itemType == ItemType.Ring)
+			{
+				UpdateEquippedItemStats(ref equippedRing, ref previousRing, player);
+			}
+			if (itemType == ItemType.Helmet)
+			{
+				UpdateEquippedItemStats(ref equippedHelmet, ref previousHelmet, player);
+			}
+			if (itemType == ItemType.Boot)
+			{
+				UpdateEquippedItemStats(ref equippedBoot, ref previousBoot, player);
+			}
+			if (itemType == ItemType.Shoulder)
+			{
+				UpdateEquippedItemStats(ref equippedShoulder, ref previousShoulder, player);
+			}
+			if (itemType == ItemType.Cape)
+			{
+				UpdateEquippedCape(equippedCape, previousCape, player, spellbook);
+			}
 		}
 
 		private void UpdateEquippedItemStats<T>(ref T equippedItem, ref T previousItem, Player player) where T : EquipmentBase
@@ -184,43 +192,38 @@ namespace LineageOfHeroes.Items
 
 		public void AddStatsFromItem(EquipmentBase item, Player player)
 		{
-			bonusHp += item.bonusHp;
-			bonusHpRegen += item.bonusHpRegen;
-			bonusAbilityPower += item.bonusAbilityPower;
-			bonusAbilityPowerRegen += item.bonusAbilityPowerRegen;
-			physDamageResist += item.physDamageResist;
-			magicDamageResist += item.bonusMagicDamageResist;
-			bonusCritChance += item.bonusCritChance;
-			bonusCritDamage += item.bonusCritDamage;
-			bonusDodgeChance += item.bonusDodgeChance;
-			damageRange.maxValue += item.damageRange.maxValue;
-			damageRange.minValue += item.damageRange.minValue;
+			Debug.Log("Adding stats from " + item.displayName + " damage range " + item.damageRange.minValue + " - " + item.damageRange.maxValue);
+			player.stats.healthPool += item.bonusHp;
+			player.stats.healthRegeneration += item.bonusHpRegen;
+			player.stats.abilityPowerPool += item.bonusAbilityPower;
+			player.stats.abilityRegeneration += item.bonusAbilityPowerRegen;
+			player.stats.physDamageResist += item.physDamageResist;
+			player.stats.magicDamageResist += item.bonusMagicDamageResist;
+			player.stats.critChanceModifier += item.bonusCritChance;
+			player.stats.critDamageMultiplier += item.bonusCritDamage;
+			player.stats.dodgeChance += item.bonusDodgeChance;
+			player.stats.damageRange.maxValue += item.damageRange.maxValue;
+			player.stats.damageRange.minValue += item.damageRange.minValue;
 		}
 
 		public void RemoveStatsFromItem(EquipmentBase item, Player player)
 		{
-			bonusHp -= item.bonusHp;
-			bonusHpRegen -= item.bonusHpRegen;
-			bonusAbilityPower -= item.bonusAbilityPower;
-			bonusAbilityPowerRegen -= item.bonusAbilityPowerRegen;
-			physDamageResist -= item.physDamageResist;
-			magicDamageResist -= item.bonusMagicDamageResist;
-			bonusCritChance -= item.bonusCritChance;
-			bonusCritDamage -= item.bonusCritDamage;
-			bonusDodgeChance -= item.bonusDodgeChance;
-			damageRange.minValue -= item.damageRange.minValue; // Reset DamageRange to default values
-			damageRange.maxValue -= item.damageRange.maxValue;
+			player.stats.healthPool -= item.bonusHp;
+			player.stats.healthRegeneration -= item.bonusHpRegen;
+			player.stats.abilityPowerPool -= item.bonusAbilityPower;
+			player.stats.abilityRegeneration -= item.bonusAbilityPowerRegen;
+			player.stats.physDamageResist -= item.physDamageResist;
+			player.stats.magicDamageResist -= item.bonusMagicDamageResist;
+			player.stats.critChanceModifier -= item.bonusCritChance;
+			player.stats.critDamageMultiplier -= item.bonusCritDamage;
+			player.stats.dodgeChance -= item.bonusDodgeChance;
+			player.stats.damageRange.minValue -= item.damageRange.minValue; // Reset DamageRange to default values
+			player.stats.damageRange.maxValue -= item.damageRange.maxValue;
 		}
 
 		public void UnequipItem(EquipmentBase item)
 		{
 			RemoveStatsFromItem(item, FindObjectOfType<Player>());
-		}
-
-
-		public float GetDamageValue()
-		{
-			return RandomGenerator.Range(damageRange.minValue, damageRange.maxValue);
 		}
 	}
 }

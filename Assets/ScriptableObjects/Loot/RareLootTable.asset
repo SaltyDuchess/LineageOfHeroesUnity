@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: RareLootTable
   m_EditorClassIdentifier: 
   tableRarity: 2
-  itemDrops: []
+  itemDrops:
+  - item: {fileID: 1678268465338092632, guid: 43c71e75fff1cc343a5214c7e805b8ba, type: 3}
+    dropWeight: 1
