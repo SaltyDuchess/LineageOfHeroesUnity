@@ -21,7 +21,7 @@ namespace LineageOfHeroes.LootSystem
 		public void GenerateLoot(Rarity chestRarity, List<EquipmentBase> allItems, PlayerInventory playerInventory)
 		{
 			// Example: Filter items with the same or higher rarity than the chest
-			List<EquipmentBase> eligibleItems = allItems.Where(item => item.itemRarity >= chestRarity).ToList();
+			List<EquipmentBase> eligibleItems = allItems.Where(item => item.equipmentData.itemRarity >= chestRarity).ToList();
 
 			// Example: Add a higher rarity item with a certain chance (e.g., 10%)
 			if (RandomGenerator.Range(0, 100) < 5 && chestRarity < Rarity.Legendary)

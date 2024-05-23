@@ -3,7 +3,9 @@ guid: 1c13644ac172540498122682ec2bfcc8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - equipmentData: {fileID: 11400000, guid: a0d6d541b4f8d304a8c8f2ff0ab07f19, type: 2}
+  - gauntletData: {fileID: 11400000, guid: a0d6d541b4f8d304a8c8f2ff0ab07f19, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

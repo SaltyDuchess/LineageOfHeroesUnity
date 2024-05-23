@@ -3,7 +3,9 @@ guid: 574efbb6b7e22224d96e958f122d2acc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - equipmentData: {instanceID: 0}
+  - chestData: {fileID: 11400000, guid: 0b6bb71a780839747b75c9332dfe67a3, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

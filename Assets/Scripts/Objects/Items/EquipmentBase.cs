@@ -5,7 +5,7 @@ namespace LineageOfHeroes.Items
 {
 	public class EquipmentBase : MonoBehaviour, IItem
 	{
-		public EquipmentData equipmentData;
+		public EquipmentData equipmentData; // when accessing properties of an equipment that has not been instantiated yet, we must use values from here
 		public int quantity { get; set; } = 1;
 		public ItemType type { get; set; }
 		public Sprite UiElement { get; set; }

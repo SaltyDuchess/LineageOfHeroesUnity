@@ -9,6 +9,7 @@ public class WeaponFactory : MonoBehaviour
 {
 	[SerializeField] private LineageOfHeroes.Items.Weapon damagedDaggerPrefab;
 	[SerializeField] private LineageOfHeroes.Items.Weapon smallSwordPrefab;
+	[SerializeField] private LineageOfHeroes.Items.Weapon sharpenedSwordPrefab;
 
     public EquipmentBase CreateWeapon(WeaponType weaponType)
     {
@@ -18,6 +19,8 @@ public class WeaponFactory : MonoBehaviour
                 return Instantiate(damagedDaggerPrefab);
 						case WeaponType.SmallSword:
                 return Instantiate(smallSwordPrefab);
+						case WeaponType.SharpenedSword:
+								return Instantiate(sharpenedSwordPrefab);
             default:
                 throw new ArgumentException($"Invalid weapon type: {weaponType}");
         }

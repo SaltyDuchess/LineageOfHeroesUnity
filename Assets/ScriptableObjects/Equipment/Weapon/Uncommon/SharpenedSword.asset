@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8190b3f3225207c47b990ce2fc6013bd, type: 3}
+  m_Name: SharpenedSword
+  m_EditorClassIdentifier: 
+  itemType: 7
+  lootDivergance:
+    minValue: 0
+    maxValue: 0
+  itemRarity: 1
+  uiElement: {fileID: 0}
+  stats:
+    bonusHp:
+      minValue: 0
+      maxValue: 0
+    bonusHpRegen:
+      minValue: 0
+      maxValue: 0
+    bonusAbilityPower:
+      minValue: 0
+      maxValue: 0
+    bonusAbilityPowerRegen:
+      minValue: 0
+      maxValue: 0
+    bonusDodgeChance:
+      minValue: 0
+      maxValue: 0
+    bonusCritChance:
+      minValue: 4
+      maxValue: 6.1
+    bonusCritDamage:
+      minValue: 0.5
+      maxValue: 1.25
+    bonusSpeedPool:
+      minValue: 0
+      maxValue: 0
+    bonusMagicDamageResist:
+      minValue: 0
+      maxValue: 0
+    bonusPhysDamageResist:
+      minValue: 0
+      maxValue: 0
+    autoAttackRange: 0
+    damageOverTime: 0
+    damageOverTimeTurns: 0
+    damageRange:
+      minValue: 35.7
+      maxValue: 52.1
+  displayName: Sharpened Sword
+  descriptionLong: 
+  weaponType: 2

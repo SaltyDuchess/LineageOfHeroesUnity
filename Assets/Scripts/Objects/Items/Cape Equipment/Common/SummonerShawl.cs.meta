@@ -3,7 +3,10 @@ guid: 9eabf3426cb7d17458c3d368714bcb7b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - equipmentData: {fileID: 11400000, guid: a7fbfcf942124df49859cbc071b9fbdf, type: 2}
+  - capeData: {fileID: 11400000, guid: a7fbfcf942124df49859cbc071b9fbdf, type: 2}
+  - summonerClass: {fileID: 11400000, guid: 3a9fef4061a1501489bcd28673b5b237, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
