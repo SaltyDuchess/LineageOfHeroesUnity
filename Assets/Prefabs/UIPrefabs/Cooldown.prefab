@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8811263506496211491
+--- !u!1 &3541883155050532398
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8811263506496211492}
-  - component: {fileID: 8811263506496211495}
-  - component: {fileID: 8811263506496211494}
-  - component: {fileID: 8811263506496211493}
+  - component: {fileID: 8512495241911609967}
+  - component: {fileID: -1594622906227680424}
+  - component: {fileID: -5344106981005167666}
+  - component: {fileID: -3047750220919480501}
   m_Layer: 5
-  m_Name: AbilitySelectionPanel
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &8811263506496211492
+--- !u!224 &8512495241911609967
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8811263506496211491}
+  m_GameObject: {fileID: 3541883155050532398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -36,48 +36,48 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -208}
-  m_SizeDelta: {x: 715, y: 36}
+  m_AnchoredPosition: {x: 0, y: 1.5}
+  m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8811263506496211495
+--- !u!114 &-1594622906227680424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8811263506496211491}
+  m_GameObject: {fileID: 3541883155050532398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ecf70cabf4e59744823d59728ae7b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 2
-    m_Right: 0
-    m_Top: 2
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 32, y: 32}
-  m_Spacing: {x: 2, y: 0}
-  m_Constraint: 0
-  m_ConstraintCount: 2
---- !u!222 &8811263506496211494
+  cooldownSprites:
+  - {fileID: 1299637651, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: -1128182730, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: 1455408407, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: -103479026, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: 759987380, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: 1053336944, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: -1392842695, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: -1922253127, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: 136994234, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: 1455199465, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  associatedSpell: {fileID: 0}
+--- !u!222 &-5344106981005167666
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8811263506496211491}
+  m_GameObject: {fileID: 3541883155050532398}
   m_CullTransparentMesh: 1
---- !u!114 &8811263506496211493
+--- !u!114 &-3047750220919480501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8811263506496211491}
+  m_GameObject: {fileID: 3541883155050532398}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 50fd4d426b7a8f34db988f549f1443cb, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

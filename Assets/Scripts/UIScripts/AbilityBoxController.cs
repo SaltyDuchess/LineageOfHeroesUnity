@@ -9,6 +9,7 @@ public class AbilityBoxController : MonoBehaviour
 {
 	public GameObject spellUIPrefab;
 	public GameObject spellSelectionPanelPrefab;
+	public GameObject cooldownUIPrefab;
 	public SpellFactory masterSpellFactory;
 	public Color activeAbilityBoxColor = Color.yellow;
 	public Color notEnoughPowerColor = new Color(1, 0, 0, 0.3f);
@@ -21,6 +22,7 @@ public class AbilityBoxController : MonoBehaviour
 	private Color originalAbilityBoxColor;
 	private bool isSpellActive;
 	private Player player;
+	private GameObject cooldownUIInstance;
 
 	void Start()
 	{
@@ -59,6 +61,17 @@ public class AbilityBoxController : MonoBehaviour
 			{
 				abilityBoxImage.color = notEnoughPowerColor;
 			}
+
+			if (boundSpellInstance.currentCooldown > 0)
+			{
+				abilityBoxImage.color = notEnoughPowerColor;
+				if (cooldownUIInstance == null)
+				{
+					cooldownUIInstance = Instantiate(cooldownUIPrefab, transform);
+					CooldownController cooldownController = cooldownUIInstance.GetComponent<CooldownController>();
+					cooldownController.associatedSpell = boundSpellInstance;
+				}
+			}
 		}
 	}
 
@@ -67,7 +80,7 @@ public class AbilityBoxController : MonoBehaviour
 		// If a spell is bound to the ability box
 		if (boundSpellInstance != null)
 		{
-			if (player.currentAbilityPool >= boundSpellInstance.abilityPowerCost)
+			if (player.currentAbilityPool >= boundSpellInstance.abilityPowerCost && boundSpellInstance.currentCooldown == 0)
 			{
 				// If the spell is currently active, unset the player's queued ability and reset the color
 				if (isSpellActive)

@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellUIPrefab: {fileID: 5342323430648595292, guid: 51db7ed9579136a4ab69aa60073fefc5, type: 3}
   spellSelectionPanelPrefab: {fileID: 8811263506496211491, guid: f4c572ec22e9dd14595875d28b0f1c06, type: 3}
+  cooldownUIPrefab: {fileID: 3541883155050532398, guid: e6ab245c0d8edb84788e64f0dfcc5b9e, type: 3}
   masterSpellFactory: {fileID: 3371941194925560120, guid: 9bc4f04751fa9554d82a96479050ae4b, type: 3}
   activeAbilityBoxColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   notEnoughPowerColor: {r: 1, g: 1, b: 1, a: 0.49803922}
