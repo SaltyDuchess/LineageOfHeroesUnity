@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using LineageOfHeroes.Spells;
 using UnityEngine;
 
 public class SpellManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class SpellManager : MonoBehaviour
 	public static SpellManager Instance { get; private set; }
 	[SerializeField] private SpellLibrary spellLibrary; // Reference to the SpellLibrary
 	private List<SpellData> unlockedSpells; // List of unlocked spells for the player
+	private List<SpellBase> activeSpells; // List of active spells for the player
 
 	private void Awake()
 	{
@@ -14,6 +16,7 @@ public class SpellManager : MonoBehaviour
 		{
 			Instance = this;
 			unlockedSpells = new List<SpellData>();
+			activeSpells = new List<SpellBase>();
 			DontDestroyOnLoad(gameObject);
 		}
 		else
@@ -47,5 +50,33 @@ public class SpellManager : MonoBehaviour
 		return unlockedSpells;
 	}
 
-	// Add more spell management functionality here
+	public void AddActiveSpell(SpellBase spell)
+	{
+		activeSpells.Add(spell);
+	}
+
+	public void RemoveActiveSpell(SpellBase spell)
+	{
+		activeSpells.Remove(spell);
+	}
+
+	public List<SpellBase> GetActiveSpells()
+	{
+		return activeSpells;
+	}
+
+	public void AdvanceCooldownsOnActiveSpells()
+	{
+		if (activeSpells == null)
+		{
+			return;
+		}
+		foreach (SpellBase spell in activeSpells)
+		{
+			if (spell.currentCooldown > 0)
+			{
+				spell.currentCooldown--;
+			}
+		}
+	}
 }

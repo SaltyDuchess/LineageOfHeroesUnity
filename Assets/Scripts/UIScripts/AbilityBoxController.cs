@@ -14,6 +14,7 @@ public class AbilityBoxController : MonoBehaviour
 	public Color activeAbilityBoxColor = Color.yellow;
 	public Color notEnoughPowerColor = new Color(1, 0, 0, 0.3f);
 
+	private SpellManager spellManager;
 	private SpellBase boundSpellInstance;
 	private SpellData boundSpellData;
 	private GameObject spellSelectionPanel;
@@ -24,7 +25,7 @@ public class AbilityBoxController : MonoBehaviour
 	private Player player;
 	private GameObject cooldownUIInstance;
 
-	void Start()
+	void Awake()
 	{
 		// Store a reference to the ability box Image component
 		abilityBoxImage = GetComponent<Image>();
@@ -44,6 +45,7 @@ public class AbilityBoxController : MonoBehaviour
 		entry.callback.AddListener((eventData) => OnPointerClick((PointerEventData)eventData));
 		eventTrigger.triggers.Add(entry);
 
+		spellManager = FindObjectOfType<SpellManager>();
 		player = FindObjectOfType<Player>();
 	}
 
@@ -154,6 +156,9 @@ public class AbilityBoxController : MonoBehaviour
 		// Update the ability box UI (e.g., image)
 		abilityBoxImage.sprite = boundSpellInstance.uiElement;
 
+		// Add the bound spell to the player's active spells
+		spellManager.AddActiveSpell(boundSpellInstance);
+
 		// Close the spell selection panel
 		CloseSpellSelectionPanel();
 	}
@@ -167,6 +172,9 @@ public class AbilityBoxController : MonoBehaviour
 			Destroy(boundSpellInstance.gameObject);
 			boundSpellInstance = null;
 			boundSpellData = null;
+
+			// Remove the bound spell from the player's active spells
+			spellManager.RemoveActiveSpell(boundSpellInstance);
 
 			// Reset the ability box UI (e.g., image) and set the color to the inactive color
 			abilityBoxImage.sprite = originalSprite;

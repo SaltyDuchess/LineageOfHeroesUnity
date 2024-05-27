@@ -14,8 +14,8 @@ namespace LineageOfHeroes.Spells.Berzerker
 			float hp = castingCreature.percentageHealth;
 			float ap = castingCreature.percentageAbilityPool;
 
-			castingCreature.currentHealth = (ap / 100 * castingCreature.healthPool);
-			castingCreature.currentAbilityPool = (hp / 100 * castingCreature.abilityPowerPool);
+			castingCreature.currentHealth = ap / 100 * castingCreature.healthPool;
+			castingCreature.currentAbilityPool = hp / 100 * castingCreature.abilityPowerPool;
 
 			currentCooldown = cooldown;
 			castingCreature.queuedAbility = null;

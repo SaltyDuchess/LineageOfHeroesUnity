@@ -9,11 +9,13 @@ public class PlayerMovement : MonoBehaviour
 	private Vector2Int targetGridPosition;
 	private Vector3Int targetPosition;
 	private bool isMoving;
+	private SpellManager spellManager;
 
 	void Start()
 	{
 		targetGridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
 		targetPosition = (Vector3Int)targetGridPosition;
+		spellManager = FindObjectOfType<SpellManager>();
 	}
 	void Update()
 	{
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void Move(Vector2Int moveDirection)
 	{
+		spellManager.AdvanceCooldownsOnActiveSpells();
 		if (moveDirection == Vector2Int.zero) return;
 
 		Vector2Int currentGridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
@@ -35,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 			if (GetComponent<ICreature>().TryAttack(targetCreature))
 			{
 				GetComponent<Player>().EndTurn();
+
 				return;
 			}
 		}

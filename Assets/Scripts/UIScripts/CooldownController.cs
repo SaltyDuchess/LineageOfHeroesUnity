@@ -15,6 +15,11 @@ public class CooldownController : MonoBehaviour
 
 	void Update()
 	{
+		if (associatedSpell.currentCooldown == 0)
+		{
+			Destroy(gameObject);
+			return;
+		}
 		cooldownImageComponent.sprite = cooldownSprites[associatedSpell.currentCooldown - 1];
 	}
 }
