@@ -1,4 +1,4 @@
-Steps to add a new equipment item to the game
+Steps to add a new equipment item to the game (steps very similar for new consumable or new spell)
 
 Steps for implementing a new item
 
@@ -9,3 +9,12 @@ Steps for implementing a new item
 as well as a tooltip trigger
 4. Add this prefab to the appropriate loot table scriptable object
 5. Update the appropriate item factory to include your new item
+
+For consumables/spells
+
+6. Update the consumable library or spell library on the ability manager under
+prefabs -> abilities -> consumables/spells -> library
+
+For consumables
+
+7. Update the list on consumable manager

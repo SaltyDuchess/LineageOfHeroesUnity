@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healingHootchPrefab: {fileID: 8663749843764035592, guid: 810f75c80d8b7cb49a30d5608b7a8eb5, type: 3}
+  staminaSpiritPrefab: {fileID: 1677628676883684230, guid: e51bc7617bb7b2d43a5d2aead0854e40, type: 3}

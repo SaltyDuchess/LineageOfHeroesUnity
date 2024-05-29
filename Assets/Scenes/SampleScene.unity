@@ -1193,6 +1193,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7408465858606498335, guid: 770bf5051cd1e4d45bea261f947b45ff, type: 3}
+      propertyPath: allConsumables.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7408465858606498335, guid: 770bf5051cd1e4d45bea261f947b45ff, type: 3}
+      propertyPath: allConsumables.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: e82101e50d1799f4fa35e058064a062a, type: 2}
     - target: {fileID: 8337798109896578080, guid: 770bf5051cd1e4d45bea261f947b45ff, type: 3}
       propertyPath: m_RootOrder
       value: 17
