@@ -1,0 +1,23 @@
+using UnityEngine;
+
+namespace LineageOfHeroes.Spells.Berzerker
+{
+	public class InstantImmolation : BerzerkerSpellBase
+	{
+		new private void Awake()
+		{
+			base.Awake();
+			physDamageModifier = 0;
+			descriptionLong = $"{displayName} --- Cost - 100% of Stamina --- Required Level - {levelRequirement}\nDescription - Instantly kills enemy of equal or lesser level";
+		}
+
+		override public void ExecuteAbility(Creature castingCreature = null, Creature defender = null)
+		{
+			base.ExecuteAbility(castingCreature, defender);
+			if (castingCreature.currentLevel >= defender.currentLevel)
+			{
+				defender.currentHealth = 0;
+			}
+		}
+	}
+}

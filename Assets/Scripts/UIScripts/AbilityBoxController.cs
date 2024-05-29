@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using LineageOfHeroes.SpellFactory;
+using LineageOfHeroes.Items;
 using LineageOfHeroes.Spells;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,106 +7,107 @@ using UnityEngine.UI;
 
 public class AbilityBoxController : MonoBehaviour
 {
-	public GameObject spellUIPrefab;
-	public GameObject spellSelectionPanelPrefab;
+	public GameObject abilityUIPrefab;
+	public GameObject abilitySelectionPanelPrefab;
 	public GameObject cooldownUIPrefab;
-	public SpellFactory masterSpellFactory;
+	public AbilityFactory masterAbilityFactory;
 	public Color activeAbilityBoxColor = Color.yellow;
 	public Color notEnoughPowerColor = new Color(1, 0, 0, 0.3f);
 
-	private SpellManager spellManager;
-	private SpellBase boundSpellInstance;
-	private SpellData boundSpellData;
-	private GameObject spellSelectionPanel;
+	private AbilityManager abilityManager;
+	private AbilityBase boundAbility;
+	private GameObject instantiatedAbility;
+	private AbilityData boundAbilityData;
+	private GameObject abilitySelectionPanel;
 	private Image abilityBoxImage;
 	private Sprite originalSprite;
 	private Color originalAbilityBoxColor;
-	private bool isSpellActive;
+	private bool isAbilityActive;
 	private Player player;
+	private PlayerInventory playerInventory;
 	private GameObject cooldownUIInstance;
 
 	void Awake()
 	{
-		// Store a reference to the ability box Image component
 		abilityBoxImage = GetComponent<Image>();
 		originalSprite = abilityBoxImage.sprite;
-
-		// Store the original ability box color
 		originalAbilityBoxColor = abilityBoxImage.color;
 
-		// Add a click event listener to the ability box
 		Button abilityBoxButton = GetComponent<Button>();
-		abilityBoxButton.onClick.AddListener(ToggleUnlockedSpells);
+		abilityBoxButton.onClick.AddListener(ToggleUnlockedAbilities);
 
-		// Add an event trigger for right-clicks to the ability box
 		EventTrigger eventTrigger = gameObject.AddComponent<EventTrigger>();
 		EventTrigger.Entry entry = new EventTrigger.Entry();
 		entry.eventID = EventTriggerType.PointerClick;
 		entry.callback.AddListener((eventData) => OnPointerClick((PointerEventData)eventData));
 		eventTrigger.triggers.Add(entry);
 
-		spellManager = FindObjectOfType<SpellManager>();
+		abilityManager = FindObjectOfType<AbilityManager>();
 		player = FindObjectOfType<Player>();
+		playerInventory = player.GetComponent<PlayerInventory>();
 	}
 
 	void Update()
 	{
-		if (FindObjectOfType<Player>().queuedAbility == null)
+		if (player.queuedAbility == null)
 		{
 			abilityBoxImage.color = originalAbilityBoxColor;
-			isSpellActive = false;
+			isAbilityActive = false;
 		}
-		if (boundSpellInstance != null)
+
+		if (boundAbility != null)
 		{
-			// Check if the player has enough ability power for the spell cost
-			if (player.currentAbilityPool < boundSpellInstance.abilityPowerCost)
+			if (player.currentAbilityPool < boundAbility.abilityPowerCost)
 			{
 				abilityBoxImage.color = notEnoughPowerColor;
 			}
 
-			if (boundSpellInstance.currentCooldown > 0)
+			if (boundAbility.currentCooldown > 0)
 			{
 				abilityBoxImage.color = notEnoughPowerColor;
 				if (cooldownUIInstance == null)
 				{
 					cooldownUIInstance = Instantiate(cooldownUIPrefab, transform);
 					CooldownController cooldownController = cooldownUIInstance.GetComponent<CooldownController>();
-					cooldownController.associatedSpell = boundSpellInstance;
+					cooldownController.associatedAbility = boundAbility;
+				}
+			}
+
+			if (boundAbility is ConsumableBase consumable)
+			{
+				ConsumableData consumableData = playerInventory.ConsumableList.Find(c => c.displayName == consumable.displayName);
+				if (consumableData.quantity == 0)
+				{
+					abilityBoxImage.color = notEnoughPowerColor;
+					isAbilityActive = false;
 				}
 			}
 		}
 	}
 
-	private void ToggleUnlockedSpells()
+	private void ToggleUnlockedAbilities()
 	{
-		// If a spell is bound to the ability box
-		if (boundSpellInstance != null)
+		if (boundAbility != null)
 		{
-			if (player.currentAbilityPool >= boundSpellInstance.abilityPowerCost && boundSpellInstance.currentCooldown == 0)
+			if (player.currentAbilityPool >= boundAbility.abilityPowerCost && boundAbility.currentCooldown == 0)
 			{
-				// If the spell is currently active, unset the player's queued ability and reset the color
-				if (isSpellActive)
+				if (isAbilityActive)
 				{
-					FindObjectOfType<Player>().queuedAbility = null;
+					player.queuedAbility = null;
 					abilityBoxImage.color = originalAbilityBoxColor;
-					isSpellActive = false;
+					isAbilityActive = false;
+				}
+				else if (boundAbility is ConsumableBase consumable)
+				{
+					ConsumableData consumableData = playerInventory.ConsumableList.Find(c => c.displayName == consumable.displayName);
+					if (consumableData.quantity > 0)
+					{
+						QueueAbility();
+					}
 				}
 				else
 				{
-					// Set the player's queued ability to the bound spell
-					FindObjectOfType<Player>().queuedAbility = boundSpellInstance;
-
-					// Change the ability box's appearance to indicate that the spell is active
-					abilityBoxImage.color = activeAbilityBoxColor;
-					isSpellActive = true;
-
-					if (boundSpellInstance.instantCast)
-					{
-						Player player = FindObjectOfType<Player>();
-						player.queuedAbility.ExecuteSpell(player);
-						abilityBoxImage.color = originalAbilityBoxColor;
-						isSpellActive = false;
-					}
+					QueueAbility();
 				}
 			}
 			else
@@ -117,76 +118,74 @@ public class AbilityBoxController : MonoBehaviour
 			return;
 		}
 
-		// If the panel is already open, close it and return
-		if (spellSelectionPanel != null)
+		if (abilitySelectionPanel != null)
 		{
-			CloseSpellSelectionPanel();
+			CloseAbilitySelectionPanel();
 			return;
 		}
 
-		// Reset the ability box color to its original color
 		abilityBoxImage.color = originalAbilityBoxColor;
 
-		// Get the list of unlocked spells and show the spell selection panel
-		List<SpellData> unlockedSpells = FindObjectOfType<SpellManager>().GetUnlockedSpells();
-		ShowUnlockedSpells(unlockedSpells);
+		List<AbilityData> unlockedAbilities = abilityManager.GetUnlockedAbilities();
+		ShowUnlockedAbilities(unlockedAbilities);
 	}
 
-	private void ShowUnlockedSpells(List<SpellData> unlockedSpells)
+	private void ShowUnlockedAbilities(List<AbilityData> unlockedAbilities)
 	{
-		// Create a new panel for displaying the unlocked spells
-		spellSelectionPanel = Instantiate(spellSelectionPanelPrefab, FindObjectOfType<Canvas>().transform);
+		abilitySelectionPanel = Instantiate(abilitySelectionPanelPrefab, FindObjectOfType<Canvas>().transform);
 
-		// Create a UI element for each unlocked spell and add them to the panel
-		foreach (SpellData spell in unlockedSpells)
+		foreach (AbilityData ability in unlockedAbilities)
 		{
-			GameObject spellUI = Instantiate(spellUIPrefab, spellSelectionPanel.transform);
-			spellUI.GetComponent<Image>().sprite = spell.uiElement;
-			Button spellUIButton = spellUI.GetComponent<Button>();
-			spellUIButton.onClick.AddListener(() => BindSpell(spell));
+			GameObject abilityUI = Instantiate(abilityUIPrefab, abilitySelectionPanel.transform);
+			abilityUI.GetComponent<Image>().sprite = ability.uiElement;
+			Button abilityUIButton = abilityUI.GetComponent<Button>();
+			abilityUIButton.onClick.AddListener(() => BindAbility(ability));
 		}
 	}
 
-	private void BindSpell(SpellData spell)
+	private void BindAbility(AbilityData abilityData)
 	{
-		// Bind the selected spell to the ability box
-		boundSpellData = spell;
-		boundSpellInstance = masterSpellFactory.CreateSpell(spell);
+		boundAbilityData = abilityData;
+		boundAbility = masterAbilityFactory.CreateAbility(abilityData);
+		abilityBoxImage.sprite = boundAbility.uiElement;
 
-		// Update the ability box UI (e.g., image)
-		abilityBoxImage.sprite = boundSpellInstance.uiElement;
+		abilityManager.AddActiveAbility(boundAbility);
 
-		// Add the bound spell to the player's active spells
-		spellManager.AddActiveSpell(boundSpellInstance);
-
-		// Close the spell selection panel
-		CloseSpellSelectionPanel();
+		CloseAbilitySelectionPanel();
 	}
 
 	private void OnPointerClick(PointerEventData eventData)
 	{
-		// Check for a right-click and if the ability box has a bound ability
-		if (eventData.button == PointerEventData.InputButton.Right && boundSpellInstance != null)
+		if (eventData.button == PointerEventData.InputButton.Right && boundAbility != null)
 		{
-			// Clear the bound ability from the ability box
-			Destroy(boundSpellInstance.gameObject);
-			boundSpellInstance = null;
-			boundSpellData = null;
-
-			// Remove the bound spell from the player's active spells
-			spellManager.RemoveActiveSpell(boundSpellInstance);
-
-			// Reset the ability box UI (e.g., image) and set the color to the inactive color
+			Destroy(boundAbility.gameObject);
+			boundAbility = null;
+			boundAbilityData = null;
+			abilityManager.RemoveActiveAbility(boundAbility);
 			abilityBoxImage.sprite = originalSprite;
 			abilityBoxImage.color = originalAbilityBoxColor;
 		}
 	}
 
-	private void CloseSpellSelectionPanel()
+	private void CloseAbilitySelectionPanel()
 	{
-		// Destroy the panel and its UI elements
-		Destroy(spellSelectionPanel);
-		spellSelectionPanel = null;
+		Debug.Log("Closing ability selection panel");
+		Debug.Log(abilitySelectionPanel);
+		Destroy(abilitySelectionPanel);
+		abilitySelectionPanel = null;
+	}
+
+	private void QueueAbility()
+	{
+		player.queuedAbility = boundAbility;
+		abilityBoxImage.color = activeAbilityBoxColor;
+		isAbilityActive = true;
+
+		if (boundAbility.instantCast)
+		{
+			player.queuedAbility.ExecuteAbility(player);
+			abilityBoxImage.color = originalAbilityBoxColor;
+			isAbilityActive = false;
+		}
 	}
 }
-

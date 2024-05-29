@@ -16,3 +16,6 @@ MonoBehaviour:
   itemDrops:
   - item: {fileID: 1678268465338092632, guid: 43c71e75fff1cc343a5214c7e805b8ba, type: 3}
     dropWeight: 1
+  consumableDrops:
+  - consumable: {fileID: 8663749843764035592, guid: 810f75c80d8b7cb49a30d5608b7a8eb5, type: 3}
+    dropWeight: 1

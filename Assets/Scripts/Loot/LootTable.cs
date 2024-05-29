@@ -9,8 +9,10 @@ namespace LineageOfHeroes.LootSystem
 	{
 			[SerializeField] private Rarity tableRarity;
 			[SerializeField] private List<IItem.ItemDrop> itemDrops;
+			[SerializeField] private List<IConsumable.ConsumableDrop> consumableDrops;
 
 			public Rarity TableRarity => tableRarity;
 			public List<IItem.ItemDrop> ItemDrops => itemDrops;
+			public List<IConsumable.ConsumableDrop> ConsumableDrops => consumableDrops;
 	}
 }

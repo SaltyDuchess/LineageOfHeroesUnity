@@ -34,35 +34,36 @@ namespace LineageOfHeroes.ItemFactories
     public EquipmentBase CreateItem(EquipmentData equipmentData, object specificType = null)
     {
 			string formattedItemName = equipmentData.displayName.Replace(" ", "");
-        switch (equipmentData.itemType)
-        {
-            case ItemType.Weapon:
-                if (!Enum.TryParse(formattedItemName, out WeaponType weaponType)) throw new ArgumentException("Expected a WeaponType");
-                return weaponFactory.CreateWeapon(weaponType);
-            case ItemType.Boot:
-                if (!Enum.TryParse(formattedItemName, out BootType bootType)) throw new ArgumentException("Expected a BootType");
-                return bootFactory.CreateBoot(bootType);
-            case ItemType.Cape:
-                if (!Enum.TryParse(formattedItemName, out CapeType capeType)) throw new ArgumentException("Expected a CapeType");
-                return capeFactory.CreateCape(capeType);
-            case ItemType.Chest:
-                if (!Enum.TryParse(formattedItemName, out ChestType chestType)) throw new ArgumentException("Expected a ChestType");
-                return chestFactory.CreateChest(chestType);
-            case ItemType.Gauntlet:
-                if (!Enum.TryParse(formattedItemName, out GauntletType gauntletType)) throw new ArgumentException("Expected a GauntletType");
-                return gauntletFactory.CreateGauntlet(gauntletType);
-            case ItemType.Helmet:
-                if (!Enum.TryParse(formattedItemName, out HelmetType helmetType)) throw new ArgumentException("Expected a HelmetType");
-                return helmetFactory.CreateHelmet(helmetType);
-            case ItemType.Ring:
-                if (!Enum.TryParse(formattedItemName, out RingType ringType)) throw new ArgumentException("Expected a RingType");
-                return ringFactory.CreateRing(ringType);
-            case ItemType.Shoulder:
-                if (!Enum.TryParse(formattedItemName, out ShoulderType shoulderType)) throw new ArgumentException("Expected a ShoulderType");
-                return shoulderFactory.CreateShoulder(shoulderType);
-            default:
-                throw new ArgumentException($"Invalid item type: {equipmentData.itemType}");
-        }
+			
+			switch (equipmentData.itemType)
+			{
+				case ItemType.Weapon:
+						if (!Enum.TryParse(formattedItemName, out WeaponType weaponType)) throw new ArgumentException("Expected a WeaponType");
+						return weaponFactory.CreateWeapon(weaponType);
+				case ItemType.Boot:
+						if (!Enum.TryParse(formattedItemName, out BootType bootType)) throw new ArgumentException("Expected a BootType");
+						return bootFactory.CreateBoot(bootType);
+				case ItemType.Cape:
+						if (!Enum.TryParse(formattedItemName, out CapeType capeType)) throw new ArgumentException("Expected a CapeType");
+						return capeFactory.CreateCape(capeType);
+				case ItemType.Chest:
+						if (!Enum.TryParse(formattedItemName, out ChestType chestType)) throw new ArgumentException("Expected a ChestType");
+						return chestFactory.CreateChest(chestType);
+				case ItemType.Gauntlet:
+						if (!Enum.TryParse(formattedItemName, out GauntletType gauntletType)) throw new ArgumentException("Expected a GauntletType");
+						return gauntletFactory.CreateGauntlet(gauntletType);
+				case ItemType.Helmet:
+						if (!Enum.TryParse(formattedItemName, out HelmetType helmetType)) throw new ArgumentException("Expected a HelmetType");
+						return helmetFactory.CreateHelmet(helmetType);
+				case ItemType.Ring:
+						if (!Enum.TryParse(formattedItemName, out RingType ringType)) throw new ArgumentException("Expected a RingType");
+						return ringFactory.CreateRing(ringType);
+				case ItemType.Shoulder:
+						if (!Enum.TryParse(formattedItemName, out ShoulderType shoulderType)) throw new ArgumentException("Expected a ShoulderType");
+						return shoulderFactory.CreateShoulder(shoulderType);
+				default:
+						throw new ArgumentException($"Invalid item type: {equipmentData.itemType}");
+			}
     }
 	}
 }

@@ -1,11 +1,9 @@
-using System.Collections.Generic;
-using LineageOfHeroes.Spells;
 using LineageOfHeroes.ItemTypes;
 using UnityEngine;
 
 namespace LineageOfHeroes.Items
 {
-	public interface IItem : IAbility
+	public interface IItem : IBaseGameObject
 	{
 			public int quantity { get; set; }
 			public Sprite UiElement { get; set; }

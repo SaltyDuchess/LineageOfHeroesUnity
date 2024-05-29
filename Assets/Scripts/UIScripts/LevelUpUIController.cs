@@ -15,7 +15,7 @@ public class LevelUpUIController : MonoBehaviour
 	private GameObject abilityPointIndicator;
 	private GameObject overlay;
 	private TooltipTrigger tooltipTrigger;
-	private SpellFactory spellFactory;
+	private AbilityFactory abilityFactory;
 	private TextMeshProUGUI playerStatsText;
 	private List<SpellBase> createdSpellInstances = new List<SpellBase>();
 
@@ -25,7 +25,7 @@ public class LevelUpUIController : MonoBehaviour
 		player = FindObjectOfType<Player>();
 		abilityPointIndicator = Instantiate(abilityPointIndicatorPrefab, FindObjectOfType<Canvas>().transform);
 		abilityPointIndicator.SetActive(false);
-		spellFactory = FindObjectOfType<SpellFactory>();
+		abilityFactory = FindObjectOfType<AbilityFactory>();
 	}
 
 	void Update()
@@ -43,7 +43,7 @@ public class LevelUpUIController : MonoBehaviour
 	public void OnAbilityPointIndicatorClicked()
 	{
 		player = FindObjectOfType<Player>();
-		spellFactory = FindObjectOfType<SpellFactory>();
+		abilityFactory = FindObjectOfType<AbilityFactory>();
 		// Instantiate the overlay
 		overlay = Instantiate(overlayPrefab, FindObjectOfType<Canvas>().transform);
 
@@ -60,7 +60,7 @@ public class LevelUpUIController : MonoBehaviour
 		// Iterate through the player's class spells and create a UI object for each one
 		foreach (SpellData spell in player.playerClass.classSpells)
 		{
-			SpellBase spellInstance = spellFactory.CreateSpell(spell);
+			SpellBase spellInstance = (SpellBase)abilityFactory.CreateAbility(spell);
 			createdSpellInstances.Add(spellInstance);
 			GameObject spellUI = Instantiate(spellLevelUpPrefab);
 			spellUI.transform.SetParent(overlay.transform.Find("SpellUILevelupLayout").transform, false);
@@ -88,9 +88,9 @@ public class LevelUpUIController : MonoBehaviour
 		// Check if the player has enough ability points and if the spell is available
 		if (player.abilityPoints > 0 && player.currentLevel >= spell.levelRequirement)
 		{
-			SpellManager spellManager = FindObjectOfType<SpellManager>();
+			AbilityManager spellManager = FindObjectOfType<AbilityManager>();
 			// Unlock the spell and deduct an ability point
-			spellManager.UnlockSpell(spell.spellName);
+			spellManager.UnlockAbility(spell.displayName);
 			player.abilityPoints--;
 
 			// Update the player stats text

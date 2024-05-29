@@ -9,13 +9,13 @@ public class PlayerMovement : MonoBehaviour
 	private Vector2Int targetGridPosition;
 	private Vector3Int targetPosition;
 	private bool isMoving;
-	private SpellManager spellManager;
+	private AbilityManager abilityManager;
 
 	void Start()
 	{
 		targetGridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
 		targetPosition = (Vector3Int)targetGridPosition;
-		spellManager = FindObjectOfType<SpellManager>();
+		abilityManager = FindObjectOfType<AbilityManager>();
 	}
 	void Update()
 	{
@@ -24,8 +24,12 @@ public class PlayerMovement : MonoBehaviour
 
 	void Move(Vector2Int moveDirection)
 	{
-		spellManager.AdvanceCooldownsOnActiveSpells();
-		if (moveDirection == Vector2Int.zero) return;
+		abilityManager.AdvanceCooldownsOnActiveAbilities();
+		if (moveDirection == Vector2Int.zero)
+		{
+			GetComponent<Player>().EndTurn();
+			return;
+		}
 
 		Vector2Int currentGridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
 		Vector2Int targetGridPosition = currentGridPosition + moveDirection * gridSize;
@@ -71,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
 	public void OnMoveUp() { Move(new Vector2Int(0, 1)); }
 	public void OnMoveUpRight() { Move(new Vector2Int(1, 1)); }
 	public void OnMoveLeft() { Move(new Vector2Int(-1, 0)); }
-	public void OnSkipTurn() { GetComponent<Player>().EndTurn(); }
+	public void OnSkipTurn() { Move(new Vector2Int(0, 0)); }
 	public void OnMoveRight() { Move(new Vector2Int(1, 0)); }
 	public void OnMoveDownLeft() { Move(new Vector2Int(-1, -1)); }
 	public void OnMoveDown() { Move(new Vector2Int(0, -1)); }

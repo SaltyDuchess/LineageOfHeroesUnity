@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class CooldownController : MonoBehaviour
 {
 	public Sprite[] cooldownSprites;
-	public SpellBase associatedSpell;
+	public IAbility associatedAbility;
 	private Image cooldownImageComponent;
 
 	void Awake()
@@ -15,11 +15,14 @@ public class CooldownController : MonoBehaviour
 
 	void Update()
 	{
-		if (associatedSpell.currentCooldown == 0)
+		if (associatedAbility != null)
 		{
-			Destroy(gameObject);
-			return;
+			if (associatedAbility.currentCooldown == 0)
+			{
+				Destroy(gameObject);
+				return;
+			}
+			cooldownImageComponent.sprite = cooldownSprites[associatedAbility.currentCooldown - 1];
 		}
-		cooldownImageComponent.sprite = cooldownSprites[associatedSpell.currentCooldown - 1];
 	}
 }

@@ -44,7 +44,7 @@ public class InventoryUIController : MonoBehaviour
 		}
 
 		// Add new items
-		foreach (EquipmentData item in playerInventory.InventoryList)
+		foreach (EquipmentData item in playerInventory.EquipmentList)
 		{
 			GameObject newItemUIBox = Instantiate(itemUIBoxPrefab, inventoryPanel.transform);
 

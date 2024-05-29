@@ -107,12 +107,12 @@ namespace LineageOfHeroes.Items
 			}
 			Debug.Log("Equipped " + item.displayName);
 			// Call the UpdateStats method after equipping an item
-			UpdateStats(FindObjectOfType<Player>(), FindObjectOfType<SpellManager>(), item.type);
+			UpdateStats(FindObjectOfType<Player>(), FindObjectOfType<AbilityManager>(), item.type);
 		}
 
 
 
-		public void UpdateStats(Player player, SpellManager spellbook, ItemType itemType)
+		public void UpdateStats(Player player, AbilityManager spellbook, ItemType itemType)
 		{
 			if (itemType == ItemType.Weapon)
 			{
@@ -158,7 +158,7 @@ namespace LineageOfHeroes.Items
 		}
 
 
-		private void UpdateEquippedCape(Cape equippedCape, Cape previousCape, Player player, SpellManager spellManager)
+		private void UpdateEquippedCape(Cape equippedCape, Cape previousCape, Player player, AbilityManager abilityManager)
 		{
 			if (equippedCape != null)
 			{
@@ -166,13 +166,13 @@ namespace LineageOfHeroes.Items
 				{
 					if (previousCape != null)
 					{
-						spellManager.RemoveSpell(previousCape.boundAbility.spellName);
+						abilityManager.RemoveAbility(previousCape.boundAbility.displayName);
 						ClearAbilityBoxesWithSpell(previousCape.boundAbility);
 					}
 
-					if (!spellManager.GetUnlockedSpells().Find(s => s.name == equippedCape.boundAbility.spellName))
+					if (!abilityManager.GetUnlockedAbilities().Find(s => s.name == equippedCape.boundAbility.displayName))
 					{
-						spellManager.UnlockSpell(equippedCape.boundAbility.spellName);
+						abilityManager.UnlockAbility(equippedCape.boundAbility.displayName);
 					}
 				}
 			}

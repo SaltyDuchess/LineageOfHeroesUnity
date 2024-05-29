@@ -4,7 +4,7 @@ using UnityEngine;
 public class Creature : MonoBehaviour, ICreature
 {
 	public bool IsPlayer;
-	public SpellBase queuedAbility { get; set; } = null;
+	public IAbility queuedAbility { get; set; } = null;
 	public CreatureStats stats = new CreatureStats();
 	public float speedPool { get; set; }
 	public float healthPool { get; set; } = 100;
@@ -98,7 +98,7 @@ public class Creature : MonoBehaviour, ICreature
 		// if the creature has a queued ability, trigger the ability rather than the auto attack
 		if (queuedAbility != null)
 		{
-			queuedAbility.ExecuteSpell(this, target);
+			queuedAbility.ExecuteAbility(this, target);
 			return true;
 		}
 
