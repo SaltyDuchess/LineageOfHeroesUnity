@@ -44,7 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764808a87b515b744aa7508d4c0f235f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagedDaggerPrefab: {fileID: 3843817347198014565, guid: 11f6dbf8eb910604097d61ca44d9c31a, type: 3}
-  smallSwordPrefab: {fileID: 7871451180931666999, guid: 8571f2e42952e714db7f46abe9afa0e5, type: 3}
-  sharpenedSwordPrefab: {fileID: -6255579982006036474, guid: 6507a323ed0431047a6d95bfec3f8a2f, type: 3}
-  brutalBladePrefab: {fileID: 1678268465338092632, guid: 43c71e75fff1cc343a5214c7e805b8ba, type: 3}
+  weaponPrefabs:
+  - weaponType: 0
+    weaponPrefab: {fileID: 3843817347198014565, guid: 11f6dbf8eb910604097d61ca44d9c31a, type: 3}
+  - weaponType: 1
+    weaponPrefab: {fileID: 7871451180931666999, guid: 8571f2e42952e714db7f46abe9afa0e5, type: 3}
+  - weaponType: 2
+    weaponPrefab: {fileID: -6255579982006036474, guid: 6507a323ed0431047a6d95bfec3f8a2f, type: 3}
+  - weaponType: 3
+    weaponPrefab: {fileID: 1678268465338092632, guid: 43c71e75fff1cc343a5214c7e805b8ba, type: 3}

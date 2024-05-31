@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171922a10f1f1c84c99f740f5ff601e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grittyGauntletPrefab: {fileID: 481646325732963515, guid: 6d6bfe1cc64b4f743a4c4d45690e3b3f, type: 3}
-  fatalFistsPrefab: {fileID: 3098851389970513088, guid: 7609baccf2580a4419037fa6468f622d, type: 3}
+  gauntletPrefabs:
+  - gauntletType: 0
+    gauntletPrefab: {fileID: 3098851389970513088, guid: 7609baccf2580a4419037fa6468f622d, type: 3}
+  - gauntletType: 1
+    gauntletPrefab: {fileID: 481646325732963515, guid: 6d6bfe1cc64b4f743a4c4d45690e3b3f, type: 3}

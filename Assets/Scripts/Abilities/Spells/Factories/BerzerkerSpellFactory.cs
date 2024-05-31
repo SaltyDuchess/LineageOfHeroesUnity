@@ -1,38 +1,53 @@
 using System;
+using System.Collections.Generic;
 using LineageOfHeroes.Spells.Berzerker;
 using LineageOfHeroes.Spells.SpellTypes;
 using UnityEngine;
 
 namespace LineageOfHeroes.SpellFactory.Berzerker
 {
-    public class BerzerkerSpellFactory : MonoBehaviour
-    {
-        [SerializeField] private BeastlyBite beastlyBitePrefab;
-        [SerializeField] private FatalFinish fatalFinishPrefab;
-        [SerializeField] private InstantImmolation instantImmolationPrefab;
-        [SerializeField] private SanguinarySwap sanguinarySwapPrefab;
-        [SerializeField] private StunningStrike stunningStrikePrefab;
-        [SerializeField] private WeepingWounds weepingWoundsPrefab;
+	public class BerzerkerSpellFactory : MonoBehaviour
+	{
+		[SerializeField] private List<BerzerkerSpellPrefabMapping> berzerkerSpellPrefabs;
 
-        public BerzerkerSpellBase CreateBerzerkerSpell(BerzerkerSpellType spellType)
-        {
-            switch (spellType)
-            {
-                case BerzerkerSpellType.BeastlyBite:
-                    return Instantiate(beastlyBitePrefab);
-                case BerzerkerSpellType.FatalFinish:
-                    return Instantiate(fatalFinishPrefab);
-                case BerzerkerSpellType.InstantImmolation:
-                    return Instantiate(instantImmolationPrefab);
-                case BerzerkerSpellType.SanguinarySwap:
-                    return Instantiate(sanguinarySwapPrefab);
-                case BerzerkerSpellType.StunningStrike:
-                    return Instantiate(stunningStrikePrefab);
-                case BerzerkerSpellType.WeepingWound:
-                    return Instantiate(weepingWoundsPrefab);
-                default:
-                    throw new ArgumentException($"Invalid berzerker spell type: {spellType}");
-            }
-        }
-    }
+		private Dictionary<BerzerkerSpellType, BerzerkerSpellBase> berzerkerSpellPrefabDict;
+
+		private void Awake()
+		{
+			InitializeDictionary();
+		}
+
+		private void InitializeDictionary()
+		{
+			berzerkerSpellPrefabDict = new Dictionary<BerzerkerSpellType, BerzerkerSpellBase>();
+			foreach (var mapping in berzerkerSpellPrefabs)
+			{
+				if (mapping.spellPrefab != null)
+				{
+					berzerkerSpellPrefabDict[mapping.spellType] = mapping.spellPrefab;
+				}
+			}
+		}
+
+		public BerzerkerSpellBase CreateBerzerkerSpell(BerzerkerSpellType spellType)
+		{
+			if (berzerkerSpellPrefabDict == null)
+			{
+				InitializeDictionary();
+			}
+
+			if (berzerkerSpellPrefabDict.TryGetValue(spellType, out var prefab))
+			{
+				return Instantiate(prefab);
+			}
+			throw new ArgumentException($"Invalid berzerker spell type: {spellType}");
+		}
+
+		[Serializable]
+		public struct BerzerkerSpellPrefabMapping
+		{
+			public BerzerkerSpellType spellType;
+			public BerzerkerSpellBase spellPrefab;
+		}
+	}
 }

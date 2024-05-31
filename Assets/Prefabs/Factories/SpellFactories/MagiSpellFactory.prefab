@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b61e209faa4d84b8ec2245dd842fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livelyLightningPrefab: {fileID: 895435466227893336, guid: 24c5e1b39fd795944a11de865f07565d, type: 3}
-  magicMissilePrefab: {fileID: 2308012370240962057, guid: b2b338d72de08aa418199b53e362813e, type: 3}
-  weakWardPrefab: {fileID: 8847199309721405469, guid: baab9de001b3e514c909bd5a1fb4090c, type: 3}
+  magiSpellPrefabs:
+  - spellType: 0
+    spellPrefab: {fileID: 895435466227893336, guid: 24c5e1b39fd795944a11de865f07565d, type: 3}
+  - spellType: 1
+    spellPrefab: {fileID: 2308012370240962057, guid: b2b338d72de08aa418199b53e362813e, type: 3}
+  - spellType: 2
+    spellPrefab: {fileID: 8847199309721405469, guid: baab9de001b3e514c909bd5a1fb4090c, type: 3}

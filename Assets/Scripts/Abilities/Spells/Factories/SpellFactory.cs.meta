@@ -3,7 +3,10 @@ guid: c2ee19e21586a694e9b6be21968df750
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - berzerkerSpellFactory: {fileID: 7162493202947375072, guid: 4c4ffabeb65bb1245a28d336d51ab56d, type: 3}
+  - magiSpellFactory: {fileID: 8332413702688852002, guid: ac83592d546af044ea94ad0595457dd1, type: 3}
+  - summonerSpellFactory: {fileID: 6048863522616304234, guid: 5e452bee80cef2c4e8ab440dffe2c804, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

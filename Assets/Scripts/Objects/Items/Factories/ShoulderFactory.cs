@@ -1,25 +1,53 @@
 using System;
+using System.Collections.Generic;
 using LineageOfHeroes.Items;
 using LineageOfHeroes.ItemTypes.ShoulderType;
 using UnityEngine;
 
 namespace LineageOfHeroes.ItemFactories.Shoulder
 {
-	public class ShoulderFactory : MonoBehaviour
-	{
-		[SerializeField] private LineageOfHeroes.Items.Shoulder pauldronOfPertinacityPrefab;
-		[SerializeField] private LineageOfHeroes.Items.Shoulder strongShoulderPrefab;
-    public EquipmentBase CreateShoulder(ShoulderType shoulderType)
+    public class ShoulderFactory : MonoBehaviour
     {
-        switch (shoulderType)
+        [SerializeField] private List<ShoulderPrefabMapping> shoulderPrefabs;
+
+        private Dictionary<ShoulderType, LineageOfHeroes.Items.Shoulder> shoulderPrefabDict;
+
+        private void Awake()
         {
-            case ShoulderType.PauldronOfPertinacity:
-                return Instantiate(pauldronOfPertinacityPrefab);
-						case ShoulderType.StrongShoulder:
-                return Instantiate(strongShoulderPrefab);
-            default:
-                throw new ArgumentException($"Invalid weapon type: {shoulderType}");
+            InitializeDictionary();
+        }
+
+        private void InitializeDictionary()
+        {
+            shoulderPrefabDict = new Dictionary<ShoulderType, LineageOfHeroes.Items.Shoulder>();
+            foreach (var mapping in shoulderPrefabs)
+            {
+                if (mapping.shoulderPrefab != null)
+                {
+                    shoulderPrefabDict[mapping.shoulderType] = mapping.shoulderPrefab;
+                }
+            }
+        }
+
+        public EquipmentBase CreateShoulder(ShoulderType shoulderType)
+        {
+            if (shoulderPrefabDict == null)
+            {
+                InitializeDictionary();
+            }
+
+            if (shoulderPrefabDict.TryGetValue(shoulderType, out var prefab))
+            {
+                return Instantiate(prefab);
+            }
+            throw new ArgumentException($"Invalid shoulder type: {shoulderType}");
+        }
+
+        [Serializable]
+        public struct ShoulderPrefabMapping
+        {
+            public ShoulderType shoulderType;
+            public LineageOfHeroes.Items.Shoulder shoulderPrefab;
         }
     }
-	}
 }

@@ -26,6 +26,8 @@ namespace LineageOfHeroes.Items
 						Debug.LogWarning("No eligible spells found for Magi Mantle");
 						boundAbility = null;
 				}
+
+				descriptionLong = $"{displayName}\nType - {type}\nAdds {boundAbility.displayName} to your available abilities";
 			}
 	}
 }

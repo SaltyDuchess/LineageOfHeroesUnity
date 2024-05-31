@@ -1,25 +1,53 @@
 using System;
+using System.Collections.Generic;
 using LineageOfHeroes.Items;
 using LineageOfHeroes.ItemTypes.ChestType;
 using UnityEngine;
 
 namespace LineageOfHeroes.ItemFactories.Chest
 {
-	public class ChestFactory : MonoBehaviour
-	{
-		[SerializeField] private LineageOfHeroes.Items.HealthyHauberk healthyHauberkPrefab;
-		[SerializeField] private LineageOfHeroes.Items.StaminaStandard staminaStandardPrefab;
-    public EquipmentBase CreateChest(ChestType chestType)
+    public class ChestFactory : MonoBehaviour
     {
-        switch (chestType)
+        [SerializeField] private List<ChestPrefabMapping> chestPrefabs;
+
+        private Dictionary<ChestType, LineageOfHeroes.Items.Chest> chestPrefabDict;
+
+        private void Awake()
         {
-            case ChestType.HealthyHauberk:
-                return Instantiate(healthyHauberkPrefab);
-						case ChestType.StaminaStandard:
-                return Instantiate(staminaStandardPrefab);
-            default:
-                throw new ArgumentException($"Invalid weapon type: {chestType}");
+            InitializeDictionary();
+        }
+
+        private void InitializeDictionary()
+        {
+            chestPrefabDict = new Dictionary<ChestType, LineageOfHeroes.Items.Chest>();
+            foreach (var mapping in chestPrefabs)
+            {
+                if (mapping.chestPrefab != null)
+                {
+                    chestPrefabDict[mapping.chestType] = mapping.chestPrefab;
+                }
+            }
+        }
+
+        public EquipmentBase CreateChest(ChestType chestType)
+        {
+            if (chestPrefabDict == null)
+            {
+                InitializeDictionary();
+            }
+
+            if (chestPrefabDict.TryGetValue(chestType, out var prefab))
+            {
+                return Instantiate(prefab);
+            }
+            throw new ArgumentException($"Invalid chest type: {chestType}");
+        }
+
+        [Serializable]
+        public struct ChestPrefabMapping
+        {
+            public ChestType chestType;
+            public LineageOfHeroes.Items.Chest chestPrefab;
         }
     }
-	}
 }

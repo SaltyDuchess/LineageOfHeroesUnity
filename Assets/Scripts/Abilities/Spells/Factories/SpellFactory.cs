@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using LineageOfHeroes.SpellFactory.Berzerker;
 using LineageOfHeroes.SpellFactory.Magi;
 using LineageOfHeroes.SpellFactory.Summoner;
@@ -8,28 +9,45 @@ using UnityEngine;
 
 namespace LineageOfHeroes.SpellFactory
 {
-	public class SpellFactory: MonoBehaviour
+	public class SpellFactory : MonoBehaviour
 	{
-		[SerializeField] public BerzerkerSpellFactory berzerkerSpellFactory;
-		[SerializeField] public MagiSpellFactory magiSpellFactory;
-		[SerializeField] public SummonerSpellFactory summonerSpellFactory;
+		[SerializeField] private BerzerkerSpellFactory berzerkerSpellFactory;
+		[SerializeField] private MagiSpellFactory magiSpellFactory;
+		[SerializeField] private SummonerSpellFactory summonerSpellFactory;
+
+		private Dictionary<SpellType, Func<string, SpellBase>> factoryMap;
+
+		private void Awake()
+		{
+			factoryMap = new Dictionary<SpellType, Func<string, SpellBase>>
+				{
+						{ SpellType.Berzerker, formattedSpellName => CreateSpell<BerzerkerSpellType>(formattedSpellName, berzerkerSpellFactory.CreateBerzerkerSpell) },
+						{ SpellType.Magi, formattedSpellName => CreateSpell<MagiSpellType>(formattedSpellName, magiSpellFactory.CreateMagiSpell) },
+						{ SpellType.Summoner, formattedSpellName => CreateSpell<SummonerSpellType>(formattedSpellName, summonerSpellFactory.CreateSummonerSpell) }
+				};
+		}
+
 		public SpellBase CreateSpell(SpellData spellData)
 		{
-			string formattedSpellName = spellData.displayName.Replace(" ", "");
-			switch (spellData.spellType)
+			if (factoryMap == null)
 			{
-				case SpellType.Berzerker:
-					if (!Enum.TryParse(formattedSpellName, out BerzerkerSpellType berzerkerType)) throw new ArgumentException("Expected a BerzerkerSpellType instead received " + formattedSpellName);
-					return berzerkerSpellFactory.CreateBerzerkerSpell(berzerkerType);
-				case SpellType.Magi:
-					if (!Enum.TryParse(formattedSpellName, out MagiSpellType magiType)) throw new ArgumentException("Expected a MagiSpellType instead received " + formattedSpellName);
-					return magiSpellFactory.CreateMagiSpell(magiType);
-				case SpellType.Summoner:
-					if (!Enum.TryParse(formattedSpellName, out SummonerSpellType summonerType)) throw new ArgumentException("Expected a SummonerSpellType instead received " + formattedSpellName);
-					return summonerSpellFactory.CreateSummonerSpell(summonerType);
-				default:
-					throw new ArgumentException($"Invalid spell type: {spellData.spellType}");
+				Awake();
 			}
+			string formattedSpellName = spellData.displayName.Replace(" ", "");
+			if (factoryMap.TryGetValue(spellData.spellType, out var factoryMethod))
+			{
+				return factoryMethod(formattedSpellName);
+			}
+			throw new ArgumentException($"Invalid spell type: {spellData.spellType}");
+		}
+
+		private SpellBase CreateSpell<T>(string formattedSpellName, Func<T, SpellBase> createMethod) where T : struct, Enum
+		{
+			if (Enum.TryParse(formattedSpellName, out T spellType))
+			{
+				return createMethod(spellType);
+			}
+			throw new ArgumentException($"Expected a {typeof(T).Name} instead received {formattedSpellName}");
 		}
 	}
 }

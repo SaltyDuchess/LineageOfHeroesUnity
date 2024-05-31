@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using LineageOfHeroes.Spells;
 using LineageOfHeroes.Spells.Magi;
 using LineageOfHeroes.Spells.SpellTypes;
@@ -8,22 +9,46 @@ namespace LineageOfHeroes.SpellFactory.Magi
 {
 	public class MagiSpellFactory : MonoBehaviour
 	{
-		[SerializeField] private LivelyLightning livelyLightningPrefab;
-		[SerializeField] private MagicMissile magicMissilePrefab;
-		[SerializeField] private WeakWard weakWardPrefab;
+		[SerializeField] private List<MagiSpellPrefabMapping> magiSpellPrefabs;
+
+		private Dictionary<MagiSpellType, MagiSpellBase> magiSpellPrefabDict;
+
+		private void Awake()
+		{
+			InitializeDictionary();
+		}
+
+		private void InitializeDictionary()
+		{
+			magiSpellPrefabDict = new Dictionary<MagiSpellType, MagiSpellBase>();
+			foreach (var mapping in magiSpellPrefabs)
+			{
+				if (mapping.spellPrefab != null)
+				{
+					magiSpellPrefabDict[mapping.spellType] = mapping.spellPrefab;
+				}
+			}
+		}
+
 		public MagiSpellBase CreateMagiSpell(MagiSpellType spellType)
 		{
-			switch (spellType)
+			if (magiSpellPrefabDict == null)
 			{
-				case MagiSpellType.LivelyLightning:
-					return Instantiate(livelyLightningPrefab);
-				case MagiSpellType.MagicMissile:
-					return Instantiate(magicMissilePrefab);
-				case MagiSpellType.WeakWard:
-					return Instantiate(weakWardPrefab);
-				default:
-					throw new ArgumentException($"Invalid magi spell type: {spellType}");
+				InitializeDictionary();
 			}
+
+			if (magiSpellPrefabDict.TryGetValue(spellType, out var prefab))
+			{
+				return Instantiate(prefab);
+			}
+			throw new ArgumentException($"Invalid magi spell type: {spellType}");
+		}
+
+		[Serializable]
+		public struct MagiSpellPrefabMapping
+		{
+			public MagiSpellType spellType;
+			public MagiSpellBase spellPrefab;
 		}
 	}
 }

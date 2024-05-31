@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4366f3bb83a25e440824224585b3616b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellData: {fileID: 11400000, guid: 12d6c460e48bff44cbccf174e2682c85, type: 2}
   magiSpellData: {fileID: 11400000, guid: 12d6c460e48bff44cbccf174e2682c85, type: 2}
 --- !u!114 &1746101477204600519
 MonoBehaviour:

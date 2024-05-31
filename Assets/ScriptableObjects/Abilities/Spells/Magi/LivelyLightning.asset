@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d81f23300fbfe0459d706d4f384fceb, type: 3}
   m_Name: LivelyLightning
   m_EditorClassIdentifier: 
-  spellType: 1
-  spellName: Lively Lightning
+  displayName: Lively Lightning
   uiElement: {fileID: -1255387013, guid: 97f64ed05ca649a4297944ef3f159cb4, type: 3}
   levelRequirement: 2
   abilityPowerCost: 33
   cooldown: 6
   instantCast: 0
+  descriptionLong: 
+  spellType: 1
   physDamageModifier: 0
   magicDamageModifier: 0
   DOT: 0

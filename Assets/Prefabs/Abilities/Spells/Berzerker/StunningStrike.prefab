@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb39986c2878b2e409e8c860ebc962fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellData: {fileID: 11400000, guid: 6933602e278a2e74ea5b8fd3f03f8b2d, type: 2}
   berzerkerSpellData: {fileID: 11400000, guid: 6933602e278a2e74ea5b8fd3f03f8b2d, type: 2}
 --- !u!114 &-2180448948036827127
 MonoBehaviour:

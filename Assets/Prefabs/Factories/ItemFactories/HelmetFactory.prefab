@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e84cdf274b65a4cb22b28501017202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationRemedyPrefab: {fileID: 8005931309639036599, guid: 2c41dd8fccaa5fe4988add1deba5bc7a, type: 3}
-  staminaSurgePrefab: {fileID: 9815144059868402, guid: 8c37c0fb0f7159a43b3717815bb0af11, type: 3}
+  helmetPrefabs:
+  - helmetType: 0
+    helmetPrefab: {fileID: 8005931309639036599, guid: 2c41dd8fccaa5fe4988add1deba5bc7a, type: 3}
+  - helmetType: 1
+    helmetPrefab: {fileID: 9815144059868402, guid: 8c37c0fb0f7159a43b3717815bb0af11, type: 3}

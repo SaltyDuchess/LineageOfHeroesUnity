@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3bddc86dfb8b84485e3a34069f46c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellData: {fileID: 11400000, guid: b0dff06e1c7443d4290c52d58341e41a, type: 2}
   summonerSpellData: {fileID: 11400000, guid: b0dff06e1c7443d4290c52d58341e41a, type: 2}
 --- !u!114 &-4265312106347626464
 MonoBehaviour:

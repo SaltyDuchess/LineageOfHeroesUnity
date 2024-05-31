@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e88b488f9a46f4b8a206b7d42ab13c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magicalMuddlingPrefab: {fileID: 8315793386513457153, guid: 150b67e3ab26d634fb1d16629d7f8163, type: 3}
-  physicalProtectionPrefab: {fileID: 6614155892496796509, guid: 6c30b31692fca8a40b8f4ac04c396618, type: 3}
+  ringPrefabs:
+  - ringType: 0
+    ringPrefab: {fileID: 8315793386513457153, guid: 150b67e3ab26d634fb1d16629d7f8163, type: 3}
+  - ringType: 1
+    ringPrefab: {fileID: 6614155892496796509, guid: 6c30b31692fca8a40b8f4ac04c396618, type: 3}

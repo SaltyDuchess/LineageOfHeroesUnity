@@ -41,7 +41,7 @@ namespace LineageOfHeroes.LootSystem
 			}
 
 			// Example: Add 3 random items from the eligible items
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 13; i++)
 			{
 				if (eligibleEquipment.Count > 0)
 				{

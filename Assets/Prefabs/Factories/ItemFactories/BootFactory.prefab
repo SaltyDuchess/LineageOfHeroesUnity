@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d0869d9bfe27f4e99ae545397e2698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sneakySneakersPrefab: {fileID: 2746925462706372375, guid: 878e00926f513824889b91d4d490e57b, type: 3}
+  bootPrefabs:
+  - bootType: 0
+    bootPrefab: {fileID: 2746925462706372375, guid: 878e00926f513824889b91d4d490e57b, type: 3}

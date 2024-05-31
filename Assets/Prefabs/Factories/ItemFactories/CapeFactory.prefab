@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d4d31c314641a4da3884e4a94aec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magiMantlePrefab: {fileID: 5165588385046353271, guid: fc819765936ff5e42b0ccf94a956d73a, type: 3}
-  summonerShawlPrefab: {fileID: 1077823177664852173, guid: 38e5438ace155eb42a078f4e04786d71, type: 3}
+  capePrefabs:
+  - capeType: 0
+    capePrefab: {fileID: 5165588385046353271, guid: fc819765936ff5e42b0ccf94a956d73a, type: 3}
+  - capeType: 1
+    capePrefab: {fileID: 1077823177664852173, guid: 38e5438ace155eb42a078f4e04786d71, type: 3}

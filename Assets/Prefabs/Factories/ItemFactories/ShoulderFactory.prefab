@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f8f8e7c154c3a46a95e7de32897433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauldronOfPertinacityPrefab: {fileID: 7885195100492623984, guid: 056a73fcd53e10e4c9949e653fd6f0fd, type: 3}
-  strongShoulderPrefab: {fileID: 7344650693014816323, guid: 406a6c91bb37701478978b2e579b673b, type: 3}
+  shoulderPrefabs:
+  - shoulderType: 0
+    shoulderPrefab: {fileID: 7885195100492623984, guid: 056a73fcd53e10e4c9949e653fd6f0fd, type: 3}
+  - shoulderType: 1
+    shoulderPrefab: {fileID: 7344650693014816323, guid: 406a6c91bb37701478978b2e579b673b, type: 3}

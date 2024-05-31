@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68f62a95f3bd084da87c301209487c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  measlyMiasmaPrefab: {fileID: 21999731796401248, guid: 61082eab1c0f60145b032377c296fb64, type: 3}
-  piedPiperPrefab: {fileID: 6770108613055320339, guid: 52da72ec7f1e58b42955549ef4a1e54c, type: 3}
+  summonerSpellPrefabs:
+  - spellType: 0
+    spellPrefab: {fileID: 21999731796401248, guid: 61082eab1c0f60145b032377c296fb64, type: 3}
+  - spellType: 1
+    spellPrefab: {fileID: 6770108613055320339, guid: 52da72ec7f1e58b42955549ef4a1e54c, type: 3}

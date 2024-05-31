@@ -11,26 +11,24 @@ namespace LineageOfHeroes.Items
 		[SerializeField] private ClassSpellLibrary summonerClass;
 			new private void Awake()
 			{
-					displayName = "Summoner Shawl";
-					capeType = ItemTypes.CapeType.CapeType.SummonerShawl;
-					itemRarity = Rarity.Common;
+				base.Awake();
 
-					var eligibleSpells = summonerClass.classSpells
-							.Where(spell => spell.levelRequirement >= 2 && spell.levelRequirement <= 3)
-							.ToList();
+				var eligibleSpells = summonerClass.classSpells
+						.Where(spell => spell.levelRequirement >= 2 && spell.levelRequirement <= 3)
+						.ToList();
 
-					if (eligibleSpells.Count > 0)
-					{
-							int randomIndex = RandomGenerator.Range(0, eligibleSpells.Count);
-							boundAbility = eligibleSpells[randomIndex];
-					}
-					else
-					{
-							Debug.LogWarning("No eligible spells found for Summoner Shawl");
-							boundAbility = null;
-					}
+				if (eligibleSpells.Count > 0)
+				{
+						int randomIndex = RandomGenerator.Range(0, eligibleSpells.Count);
+						boundAbility = eligibleSpells[randomIndex];
+				}
+				else
+				{
+						Debug.LogWarning("No eligible spells found for Summoner Shawl");
+						boundAbility = null;
+				}
 
-					descriptionLong = $"{displayName}\nType - {type}\nAdds {boundAbility.displayName} to your available abilities";
-			}
+				descriptionLong = $"{displayName}\nType - {type}\nAdds {boundAbility.displayName} to your available abilities";
+		}
 	}
 }
