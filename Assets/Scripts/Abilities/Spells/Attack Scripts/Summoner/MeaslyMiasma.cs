@@ -1,3 +1,5 @@
+using LineageOfHeroes.AttackScripts;
+
 namespace LineageOfHeroes.Spells.Summoner
 {
 	public class MeaslyMiasma : SummonerSpellBase
@@ -12,18 +14,9 @@ namespace LineageOfHeroes.Spells.Summoner
 		override public void ExecuteAbility(Creature castingCreature = null, Creature defender = null)
 		{
 			base.ExecuteAbility(castingCreature, defender);
-			float damage;
-
-			damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * magicDamageModifier;
-			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
-
 			Mob[] mobs = FindObjectsOfType<Mob>();
-
-			foreach (Mob mob in mobs)
-			{
-				float finalDamage = damage - (damage * mob.magicDamageResist);
-				mob.currentHealth -= finalDamage;
-			}
+			
+			DealMagicDamageToCreature.DealGlobalAOEMagicDamage(castingCreature, mobs, spellData.magicDamageModifier);
 		}
 	}
 }

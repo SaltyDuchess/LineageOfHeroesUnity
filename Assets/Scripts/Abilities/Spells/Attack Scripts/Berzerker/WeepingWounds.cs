@@ -1,3 +1,4 @@
+using LineageOfHeroes.AttackScripts;
 using UnityEngine;
 
 namespace LineageOfHeroes.Spells.Berzerker
@@ -17,17 +18,8 @@ namespace LineageOfHeroes.Spells.Berzerker
 		override public void ExecuteAbility(Creature castingCreature = null, Creature defender = null)
 		{
 			base.ExecuteAbility(castingCreature, defender);
-			float damage;
-
-			damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * physDamageModifier;
-			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
-
-			damage -= damage * defender.physDamageResist;
-
-			defender.currentHealth -= damage;
-
-			defender.damageOverTime = DOT;
-			defender.damageOverTimeTurns = DOTTurns;
+			DealPhysicalDamageToCreature.DealPhysicalDamage(castingCreature, defender, spellData.physDamageModifier);
+			DOTApplication.ApplyBleedToDefender(defender, DOT, DOTTurns);
 		}
 	}
 }

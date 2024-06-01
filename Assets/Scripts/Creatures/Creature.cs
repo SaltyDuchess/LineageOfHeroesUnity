@@ -1,4 +1,4 @@
-using LineageOfHeroes.Spells;
+using LineageOfHeroes.AttackScripts;
 using UnityEngine;
 
 public class Creature : MonoBehaviour, ICreature
@@ -25,7 +25,6 @@ public class Creature : MonoBehaviour, ICreature
 	public float healthRegeneration { get; set; }
 	public float critDamageMultiplier { get; set; }
 	public float critChanceModifier { get; set; }
-	public CalcCritAndDamage critAndDamageCalculator { get; set; }
 	public int currentLevel { get; set; } = 1;
 	public float percentageHealth { get; set; } = 100;
 	public int XPValue { get; set; } = 5;
@@ -106,7 +105,7 @@ public class Creature : MonoBehaviour, ICreature
 		float damage = damageRange.GetRandomValue();
 
 		// Apply critical hit multiplier if applicable
-		damage *= FindObjectOfType<CalcCritAndDamage>().CalculateCritAndDamage(this);
+		damage *= CalcCritAndDamage.CalculateCritAndDamage(this);
 
 		// Apply damage reduction based on the target's physical damage resistance
 		damage -= damage * (target.physDamageResist / 100);

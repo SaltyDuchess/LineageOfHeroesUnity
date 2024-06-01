@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1634929639437553766}
   - component: {fileID: 1634929639437553767}
-  - component: {fileID: 1634929639437553760}
   - component: {fileID: 1303212605}
   - component: {fileID: 7729674798154772839}
   - component: {fileID: 6397609057065095255}
@@ -49,19 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPlayerIndex: -1
---- !u!114 &1634929639437553760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1634929639437553765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a3cb49c1e4080348a64e1a8de21e895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageSystem: {fileID: 2017479537354669116, guid: c12310275c1d4b74ba78cd522ee703b1, type: 3}
 --- !u!114 &1303212605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,4 +87,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d7b7492cbe1ab54c83da8ad97bd3dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeEnemies: []
+  activeEnemies: 

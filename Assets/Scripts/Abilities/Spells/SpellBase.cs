@@ -11,7 +11,6 @@ namespace LineageOfHeroes.Spells
         public float DOT { get; set; }
         public int DOTTurns { get; set; }
         public int stunTurns { get; set; }
-        public CalcCritAndDamage calcCritAndDamage { get; set; }
         private TooltipTrigger tooltipTrigger;
 
         protected override void Awake()
@@ -29,7 +28,6 @@ namespace LineageOfHeroes.Spells
             DOT = spellData.DOT;
             DOTTurns = spellData.DOTTurns;
             stunTurns = spellData.stunTurns;
-            calcCritAndDamage = FindObjectOfType<CalcCritAndDamage>();
         }
 
         public override void ExecuteAbility(Creature castingCreature = null, Creature defender = null)

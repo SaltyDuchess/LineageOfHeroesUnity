@@ -1,3 +1,5 @@
+using LineageOfHeroes.AttackScripts;
+
 namespace LineageOfHeroes.Spells.Berzerker
 {
 	public class FatalFinish : BerzerkerSpellBase
@@ -11,14 +13,7 @@ namespace LineageOfHeroes.Spells.Berzerker
 		override public void ExecuteAbility(Creature castingCreature = null, Creature defender = null)
 		{
 			base.ExecuteAbility(castingCreature, defender);
-			float damage;
-
-			damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * (physDamageModifier * ((100 - defender.percentageHealth) / 10));
-			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
-
-			damage -= damage * defender.physDamageResist;
-
-			defender.currentHealth -= damage;
+			DealPhysicalDamageToCreature.DealPhysicalDamage(castingCreature, defender, spellData.physDamageModifier * (100 - defender.percentageHealth) / 10);
 
 			if (defender.currentHealth <= 0)
 			{

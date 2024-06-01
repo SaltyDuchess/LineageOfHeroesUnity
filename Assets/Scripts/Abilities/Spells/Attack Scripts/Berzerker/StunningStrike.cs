@@ -1,3 +1,5 @@
+using LineageOfHeroes.AttackScripts;
+
 namespace LineageOfHeroes.Spells.Berzerker
 {
 	public class StunningStrike : BerzerkerSpellBase
@@ -11,16 +13,8 @@ namespace LineageOfHeroes.Spells.Berzerker
 		override public void ExecuteAbility(Creature castingCreature = null, Creature defender = null)
 		{
 			base.ExecuteAbility(castingCreature, defender);
-			float damage;
-
-			damage = castingCreature.damageRange.GetRandomValue() + castingCreature.damageRange.GetRandomValue() * physDamageModifier;
-			damage *= calcCritAndDamage.CalculateCritAndDamage(castingCreature);
-
-			damage -= damage * defender.physDamageResist;
-
-			defender.currentHealth -= damage;
-
-			defender.speedPool -= stunTurns * 100;
+			DealPhysicalDamageToCreature.DealPhysicalDamage(castingCreature, defender, spellData.physDamageModifier);
+			StunCreature.StunDefender(defender, stunTurns);
 		}
 	}
 }

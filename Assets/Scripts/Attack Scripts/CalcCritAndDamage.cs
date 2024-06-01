@@ -1,23 +1,23 @@
 using LineageOfHeroes.Randomization;
-using UnityEngine;
 
-public class CalcCritAndDamage : MonoBehaviour
+namespace LineageOfHeroes.AttackScripts
 {
-    public DamageSystem damageSystem; // Drag and drop the DamageSystem object in the Unity editor
-
-	public float CalculateCritAndDamage<T>(T attacker) where T : Creature
+	public static class CalcCritAndDamage
 	{
-			float universalCritChance = damageSystem.universalCritChance;
-			float universalCritMultiplier = damageSystem.universalCritMultiplier;
-			float finalCritChance = universalCritChance + attacker.critChanceModifier;
+		public static float CalculateCritAndDamage<T>(T attacker) where T : Creature
+		{
+				float universalCritChance = StaticCombatModifiers.universalCritChance;
+				float universalCritMultiplier = StaticCombatModifiers.universalCritMultiplier;
+				float finalCritChance = universalCritChance + attacker.critChanceModifier;
 
-			if (RandomGenerator.Range(1, 101) <= finalCritChance)
-			{
-					return universalCritMultiplier + attacker.critDamageMultiplier;
-			}
-			else
-			{
-					return 1;
-			}
+				if (RandomGenerator.Range(1, 101) <= finalCritChance)
+				{
+						return universalCritMultiplier + attacker.critDamageMultiplier;
+				}
+				else
+				{
+						return 1;
+				}
+		}
 	}
 }
