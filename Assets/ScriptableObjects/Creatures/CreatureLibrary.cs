@@ -13,7 +13,7 @@ public class CreatureLibrary : ScriptableObject
 		List<Mob> suitableMobs = new List<Mob>();
 		foreach (Mob mob in mobs)
 		{
-			if (mob.currentLevel <= level + 1)
+			if (mob.creatureData.stats.currentLevel <= level + 1)
 			{
 				suitableMobs.Add(mob);
 			}

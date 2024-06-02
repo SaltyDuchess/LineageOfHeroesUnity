@@ -121,11 +121,6 @@ public class MobBehavior : MonoBehaviour
 		}
 	}
 
-
-
-
-
-
 	IEnumerator MoveToTargetPosition(Vector2Int targetGridPosition, System.Action onMoveComplete)
 	{
 		isMoving = true;

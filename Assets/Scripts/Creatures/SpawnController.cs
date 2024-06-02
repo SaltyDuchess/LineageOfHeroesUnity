@@ -38,7 +38,7 @@ public class SpawnController : MonoBehaviour
             SpawnMob(mobToSpawn);
 
             // Add the mob's level to the total
-            totalMobLevel += mobToSpawn.currentLevel;
+            totalMobLevel += mobToSpawn.creatureData.stats.currentLevel;
         }
     }
 

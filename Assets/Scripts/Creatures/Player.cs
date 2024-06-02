@@ -2,12 +2,11 @@ using System.Diagnostics;
 using LineageOfHeroes.CharacterClasses;
 using LineageOfHeroes.Items;
 
-
 public class Player : Creature
 {
 	public CharacterClass playerClassPrefab;
 	public CharacterClass playerClass { get; set; }
-	public int XPToNextLevel { get; set; } = 10;
+	public int XPToNextLevel { get; set; } = 5;
 	public PlayerInventory inventory { get; set; } = null;
 	public int previousRoom { get; set; } = -1;
 	public string displayName { get; set; }

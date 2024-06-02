@@ -18,3 +18,11 @@ prefabs -> abilities -> consumables/spells -> library
 For consumables
 
 7. Update the list on consumable manager
+
+
+Steps to add a new mob to the game
+1. Add an appropriate scriptable object to the creatures scriptable object folder
+2. Create a custom script if the creature is going to have unique behaviours
+3. Create a prefab with a tooltip trigger, mob script, mob behaviour script, health bar controller and script from step 2
+if one was created
+4. Add prefab to appropriate creature library, the master creature library at a minimum

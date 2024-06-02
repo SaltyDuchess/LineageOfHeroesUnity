@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8743239976760898418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4126062743520221673}
+  - component: {fileID: 2166871188965817292}
+  - component: {fileID: 3968664915282319973}
+  - component: {fileID: -8655757862213079203}
+  - component: {fileID: -8604701943603652978}
+  m_Layer: 0
+  m_Name: DisenfranchisedDesparado
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4126062743520221673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743239976760898418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2166871188965817292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743239976760898418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c33bd7cd7f06449803bd54ca8bf54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: 
+--- !u!114 &3968664915282319973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743239976760898418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de758d51f0fe5354fb899e146783492f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPlayer: 0
+  stats:
+    speedPool: 100
+    abilityPowerPool: 100
+    currentAbilityPool: 100
+    percentageAbilityPool: 100
+    abilityRegeneration: 1
+    dodgeChance: 0
+    physDamageResist: 0
+    magicDamageResist: 0
+    invulnerabilityCharges: 0
+    autoAttackRange: 0
+    actionSpeedCost: 100
+    damageOverTime: 0
+    damageOverTimeTurns: 0
+    damageRange:
+      minValue: 0
+      maxValue: 0
+    healthRegeneration: 0.5
+    critDamageMultiplier: 1
+    critChanceModifier: 0.1
+    currentLevel: 1
+    healthPool: 100
+    currentHealth: 100
+    percentageHealth: 100
+    XPValue: 5
+  creatureData: {fileID: 11400000, guid: c58cfabbf1ccb6f4d9223e99716bd7bc, type: 2}
+  noPushMaterial: {fileID: 6200000, guid: 7401bd8c685ab4145830f3336c6ca2e1, type: 2}
+--- !u!114 &-8655757862213079203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743239976760898418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dece7cca0358db74dbb74a5e95ec8b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5533892023633780812, guid: 73bfb4f960585e145a424f7eb30d243a, type: 3}
+  gridSize: 1
+  moveSpeed: 5
+--- !u!114 &-8604701943603652978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743239976760898418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d071c800f6937884b9bd52cecaa710f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 3703653179928866903, guid: 9ea2df74bf359be4dbcbea97c4b62736, type: 3}
+  offsetX: -31

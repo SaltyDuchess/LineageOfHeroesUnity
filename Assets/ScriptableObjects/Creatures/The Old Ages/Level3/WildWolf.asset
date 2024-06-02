@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f75744aa26105f4429911d77c9ba9da7, type: 3}
-  m_Name: RuntyRat
+  m_Name: WildWolf
   m_EditorClassIdentifier: 
-  uiElement: {fileID: 21300000, guid: 2c3dfcc0a82cc874da31e59e4a7a3fab, type: 3}
+  uiElement: {fileID: 21300000, guid: 1218137fd4cb1ae47824dbe7a77ee8e6, type: 3}
   stats:
     speedPool: 100
     abilityPowerPool: 100
@@ -28,15 +28,15 @@ MonoBehaviour:
     damageOverTime: 0
     damageOverTimeTurns: 0
     damageRange:
-      minValue: 0
-      maxValue: 0
+      minValue: 13.2
+      maxValue: 17.6
     healthRegeneration: 0.5
     critDamageMultiplier: 1
     critChanceModifier: 0.1
-    currentLevel: 1
-    healthPool: 100
-    currentHealth: 100
+    currentLevel: 3
+    healthPool: 133
+    currentHealth: 133
     percentageHealth: 100
     XPValue: 5
-  displayName: Runty Rat
-  mobDescription: Runty Rat - Level 1
+  displayName: Wild Wolf
+  mobDescription: 

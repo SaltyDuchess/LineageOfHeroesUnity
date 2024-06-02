@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewCreatureData", menuName = "ScriptableObjects/CreatureData")]
+[CreateAssetMenu(fileName = "NewCreatureData", menuName = "CreatureData")]
 public class CreatureData : ScriptableObject
 {
 	public Sprite uiElement;

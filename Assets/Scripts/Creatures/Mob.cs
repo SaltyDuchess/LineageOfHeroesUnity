@@ -13,12 +13,12 @@ public class Mob : Creature, IMob
 
 	new protected virtual void Awake()
 	{
+		stats = creatureData.stats;
 		base.Awake();
 		Mob.instanceCounter++;
-		CreatureStats stats = creatureData.stats;
 
 		displayName = creatureData.displayName;
-		mobDescription = creatureData.mobDescription;
+		mobDescription = creatureData.mobDescription + "\n" + creatureData.displayName + " - Level " + creatureData.stats.currentLevel;
 
 		SpriteRenderer spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
 		spriteRenderer.sprite = creatureData.uiElement;

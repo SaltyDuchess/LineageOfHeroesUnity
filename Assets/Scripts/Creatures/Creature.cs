@@ -101,19 +101,7 @@ public class Creature : MonoBehaviour, ICreature
 			return true;
 		}
 
-		// Calculate the damage based on the damage range
-		float damage = damageRange.GetRandomValue();
-
-		// Apply critical hit multiplier if applicable
-		damage *= CalcCritAndDamage.CalculateCritAndDamage(this);
-
-		// Apply damage reduction based on the target's physical damage resistance
-		damage -= damage * (target.physDamageResist / 100);
-
-
-		// Deal damage to the target
-		target.currentHealth -= damage;
-		target.currentHealth = Mathf.Max(0, target.currentHealth);
+		DealPhysicalDamageToCreature.DealPhysicalDamage(this, target);
 
 		// Return true if an attack has been performed
 		return true;
