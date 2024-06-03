@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class TurnManager : MonoBehaviour
@@ -39,13 +38,24 @@ public class TurnManager : MonoBehaviour
 		}
 	}
 
-
-
 	public void RemoveActor(ICreature actor)
 	{
 		if (actors.Contains(actor))
 		{
 			actors.Remove(actor);
+			if (actors.Count == 0)
+			{
+				StopAllCoroutines();
+				Debug.Log("All actors removed, stopping turn manager.");
+			}
+			else
+			{
+				// Adjust currentPlayerIndex if necessary
+				if (currentPlayerIndex >= actors.Count)
+				{
+					currentPlayerIndex = 0;
+				}
+			}
 		}
 	}
 }

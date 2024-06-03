@@ -7,10 +7,28 @@ public class MobBehavior : MonoBehaviour
 	public int gridSize = 1;
 	public float moveSpeed = 5.0f;
 	private bool isMoving;
+	private Creature creature;
 
 	void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
+		creature = GetComponent<Creature>();
+	}
+
+	public bool IsPlayerInRange(float range)
+	{
+		if (player == null) return false;
+		float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+		return distanceToPlayer <= range;
+	}
+
+	public void PerformAttack()
+	{
+		Creature playerCreature = player.GetComponent<Creature>();
+		if (playerCreature != null)
+		{
+			creature.TryAttack(playerCreature);
+		}
 	}
 
 	public void MoveTowardsPlayer(System.Action onMoveComplete)
@@ -28,76 +46,14 @@ public class MobBehavior : MonoBehaviour
 
 		bool attacked = false;
 
-		// Check if there is a creature at the target position
 		if (targetCreature != null && targetCreature.IsPlayer)
 		{
-			// If an attack is performed, skip the movement step
-			attacked = GetComponent<Creature>().TryAttack(targetCreature);
+			attacked = creature.TryAttack(targetCreature);
 		}
 
-		// If there is a non-player creature in the target position
 		if (targetCreature != null && !targetCreature.IsPlayer)
 		{
-			// Define the order of direction checks depending on the player's direction
-			Vector2Int[] directions;
-			if (gridDirection == Vector2Int.up)
-			{
-				directions = new Vector2Int[]
-				{
-								new Vector2Int(-1, 1),
-								new Vector2Int(1, 1),
-								new Vector2Int(0, 1),
-								new Vector2Int(-1, 0),
-								new Vector2Int(1, 0),
-								new Vector2Int(-1, -1),
-								new Vector2Int(1, -1),
-								new Vector2Int(0, -1)
-				};
-			}
-			else if (gridDirection == Vector2Int.right)
-			{
-				directions = new Vector2Int[]
-				{
-								new Vector2Int(1, 1),
-								new Vector2Int(1, -1),
-								new Vector2Int(1, 0),
-								new Vector2Int(0, 1),
-								new Vector2Int(0, -1),
-								new Vector2Int(-1, 1),
-								new Vector2Int(-1, -1),
-								new Vector2Int(-1, 0)
-				};
-			}
-			else if (gridDirection == Vector2Int.down)
-			{
-				directions = new Vector2Int[]
-				{
-								new Vector2Int(-1, -1),
-								new Vector2Int(1, -1),
-								new Vector2Int(0, -1),
-								new Vector2Int(-1, 0),
-								new Vector2Int(1, 0),
-								new Vector2Int(-1, 1),
-								new Vector2Int(1, 1),
-								new Vector2Int(0, 1)
-				};
-			}
-			else
-			{
-				directions = new Vector2Int[]
-				{
-								new Vector2Int(-1, 1),
-								new Vector2Int(-1, -1),
-								new Vector2Int(-1, 0),
-								new Vector2Int(0, 1),
-								new Vector2Int(0, -1),
-								new Vector2Int(1, 1),
-								new Vector2Int(1, -1),
-								new Vector2Int(1, 0)
-				};
-			}
-
-			// Check directions for a free cell
+			Vector2Int[] directions = GetDirectionOrder(gridDirection);
 			foreach (Vector2Int dir in directions)
 			{
 				Vector2Int potentialTargetPosition = currentPosition + dir;
@@ -121,10 +77,49 @@ public class MobBehavior : MonoBehaviour
 		}
 	}
 
+	private Vector2Int[] GetDirectionOrder(Vector2Int gridDirection)
+	{
+		if (gridDirection == Vector2Int.up)
+		{
+			return new Vector2Int[]
+			{
+								new Vector2Int(-1, 1), new Vector2Int(1, 1), new Vector2Int(0, 1),
+								new Vector2Int(-1, 0), new Vector2Int(1, 0), new Vector2Int(-1, -1),
+								new Vector2Int(1, -1), new Vector2Int(0, -1)
+			};
+		}
+		else if (gridDirection == Vector2Int.right)
+		{
+			return new Vector2Int[]
+			{
+								new Vector2Int(1, 1), new Vector2Int(1, -1), new Vector2Int(1, 0),
+								new Vector2Int(0, 1), new Vector2Int(0, -1), new Vector2Int(-1, 1),
+								new Vector2Int(-1, -1), new Vector2Int(-1, 0)
+			};
+		}
+		else if (gridDirection == Vector2Int.down)
+		{
+			return new Vector2Int[]
+			{
+								new Vector2Int(-1, -1), new Vector2Int(1, -1), new Vector2Int(0, -1),
+								new Vector2Int(-1, 0), new Vector2Int(1, 0), new Vector2Int(-1, 1),
+								new Vector2Int(1, 1), new Vector2Int(0, 1)
+			};
+		}
+		else
+		{
+			return new Vector2Int[]
+			{
+								new Vector2Int(-1, 1), new Vector2Int(-1, -1), new Vector2Int(-1, 0),
+								new Vector2Int(0, 1), new Vector2Int(0, -1), new Vector2Int(1, 1),
+								new Vector2Int(1, -1), new Vector2Int(1, 0)
+			};
+		}
+	}
+
 	IEnumerator MoveToTargetPosition(Vector2Int targetGridPosition, System.Action onMoveComplete)
 	{
 		isMoving = true;
-
 		Vector3 targetPosition = new Vector3(targetGridPosition.x, targetGridPosition.y, transform.position.z);
 
 		while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
