@@ -7,7 +7,7 @@ public class TurnManager : MonoBehaviour
 	public List<ICreature> actors;
 	public int currentPlayerIndex = -1;
 
-	void Start()
+	void Awake()
 	{
 		StartCoroutine(InitializeActors());
 	}
@@ -18,7 +18,6 @@ public class TurnManager : MonoBehaviour
 
 		actors = new List<ICreature>(FindObjectsOfType<Mob>());
 		actors.Add(FindObjectOfType<Player>());
-		actors.Sort((a, b) => b.speedPool.CompareTo(a.speedPool));
 		NextTurn();
 	}
 
@@ -57,5 +56,11 @@ public class TurnManager : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public void AddActor(ICreature actor)
+	{
+		actors.Add(actor);
+		actors.Sort((a, b) => b.speedPool.CompareTo(a.speedPool));
 	}
 }

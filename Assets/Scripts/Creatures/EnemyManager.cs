@@ -35,9 +35,9 @@ public class EnemyManager : MonoBehaviour
     private void SpawnChest()
     {
       // Get current room info
-			RoomInfo currentRoomInfo = FindObjectOfType<RoomInfo>();
+			// Room currentRoomInfo = FindObjectOfType<Room>();
 
 			// Spawn a chest of a rarity equal to the room's rarity
-			FindObjectOfType<ChestSpawner>().SpawnChest(currentRoomInfo.roomRarity);
+			FindObjectOfType<ChestSpawner>().SpawnChest(Rarity.Common);
     }
 }

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5ae5c1a66a618ec4c9806ae55f552fb2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72d97dd88c0fde444bf02baa5fcf3164, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -292,18 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c215bfc7426074ca8b4b046d883d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageRange:
-    minValue: 0
-    maxValue: 0
-  bonusCritChance: 0
-  bonusCritDamage: 0
-  bonusHp: 0
-  bonusAbilityPower: 0
-  bonusHpRegen: 0
-  bonusAbilityPowerRegen: 0
-  physDamageResist: 0
-  magicDamageResist: 0
-  bonusDodgeChance: 0
+  player: {fileID: 0}
   equippedWeapon: {fileID: 0}
   equippedChest: {fileID: 0}
   equippedGauntlet: {fileID: 0}
