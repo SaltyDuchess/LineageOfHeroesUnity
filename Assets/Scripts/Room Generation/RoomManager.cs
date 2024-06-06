@@ -65,7 +65,7 @@ public class RoomManager : MonoBehaviour
 		GenerateDoors(entryOrientation, roomOffset, newRoom);
 		GenerateWalls(entryOrientation, roomOffset, newRoom);
 
-		FindObjectOfType<SpawnController>().SpawnEnemies();
+		FindObjectOfType<SpawnController>().SpawnEnemiesInRoom(newRoom);
 	}
 
 	private Vector3 CalculateRoomOffset(DoorController.DoorOrientation entryOrientation)

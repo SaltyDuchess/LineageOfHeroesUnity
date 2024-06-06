@@ -14,42 +14,32 @@ public class SpawnController : MonoBehaviour
 		player = FindObjectOfType<Player>();
 		enemyManager = FindObjectOfType<EnemyManager>();
 		turnManager = FindObjectOfType<TurnManager>();
-		SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
-	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-	{
-		if (enabled)
-		{
-			SpawnEnemies();
-		}
-	}
-
-	public void SpawnEnemies()
+	public void SpawnEnemiesInRoom(Room room)
 	{
 		int totalMobLevel = 0;
 		while (totalMobLevel < player.currentLevel + 1)
 		{
 			Mob mobToSpawn = masterCreatureLibrary.SelectMobForLevel(player.currentLevel);
-			SpawnMob(mobToSpawn);
+			SpawnMobInRoom(mobToSpawn, room);
 			totalMobLevel += mobToSpawn.creatureData.stats.currentLevel;
 		}
 	}
 
-	void SpawnMob(Mob mob)
+	void SpawnMobInRoom(Mob mob, Room room)
 	{
-		Vector3 randomPosition = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
-		while (Vector3.Distance(randomPosition, player.transform.position) < 5)
+		Vector3 randomPosition;
+		do
 		{
-			randomPosition = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
-		}
+			randomPosition = new Vector3(
+					Random.Range(room.transform.position.x - room.roomSize.x / 2 + 3, room.transform.position.x + room.roomSize.x / 2 - 3),
+					Random.Range(room.transform.position.y - room.roomSize.y / 2 + 3, room.transform.position.y + room.roomSize.y / 2 - 3),
+					0);
+		} while (Vector3.Distance(randomPosition, player.transform.position) < 3);
+
 		Mob mobInstance = Instantiate(mob, randomPosition, Quaternion.identity);
 		enemyManager.RegisterEnemy(mobInstance);
 		turnManager.AddActor(mobInstance);
-	}
-
-	void OnDestroy()
-	{
-		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
 }
