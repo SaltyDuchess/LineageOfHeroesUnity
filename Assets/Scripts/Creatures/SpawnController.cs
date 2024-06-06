@@ -18,6 +18,7 @@ public class SpawnController : MonoBehaviour
 
 	public void SpawnEnemiesInRoom(Room room)
 	{
+		enemyManager.SetCurrentRoom(room);
 		int totalMobLevel = 0;
 		while (totalMobLevel < player.currentLevel + 1)
 		{
@@ -38,7 +39,7 @@ public class SpawnController : MonoBehaviour
 					0);
 		} while (Vector3.Distance(randomPosition, player.transform.position) < 3);
 
-		Mob mobInstance = Instantiate(mob, randomPosition, Quaternion.identity);
+		Mob mobInstance = Instantiate(mob, randomPosition, Quaternion.identity, room.transform);
 		enemyManager.RegisterEnemy(mobInstance);
 		turnManager.AddActor(mobInstance);
 	}

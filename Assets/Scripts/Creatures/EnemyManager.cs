@@ -3,41 +3,44 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public List<int> activeEnemies = new List<int>();
+	public List<int> activeEnemies = new List<int>();
+	private Room currentRoom;
 
-    public void RegisterEnemy(Mob enemy)
-    {
-        activeEnemies.Add(enemy.gameObject.GetInstanceID());
-    }
+	public void SetCurrentRoom(Room room)
+	{
+		currentRoom = room;
+	}
 
-    public void UnregisterEnemy(Mob enemy)
-    {
-        activeEnemies.Remove(enemy.gameObject.GetInstanceID());
+	public void RegisterEnemy(Mob enemy)
+	{
+		activeEnemies.Add(enemy.gameObject.GetInstanceID());
+	}
 
-        if (activeEnemies.Count == 0)
-        {
-            // All enemies have been killed
-						UnlockDoors();
-            SpawnChest();
-        }
-    }
+	public void UnregisterEnemy(Mob enemy)
+	{
+		activeEnemies.Remove(enemy.gameObject.GetInstanceID());
 
-		private void UnlockDoors()
-    {
-				// Get all DoorController instances in the scene
-				var doors = FindObjectsOfType<DoorController>();
-        foreach (var door in doors)
-        {
-            door.Unlock(); // Assuming DoorController has an Unlock method
-        }
-    }
+		if (activeEnemies.Count == 0 && currentRoom != null)
+		{
+			// All enemies have been killed
+			UnlockDoors();
+			SpawnChest(currentRoom.roomRarity);
+		}
+	}
 
-    private void SpawnChest()
-    {
-      // Get current room info
-			// Room currentRoomInfo = FindObjectOfType<Room>();
+	private void UnlockDoors()
+	{
+		// Get all DoorController instances in the scene
+		var doors = FindObjectsOfType<DoorController>();
+		foreach (var door in doors)
+		{
+			door.Unlock(); // Assuming DoorController has an Unlock method
+		}
+	}
 
-			// Spawn a chest of a rarity equal to the room's rarity
-			FindObjectOfType<ChestSpawner>().SpawnChest(Rarity.Common);
-    }
+	private void SpawnChest(Rarity rarity)
+	{
+		// Spawn a chest of a rarity equal to the room's rarity
+		FindObjectOfType<ChestSpawner>().SpawnChest(rarity, currentRoom);
+	}
 }
