@@ -117,3 +117,6 @@ MonoBehaviour:
   player: {fileID: 5533892023633780812, guid: 73bfb4f960585e145a424f7eb30d243a, type: 3}
   gridSize: 1
   moveSpeed: 5
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64

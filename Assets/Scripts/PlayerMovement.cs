@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 		targetPosition = (Vector3Int)targetGridPosition;
 		abilityManager = FindObjectOfType<AbilityManager>();
 	}
+
 	void Update()
 	{
 		if (isMoving) return;
@@ -32,8 +33,8 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		Vector2Int currentGridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
-		Vector2Int targetGridPosition = currentGridPosition + moveDirection * gridSize;
-		Creature targetCreature = Creature.GetCreatureAtGridPosition(targetGridPosition);
+		Vector2Int newGridPosition = currentGridPosition + moveDirection * gridSize;
+		Creature targetCreature = Creature.GetCreatureAtGridPosition(newGridPosition);
 
 		// Check if there is a creature at the target position
 		if (targetCreature != null)
@@ -42,16 +43,23 @@ public class PlayerMovement : MonoBehaviour
 			if (GetComponent<ICreature>().TryAttack(targetCreature))
 			{
 				GetComponent<Player>().EndTurn();
-
 				return;
 			}
 		}
 
-		this.targetGridPosition = targetGridPosition;
-		targetPosition = new Vector3Int(this.targetGridPosition.x, this.targetGridPosition.y, Mathf.RoundToInt(transform.position.z));
+		// Check for any colliders at the target position
+		Collider2D hitCollider = Physics2D.OverlapBox(new Vector2(newGridPosition.x, newGridPosition.y), Vector2.one * 0.5f, 0f);
+		if (hitCollider != null && !hitCollider.isTrigger)
+		{
+			// The target position is blocked, so the player cannot move there
+			GetComponent<Player>().EndTurn();
+			return;
+		}
+
+		targetGridPosition = newGridPosition;
+		targetPosition = new Vector3Int(targetGridPosition.x, targetGridPosition.y, Mathf.RoundToInt(transform.position.z));
 		StartCoroutine(MoveToTargetPosition());
 	}
-
 
 	IEnumerator MoveToTargetPosition()
 	{

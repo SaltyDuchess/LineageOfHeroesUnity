@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MobBehavior : MonoBehaviour
@@ -8,6 +9,7 @@ public class MobBehavior : MonoBehaviour
 	public float moveSpeed = 5.0f;
 	private bool isMoving;
 	private Creature creature;
+	public LayerMask obstacleLayer; // Add a public LayerMask for obstacles
 
 	void Start()
 	{
@@ -35,41 +37,25 @@ public class MobBehavior : MonoBehaviour
 	{
 		if (player == null) return;
 
-		Vector2Int currentPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
-		Vector2Int playerPosition = new Vector2Int(Mathf.RoundToInt(player.transform.position.x), Mathf.RoundToInt(player.transform.position.y));
+		Vector2Int startGridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+		Vector2Int targetGridPosition = new Vector2Int(Mathf.RoundToInt(player.transform.position.x), Mathf.RoundToInt(player.transform.position.y));
 
-		Vector2Int direction = playerPosition - currentPosition;
-		Vector2Int gridDirection = new Vector2Int(Mathf.Clamp(direction.x, -1, 1), Mathf.Clamp(direction.y, -1, 1));
+		List<Vector2Int> path = FindPath(startGridPosition, targetGridPosition);
 
-		Vector2Int targetGridPosition = currentPosition + gridDirection;
-		Creature targetCreature = Creature.GetCreatureAtGridPosition(targetGridPosition);
-
-		bool attacked = false;
-
-		if (targetCreature != null && targetCreature.IsPlayer)
+		if (path.Count > 1)
 		{
-			attacked = creature.TryAttack(targetCreature);
-		}
+			Vector2Int nextGridPosition = path[1]; // The first position is the mob's current position
+			Creature targetCreature = Creature.GetCreatureAtGridPosition(nextGridPosition);
 
-		if (targetCreature != null && !targetCreature.IsPlayer)
-		{
-			Vector2Int[] directions = GetDirectionOrder(gridDirection);
-			foreach (Vector2Int dir in directions)
+			if (targetCreature != null && targetCreature.IsPlayer)
 			{
-				Vector2Int potentialTargetPosition = currentPosition + dir;
-				Creature potentialTargetCreature = Creature.GetCreatureAtGridPosition(potentialTargetPosition);
-
-				if (potentialTargetCreature == null || potentialTargetCreature.IsPlayer)
-				{
-					targetGridPosition = potentialTargetPosition;
-					break;
-				}
+				PerformAttack();
+				onMoveComplete?.Invoke();
 			}
-		}
-
-		if (!attacked)
-		{
-			StartCoroutine(MoveToTargetPosition(targetGridPosition, onMoveComplete));
+			else
+			{
+				StartCoroutine(MoveToTargetPosition(nextGridPosition, onMoveComplete));
+			}
 		}
 		else
 		{
@@ -77,44 +63,73 @@ public class MobBehavior : MonoBehaviour
 		}
 	}
 
-	private Vector2Int[] GetDirectionOrder(Vector2Int gridDirection)
+	private List<Vector2Int> FindPath(Vector2Int start, Vector2Int goal)
 	{
-		if (gridDirection == Vector2Int.up)
+		Queue<Vector2Int> frontier = new Queue<Vector2Int>();
+		frontier.Enqueue(start);
+
+		Dictionary<Vector2Int, Vector2Int?> cameFrom = new Dictionary<Vector2Int, Vector2Int?>
+				{
+						{ start, null }
+				};
+
+		while (frontier.Count > 0)
 		{
-			return new Vector2Int[]
+			Vector2Int current = frontier.Dequeue();
+
+			if (current == goal)
 			{
-								new Vector2Int(-1, 1), new Vector2Int(1, 1), new Vector2Int(0, 1),
-								new Vector2Int(-1, 0), new Vector2Int(1, 0), new Vector2Int(-1, -1),
-								new Vector2Int(1, -1), new Vector2Int(0, -1)
-			};
+				break;
+			}
+
+			foreach (Vector2Int next in GetNeighbors(current))
+			{
+				if (!cameFrom.ContainsKey(next) && CanMoveToPosition(next))
+				{
+					frontier.Enqueue(next);
+					cameFrom[next] = current;
+				}
+			}
 		}
-		else if (gridDirection == Vector2Int.right)
+
+		List<Vector2Int> path = new List<Vector2Int>();
+		Vector2Int? currentPathNode = goal;
+
+		while (currentPathNode != null)
 		{
-			return new Vector2Int[]
-			{
-								new Vector2Int(1, 1), new Vector2Int(1, -1), new Vector2Int(1, 0),
-								new Vector2Int(0, 1), new Vector2Int(0, -1), new Vector2Int(-1, 1),
-								new Vector2Int(-1, -1), new Vector2Int(-1, 0)
-			};
+			path.Add(currentPathNode.Value);
+			currentPathNode = cameFrom[currentPathNode.Value];
 		}
-		else if (gridDirection == Vector2Int.down)
+
+		path.Reverse();
+		return path;
+	}
+
+	private IEnumerable<Vector2Int> GetNeighbors(Vector2Int gridPosition)
+	{
+		Vector2Int[] directions = new Vector2Int[]
 		{
-			return new Vector2Int[]
-			{
-								new Vector2Int(-1, -1), new Vector2Int(1, -1), new Vector2Int(0, -1),
-								new Vector2Int(-1, 0), new Vector2Int(1, 0), new Vector2Int(-1, 1),
-								new Vector2Int(1, 1), new Vector2Int(0, 1)
-			};
-		}
-		else
+						Vector2Int.up,
+						Vector2Int.down,
+						Vector2Int.left,
+						Vector2Int.right,
+						new Vector2Int(1, 1), // Diagonal up-right
+            new Vector2Int(-1, 1), // Diagonal up-left
+            new Vector2Int(1, -1), // Diagonal down-right
+            new Vector2Int(-1, -1) // Diagonal down-left
+		};
+
+		foreach (Vector2Int direction in directions)
 		{
-			return new Vector2Int[]
-			{
-								new Vector2Int(-1, 1), new Vector2Int(-1, -1), new Vector2Int(-1, 0),
-								new Vector2Int(0, 1), new Vector2Int(0, -1), new Vector2Int(1, 1),
-								new Vector2Int(1, -1), new Vector2Int(1, 0)
-			};
+			yield return gridPosition + direction;
 		}
+	}
+
+	private bool CanMoveToPosition(Vector2Int gridPosition)
+	{
+		// Check if there is an obstacle at the target position using the obstacleLayer
+		Collider2D collider = Physics2D.OverlapCircle(new Vector2(gridPosition.x, gridPosition.y), 0.1f, obstacleLayer);
+		return collider == null;
 	}
 
 	IEnumerator MoveToTargetPosition(Vector2Int targetGridPosition, System.Action onMoveComplete)
