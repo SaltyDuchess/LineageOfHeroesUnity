@@ -193,32 +193,32 @@ namespace LineageOfHeroes.Items
 		public void AddStatsFromItem(EquipmentBase item, Player player)
 		{
 			Debug.Log("Adding stats from " + item.displayName + " damage range " + item.damageRange.minValue + " - " + item.damageRange.maxValue);
-			player.stats.healthPool += item.bonusHp;
-			player.stats.healthRegeneration += item.bonusHpRegen;
-			player.stats.abilityPowerPool += item.bonusAbilityPower;
-			player.stats.abilityRegeneration += item.bonusAbilityPowerRegen;
-			player.stats.physDamageResist += item.physDamageResist;
-			player.stats.magicDamageResist += item.bonusMagicDamageResist;
-			player.stats.critChanceModifier += item.bonusCritChance;
-			player.stats.critDamageMultiplier += item.bonusCritDamage;
-			player.stats.dodgeChance += item.bonusDodgeChance;
-			player.stats.damageRange.maxValue += item.damageRange.maxValue;
-			player.stats.damageRange.minValue += item.damageRange.minValue;
+			player.healthPool += item.bonusHp;
+			player.healthRegeneration += item.bonusHpRegen;
+			player.abilityPowerPool += item.bonusAbilityPower;
+			player.abilityRegeneration += item.bonusAbilityPowerRegen;
+			player.physDamageResist += item.physDamageResist;
+			player.magicDamageResist += item.bonusMagicDamageResist;
+			player.critChanceModifier += item.bonusCritChance;
+			player.critDamageMultiplier += item.bonusCritDamage;
+			player.dodgeChance += item.bonusDodgeChance;
+			player.damageRange.maxValue += item.damageRange.maxValue;
+			player.damageRange.minValue += item.damageRange.minValue;
 		}
 
 		public void RemoveStatsFromItem(EquipmentBase item, Player player)
 		{
-			player.stats.healthPool -= item.bonusHp;
-			player.stats.healthRegeneration -= item.bonusHpRegen;
-			player.stats.abilityPowerPool -= item.bonusAbilityPower;
-			player.stats.abilityRegeneration -= item.bonusAbilityPowerRegen;
-			player.stats.physDamageResist -= item.physDamageResist;
-			player.stats.magicDamageResist -= item.bonusMagicDamageResist;
-			player.stats.critChanceModifier -= item.bonusCritChance;
-			player.stats.critDamageMultiplier -= item.bonusCritDamage;
-			player.stats.dodgeChance -= item.bonusDodgeChance;
-			player.stats.damageRange.minValue -= item.damageRange.minValue; // Reset DamageRange to default values
-			player.stats.damageRange.maxValue -= item.damageRange.maxValue;
+			player.healthPool -= item.bonusHp;
+			player.healthRegeneration -= item.bonusHpRegen;
+			player.abilityPowerPool -= item.bonusAbilityPower;
+			player.abilityRegeneration -= item.bonusAbilityPowerRegen;
+			player.physDamageResist -= item.physDamageResist;
+			player.magicDamageResist -= item.bonusMagicDamageResist;
+			player.critChanceModifier -= item.bonusCritChance;
+			player.critDamageMultiplier -= item.bonusCritDamage;
+			player.dodgeChance -= item.bonusDodgeChance;
+			player.damageRange.minValue -= item.damageRange.minValue; // Reset DamageRange to default values
+			player.damageRange.maxValue -= item.damageRange.maxValue;
 		}
 
 		public void UnequipItem(EquipmentBase item)

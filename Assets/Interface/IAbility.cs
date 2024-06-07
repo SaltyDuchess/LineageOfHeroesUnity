@@ -8,5 +8,6 @@ public interface IAbility : IBaseGameObject
     public bool isCastable { get; set; }
     public Creature targetedEnemy { get; set; }
 
+		public abstract bool IsCastable(Creature castingCreature = null);
 		public abstract void ExecuteAbility(Creature castingCreature = null, Creature defender = null);
 }

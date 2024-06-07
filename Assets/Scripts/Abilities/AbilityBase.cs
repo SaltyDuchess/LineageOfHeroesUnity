@@ -20,5 +20,7 @@ public abstract class AbilityBase : MonoBehaviour, IAbility
 			tooltipTrigger.SetTooltipText(descriptionLong);
     }
 
+		public abstract bool IsCastable(Creature castingCreature = null);
+
     public abstract void ExecuteAbility(Creature castingCreature = null, Creature defender = null);
 }

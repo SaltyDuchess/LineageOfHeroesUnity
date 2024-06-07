@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3968664915282319973}
   - component: {fileID: -8655757862213079203}
   - component: {fileID: -8604701943603652978}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DisenfranchisedDesparado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +106,9 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
+  mobLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &-8604701943603652978
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,6 +23,13 @@ public class ConsumableBase : AbilityBase, IConsumable
         descriptionLong = consumableData.descriptionLong;
     }
 
+		public override bool IsCastable(Creature castingCreature = null)
+		{
+			PlayerInventory playerInventory = castingCreature.GetComponent<PlayerInventory>();
+			ConsumableData data = playerInventory.ConsumableList.Find(c => c.displayName == displayName);
+			return data.quantity > 0;
+		}
+
     public override void ExecuteAbility(Creature castingCreature = null, Creature defender = null)
     {
         PlayerInventory playerInventory = castingCreature.GetComponent<PlayerInventory>();

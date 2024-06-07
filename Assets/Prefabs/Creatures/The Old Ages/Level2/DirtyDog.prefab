@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7036561909693745312}
   - component: {fileID: -6447392169975711169}
   - component: {fileID: -1108769583166554228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DirtyDog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +106,9 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
+  mobLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &-1108769583166554228
 MonoBehaviour:
   m_ObjectHideFlags: 0

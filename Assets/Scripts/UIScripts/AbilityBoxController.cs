@@ -57,7 +57,7 @@ public class AbilityBoxController : MonoBehaviour
 
 		if (boundAbility != null)
 		{
-			if (player.currentAbilityPool < boundAbility.abilityPowerCost)
+			if (!boundAbility.IsCastable(player))
 			{
 				abilityBoxImage.color = notEnoughPowerColor;
 			}
@@ -70,16 +70,6 @@ public class AbilityBoxController : MonoBehaviour
 					cooldownUIInstance = Instantiate(cooldownUIPrefab, transform);
 					CooldownController cooldownController = cooldownUIInstance.GetComponent<CooldownController>();
 					cooldownController.associatedAbility = boundAbility;
-				}
-			}
-
-			if (boundAbility is ConsumableBase consumable)
-			{
-				ConsumableData consumableData = playerInventory.ConsumableList.Find(c => c.displayName == consumable.displayName);
-				if (consumableData.quantity == 0)
-				{
-					abilityBoxImage.color = notEnoughPowerColor;
-					isAbilityActive = false;
 				}
 			}
 		}

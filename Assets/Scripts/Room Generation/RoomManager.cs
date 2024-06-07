@@ -37,7 +37,6 @@ public class RoomManager : MonoBehaviour
 			{
 				wallWidth = wallRenderer.bounds.size.x;
 				wallHeight = wallRenderer.bounds.size.y;
-				Debug.Log($"Wall Width: {wallWidth}, Wall Height: {wallHeight}");
 			}
 			else
 			{
@@ -53,8 +52,6 @@ public class RoomManager : MonoBehaviour
 
 	public void GenerateNewRoom(DoorController.DoorOrientation entryOrientation)
 	{
-		Debug.Log($"Player Position: {player.transform.position}");
-
 		Vector3 roomOffset = CalculateRoomOffset(entryOrientation);
 
 		// Instantiate a new Room object
@@ -170,7 +167,6 @@ public class RoomManager : MonoBehaviour
 				{
 					door.transform.rotation = Quaternion.Euler(0, 0, 90);
 				}
-				Debug.Log($"Door Position: {doorPositions[i]}, Orientation: {doorOrientations[i]}");
 				room.AddDoor(door);
 				generatedOrientations.Add(doorOrientations[i]);
 			}
@@ -188,8 +184,6 @@ public class RoomManager : MonoBehaviour
 		int horizontalSegments = Mathf.CeilToInt(roomSize / wallWidth);
 		int verticalSegments = Mathf.CeilToInt(roomSize / wallHeight);
 
-		Debug.Log($"Generating walls with horizontal segments: {horizontalSegments}, vertical segments: {verticalSegments}");
-
 		for (int i = -horizontalSegments / 2; i <= horizontalSegments / 2; i++)
 		{
 			for (int j = -verticalSegments / 2; j <= verticalSegments / 2; j++)
@@ -205,7 +199,6 @@ public class RoomManager : MonoBehaviour
 					if (!IsPositionOccupiedByDoor(position, room))
 					{
 						Instantiate(wallPrefab, position, Quaternion.identity, room.transform).tag = "Wall";
-						Debug.Log($"Wall Position: {position}");
 					}
 				}
 			}

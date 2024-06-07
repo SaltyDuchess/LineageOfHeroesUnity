@@ -10,6 +10,7 @@ public class MobBehavior : MonoBehaviour
 	private bool isMoving;
 	private Creature creature;
 	public LayerMask obstacleLayer; // Add a public LayerMask for obstacles
+	public LayerMask mobLayer; // Add a public LayerMask for mobs
 
 	void Start()
 	{
@@ -129,7 +130,9 @@ public class MobBehavior : MonoBehaviour
 	{
 		// Check if there is an obstacle at the target position using the obstacleLayer
 		Collider2D collider = Physics2D.OverlapCircle(new Vector2(gridPosition.x, gridPosition.y), 0.1f, obstacleLayer);
-		return collider == null;
+		// Check if there is a mob at the target position using the mobLayer
+		Collider2D mobCollider = Physics2D.OverlapCircle(new Vector2(gridPosition.x, gridPosition.y), 0.1f, mobLayer);
+		return collider == null && mobCollider == null;
 	}
 
 	IEnumerator MoveToTargetPosition(Vector2Int targetGridPosition, System.Action onMoveComplete)

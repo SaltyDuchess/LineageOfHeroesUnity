@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1688792751442641681}
   - component: {fileID: 600824326730818964}
   - component: {fileID: 5885378975986630633}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpearSwain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,3 +120,6 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
+  mobLayer:
+    serializedVersion: 2
+    m_Bits: 128
