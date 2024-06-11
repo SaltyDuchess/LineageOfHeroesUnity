@@ -45,15 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   berzerkerSpellPrefabs:
-  - spellType: 0
-    spellPrefab: {fileID: 6649152378453098735, guid: fd792c95fe3e3c24eacf598c31e3826e, type: 3}
   - spellType: 1
-    spellPrefab: {fileID: 3655003662515436815, guid: 02a04ba4e714b9742971247881449570, type: 3}
-  - spellType: 2
-    spellPrefab: {fileID: 8658505833738302117, guid: 1a393b17db054df4589cdc7a7362379a, type: 3}
-  - spellType: 3
-    spellPrefab: {fileID: 1322415270139341896, guid: 06c63942f4170b24284797c8522cb845, type: 3}
+    spellPrefab: {fileID: 6649152378453098735, guid: fd792c95fe3e3c24eacf598c31e3826e, type: 3}
   - spellType: 4
+    spellPrefab: {fileID: 3655003662515436815, guid: 02a04ba4e714b9742971247881449570, type: 3}
+  - spellType: 7
+    spellPrefab: {fileID: 8658505833738302117, guid: 1a393b17db054df4589cdc7a7362379a, type: 3}
+  - spellType: 10
+    spellPrefab: {fileID: 1322415270139341896, guid: 06c63942f4170b24284797c8522cb845, type: 3}
+  - spellType: 13
     spellPrefab: {fileID: 204392857868709055, guid: 387cb20415590e540a9b28ea9dfcc4ca, type: 3}
-  - spellType: 5
+  - spellType: 15
     spellPrefab: {fileID: 4364763797403504601, guid: f997d77722bd28048bdb45e054a9e8f0, type: 3}
+  - spellType: 0
+    spellPrefab: {fileID: 7633385470674449784, guid: 286996ea1c0a125498b1baff19cd838f, type: 3}
+  - spellType: 3
+    spellPrefab: {fileID: -8888061956565044974, guid: fbb5a039258482c4185913dd29093902, type: 3}

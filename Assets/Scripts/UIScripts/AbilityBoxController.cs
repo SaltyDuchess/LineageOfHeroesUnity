@@ -49,6 +49,8 @@ public class AbilityBoxController : MonoBehaviour
 
 	void Update()
 	{
+		UpdateAbilityBoxColor();
+
 		if (player.queuedAbility == null)
 		{
 			abilityBoxImage.color = originalAbilityBoxColor;
@@ -57,11 +59,6 @@ public class AbilityBoxController : MonoBehaviour
 
 		if (boundAbility != null)
 		{
-			if (!boundAbility.IsCastable(player))
-			{
-				abilityBoxImage.color = notEnoughPowerColor;
-			}
-
 			if (boundAbility.currentCooldown > 0)
 			{
 				abilityBoxImage.color = notEnoughPowerColor;
@@ -72,6 +69,52 @@ public class AbilityBoxController : MonoBehaviour
 					cooldownController.associatedAbility = boundAbility;
 				}
 			}
+
+			if (boundAbility is ConsumableBase consumable)
+			{
+				ConsumableData consumableData = playerInventory.ConsumableList.Find(c => c.displayName == consumable.displayName);
+				if (consumableData.quantity == 0)
+				{
+					abilityBoxImage.color = notEnoughPowerColor;
+					isAbilityActive = false;
+				}
+			}
+		}
+
+		// Handle targeted spell input
+		if (boundAbility is TargetedSpellBase targetedSpell && isAbilityActive)
+		{
+			if (!targetedSpell.selectedTarget)
+			{
+				targetedSpell.SelectNextTarget();
+			}
+			if (Input.GetKeyDown(KeyCode.Tab))
+			{
+				targetedSpell.SelectNextTarget();
+			}
+			if (Input.GetKeyDown(KeyCode.Space))
+			{
+				targetedSpell.ConfirmTargetAndCast();
+			}
+		}
+	}
+
+	private void UpdateAbilityBoxColor()
+	{
+		if (boundAbility != null)
+		{
+			if (!boundAbility.IsCastable(player))
+			{
+				abilityBoxImage.color = notEnoughPowerColor;
+			}
+			else if (isAbilityActive)
+			{
+				return;
+			}
+			else
+			{
+				abilityBoxImage.color = originalAbilityBoxColor;
+			}
 		}
 	}
 
@@ -79,7 +122,7 @@ public class AbilityBoxController : MonoBehaviour
 	{
 		if (boundAbility != null)
 		{
-			if (player.currentAbilityPool >= boundAbility.abilityPowerCost && boundAbility.currentCooldown == 0)
+			if (boundAbility.IsCastable(player) && boundAbility.currentCooldown == 0)
 			{
 				if (isAbilityActive)
 				{
@@ -148,10 +191,10 @@ public class AbilityBoxController : MonoBehaviour
 	{
 		if (eventData.button == PointerEventData.InputButton.Right && boundAbility != null)
 		{
+			abilityManager.RemoveActiveAbility(boundAbility);
 			Destroy(boundAbility.gameObject);
 			boundAbility = null;
 			boundAbilityData = null;
-			abilityManager.RemoveActiveAbility(boundAbility);
 			abilityBoxImage.sprite = originalSprite;
 			abilityBoxImage.color = originalAbilityBoxColor;
 		}
@@ -171,7 +214,7 @@ public class AbilityBoxController : MonoBehaviour
 		abilityBoxImage.color = activeAbilityBoxColor;
 		isAbilityActive = true;
 
-		if (boundAbility.instantCast)
+		if (boundAbility.instantCast && !(boundAbility is TargetedSpellBase))
 		{
 			player.queuedAbility.ExecuteAbility(player);
 			abilityBoxImage.color = originalAbilityBoxColor;

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using LineageOfHeroes.Spells.Berzerker;
+using LineageOfHeroes.Spells;
 using LineageOfHeroes.Spells.SpellTypes;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ namespace LineageOfHeroes.SpellFactory.Berzerker
 	{
 		[SerializeField] private List<BerzerkerSpellPrefabMapping> berzerkerSpellPrefabs;
 
-		private Dictionary<BerzerkerSpellType, BerzerkerSpellBase> berzerkerSpellPrefabDict;
+		private Dictionary<BerzerkerSpellType, SpellBase> berzerkerSpellPrefabDict;
 
 		private void Awake()
 		{
@@ -19,7 +19,7 @@ namespace LineageOfHeroes.SpellFactory.Berzerker
 
 		private void InitializeDictionary()
 		{
-			berzerkerSpellPrefabDict = new Dictionary<BerzerkerSpellType, BerzerkerSpellBase>();
+			berzerkerSpellPrefabDict = new Dictionary<BerzerkerSpellType, SpellBase>();
 			foreach (var mapping in berzerkerSpellPrefabs)
 			{
 				if (mapping.spellPrefab != null)
@@ -29,7 +29,7 @@ namespace LineageOfHeroes.SpellFactory.Berzerker
 			}
 		}
 
-		public BerzerkerSpellBase CreateBerzerkerSpell(BerzerkerSpellType spellType)
+		public SpellBase CreateBerzerkerSpell(BerzerkerSpellType spellType)
 		{
 			if (berzerkerSpellPrefabDict == null)
 			{
@@ -47,7 +47,7 @@ namespace LineageOfHeroes.SpellFactory.Berzerker
 		public struct BerzerkerSpellPrefabMapping
 		{
 			public BerzerkerSpellType spellType;
-			public BerzerkerSpellBase spellPrefab;
+			public SpellBase spellPrefab;
 		}
 	}
 }

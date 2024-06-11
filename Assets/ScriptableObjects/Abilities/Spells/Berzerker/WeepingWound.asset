@@ -22,7 +22,9 @@ MonoBehaviour:
   spellType: 0
   physDamageModifier: -0.1
   magicDamageModifier: 0
+  critDamageModifier: 0
+  critChanceModifier: 0
   DOT: 0
   DOTTurns: 4
   stunTurns: 0
-  berzerkerSpellType: 5
+  berzerkerSpellType: 16

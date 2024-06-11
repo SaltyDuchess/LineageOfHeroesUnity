@@ -7,7 +7,7 @@ Steps for implementing a new item
 2b. If adding a item with unique behaviours, a new script under object/items/equipment must be added
 3. Add a new prefab for the item and use the scriptable object from the previous step, the item script if needed
 as well as a tooltip trigger
-4. Add this prefab to the appropriate loot table scriptable object
+4. Add this prefab to the appropriate scriptable object table (loot, class spell list, etc)
 5. Update the appropriate item factory to include your new item
 
 For consumables/spells

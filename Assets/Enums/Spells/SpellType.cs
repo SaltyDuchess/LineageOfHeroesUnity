@@ -9,11 +9,21 @@ namespace LineageOfHeroes.Spells.SpellTypes
 
 	public enum BerzerkerSpellType
 	{
+		AbductingAssault,
 		BeastlyBite,
+		CripplingCut,
+		EncirclingEvisceration,
 		FatalFinish,
+		HemorrhagicHaste,
+		ImpellingImpact,
 		InstantImmolation,
+		RavagingRejuvenation,
+		RevitalizingRespite,
 		SanguinarySwap,
+		SappingSlam,
+		SevereSundering,
 		StunningStrike,
+		VitalVeins,
 		WeepingWound
 	}
 
@@ -28,5 +38,12 @@ namespace LineageOfHeroes.Spells.SpellTypes
 	{
 		MeaslyMiasma,
 		PiedPiper
+	}
+
+	public enum MultiClassSpellType
+	{
+		HeightenHealth,
+		PrecisionPuncture,
+		StaminaSwell,
 	}
 }
