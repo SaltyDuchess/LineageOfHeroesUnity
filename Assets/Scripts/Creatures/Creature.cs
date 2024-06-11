@@ -29,13 +29,15 @@ public class Creature : MonoBehaviour, ICreature
 	public float percentageHealth { get; set; } = 100;
 	public int XPValue { get; set; } = 5;
 	public GameObject healthBarObject { get; set; }
+	public int movementDisabledTurns { get; set; } = 0;
 
 	protected virtual void Awake()
 	{
 		AssignStatsFromCreatureStats(stats);
 	}
 
-	private void Update() {
+	private void Update()
+	{
 		percentageHealth = (currentHealth / healthPool) * 100;
 		percentageAbilityPool = (currentAbilityPool / abilityPowerPool) * 100;
 	}
@@ -81,6 +83,10 @@ public class Creature : MonoBehaviour, ICreature
 		{
 			currentHealth += healthRegeneration;
 		}
+		if (movementDisabledTurns > 0)
+		{
+			movementDisabledTurns--;
+		}
 	}
 
 	public bool TryAttack(Creature target)
@@ -124,3 +130,4 @@ public class Creature : MonoBehaviour, ICreature
 		return null;
 	}
 }
+

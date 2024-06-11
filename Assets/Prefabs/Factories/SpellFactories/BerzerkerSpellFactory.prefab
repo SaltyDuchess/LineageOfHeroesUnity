@@ -61,3 +61,5 @@ MonoBehaviour:
     spellPrefab: {fileID: 7633385470674449784, guid: 286996ea1c0a125498b1baff19cd838f, type: 3}
   - spellType: 3
     spellPrefab: {fileID: -8888061956565044974, guid: fbb5a039258482c4185913dd29093902, type: 3}
+  - spellType: 2
+    spellPrefab: {fileID: -6888911297136616215, guid: a3a01ddf6a2defe48b086a6924e39d36, type: 3}

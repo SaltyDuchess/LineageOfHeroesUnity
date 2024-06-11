@@ -11,4 +11,5 @@ public class SpellData : AbilityData
     public float DOT;
     public int DOTTurns;
     public int stunTurns;
+		public int movementDisabledTurns;
 }

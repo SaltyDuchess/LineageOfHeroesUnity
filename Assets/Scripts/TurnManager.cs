@@ -30,6 +30,20 @@ public class TurnManager : MonoBehaviour
 		{
 			actors[currentPlayerIndex].speedPool -= actors[currentPlayerIndex].actionSpeedCost;
 			actors[currentPlayerIndex].OnTurn();
+
+			if (actors[currentPlayerIndex] is Creature creature)
+			{
+				if (creature.movementDisabledTurns > 0 && creature.TryAttack(null))
+				{
+					// If the creature can attack but not move, handle it
+					actors[currentPlayerIndex].speedPool -= actors[currentPlayerIndex].actionSpeedCost;
+				}
+				else if (creature.movementDisabledTurns > 0)
+				{
+					// Skip the turn if the creature cannot attack
+					NextTurn();
+				}
+			}
 		}
 		else
 		{
@@ -64,3 +78,4 @@ public class TurnManager : MonoBehaviour
 		actors.Sort((a, b) => b.speedPool.CompareTo(a.speedPool));
 	}
 }
+

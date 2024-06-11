@@ -47,6 +47,7 @@ public class Mob : Creature, IMob
 
 	new public void OnTurn()
 	{
+		base.OnTurn();
 		if (currentHealth <= 0)
 		{
 			Die();

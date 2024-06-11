@@ -38,6 +38,13 @@ public class MobBehavior : MonoBehaviour
 	{
 		if (player == null) return;
 
+		if (creature.movementDisabledTurns > 0)
+		{
+			// Skip movement if disabled
+			onMoveComplete?.Invoke();
+			return;
+		}
+
 		Vector2Int startGridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
 		Vector2Int targetGridPosition = new Vector2Int(Mathf.RoundToInt(player.transform.position.x), Mathf.RoundToInt(player.transform.position.y));
 
@@ -70,9 +77,9 @@ public class MobBehavior : MonoBehaviour
 		frontier.Enqueue(start);
 
 		Dictionary<Vector2Int, Vector2Int?> cameFrom = new Dictionary<Vector2Int, Vector2Int?>
-				{
-						{ start, null }
-				};
+								{
+												{ start, null }
+								};
 
 		while (frontier.Count > 0)
 		{
@@ -110,11 +117,11 @@ public class MobBehavior : MonoBehaviour
 	{
 		Vector2Int[] directions = new Vector2Int[]
 		{
-						Vector2Int.up,
-						Vector2Int.down,
-						Vector2Int.left,
-						Vector2Int.right,
-						new Vector2Int(1, 1), // Diagonal up-right
+												Vector2Int.up,
+												Vector2Int.down,
+												Vector2Int.left,
+												Vector2Int.right,
+												new Vector2Int(1, 1), // Diagonal up-right
             new Vector2Int(-1, 1), // Diagonal up-left
             new Vector2Int(1, -1), // Diagonal down-right
             new Vector2Int(-1, -1) // Diagonal down-left
@@ -151,3 +158,4 @@ public class MobBehavior : MonoBehaviour
 		onMoveComplete?.Invoke();
 	}
 }
+
