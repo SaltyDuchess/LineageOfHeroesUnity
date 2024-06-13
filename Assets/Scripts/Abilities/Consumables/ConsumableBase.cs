@@ -39,7 +39,6 @@ public class ConsumableBase : AbilityBase, IConsumable
             if (consumableData != null && consumableData.quantity > 0)
             {
                 consumableData.quantity--;
-								Debug.Log($"Used 1 {consumableData.displayName}, quantity left: {consumableData.quantity}");
                 castingCreature.currentAbilityPool -= abilityPowerCost;
                 currentCooldown = cooldown;
                 castingCreature.queuedAbility = null;

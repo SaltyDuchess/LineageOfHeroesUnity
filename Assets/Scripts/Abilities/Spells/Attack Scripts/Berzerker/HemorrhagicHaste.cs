@@ -21,8 +21,6 @@ namespace LineageOfHeroes.Spells.Berzerker
 				}
 
 				player.speedPool += 50;
-
-				Debug.Log($"{player.displayName} cast {displayName}: HP reduced by 5, Speed Pool increased by 50. Current Speed Pool - {player.speedPool}");
 			}
 		}
 	}

@@ -16,7 +16,7 @@ MonoBehaviour:
   uiElement: {fileID: 21300000, guid: 2292dc827bf03994394382889df83370, type: 3}
   levelRequirement: 0
   abilityPowerCost: 0
-  cooldown: 0
+  cooldown: 20
   instantCast: 0
   descriptionLong: 
   spellType: 0

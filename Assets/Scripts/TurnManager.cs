@@ -59,7 +59,6 @@ public class TurnManager : MonoBehaviour
 			if (actors.Count == 0)
 			{
 				StopAllCoroutines();
-				Debug.Log("All actors removed, stopping turn manager.");
 			}
 			else
 			{

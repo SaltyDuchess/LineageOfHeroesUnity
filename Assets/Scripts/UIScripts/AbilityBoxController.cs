@@ -222,8 +222,6 @@ public class AbilityBoxController : MonoBehaviour
 
 	private void CloseAbilitySelectionPanel()
 	{
-		Debug.Log("Closing ability selection panel");
-		Debug.Log(abilitySelectionPanel);
 		Destroy(abilitySelectionPanel);
 		abilitySelectionPanel = null;
 	}

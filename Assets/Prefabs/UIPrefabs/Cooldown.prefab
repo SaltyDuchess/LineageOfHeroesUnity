@@ -62,7 +62,16 @@ MonoBehaviour:
   - {fileID: -1922253127, guid: ab495c625f9a44543afb58549e82639e, type: 3}
   - {fileID: 136994234, guid: ab495c625f9a44543afb58549e82639e, type: 3}
   - {fileID: 1455199465, guid: ab495c625f9a44543afb58549e82639e, type: 3}
-  associatedSpell: {fileID: 0}
+  - {fileID: -1763498575, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: -691011995, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: -846539865, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: 1089582252, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: -274768625, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: -2117029265, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: 557983686, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: 1563614601, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: -1211117689, guid: ab495c625f9a44543afb58549e82639e, type: 3}
+  - {fileID: 1175937841, guid: ab495c625f9a44543afb58549e82639e, type: 3}
 --- !u!222 &-5344106981005167666
 CanvasRenderer:
   m_ObjectHideFlags: 0

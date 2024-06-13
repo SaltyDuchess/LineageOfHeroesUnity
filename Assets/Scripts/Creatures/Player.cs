@@ -34,7 +34,6 @@ public class Player : Creature
 	public void TakeAction()
 	{
 		speedPool -= actionSpeedCost;
-		Debug.Log(speedPool);
 		GetComponent<PlayerMovement>().enabled = false;
 		TurnManager turnManager = FindObjectOfType<TurnManager>();
 		if (speedPool < 100)

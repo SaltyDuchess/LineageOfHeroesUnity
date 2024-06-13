@@ -34,7 +34,6 @@ public class AbilityManager : MonoBehaviour
 		if (abilityToUnlock != null && !unlockedAbilities.Contains(abilityToUnlock))
 		{
 			unlockedAbilities.Add(abilityToUnlock);
-			Debug.Log($"Unlocked ability: {abilityToUnlock.displayName}");
 		}
 	}
 
@@ -44,7 +43,6 @@ public class AbilityManager : MonoBehaviour
 		if (abilityToRemove != null)
 		{
 			unlockedAbilities.Remove(abilityToRemove);
-			Debug.Log($"Removed ability: {abilityToRemove.displayName}");
 		}
 	}
 
