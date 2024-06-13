@@ -10,12 +10,14 @@ public class PlayerMovement : MonoBehaviour
 	private Vector3Int targetPosition;
 	private bool isMoving;
 	private AbilityManager abilityManager;
+	private Player player;
 
 	void Start()
 	{
 		targetGridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
 		targetPosition = (Vector3Int)targetGridPosition;
 		abilityManager = FindObjectOfType<AbilityManager>();
+		player = GetComponent<Player>();
 	}
 
 	void Update()
@@ -28,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 		abilityManager.AdvanceCooldownsOnActiveAbilities();
 		if (moveDirection == Vector2Int.zero)
 		{
-			GetComponent<Player>().EndTurn();
+			player.TakeAction();
 			return;
 		}
 
@@ -42,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 			// If an attack is performed, skip the movement step
 			if (GetComponent<ICreature>().TryAttack(targetCreature))
 			{
-				GetComponent<Player>().EndTurn();
+				player.TakeAction();
 				return;
 			}
 		}
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 		if (hitCollider != null && !hitCollider.isTrigger)
 		{
 			// The target position is blocked, so the player cannot move there
-			GetComponent<Player>().EndTurn();
+			GetComponent<Player>().TakeAction();
 			return;
 		}
 
@@ -75,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
 		isMoving = false;
 
 		// End the player's turn after moving
-		GetComponent<Player>().EndTurn();
+		GetComponent<Player>().TakeAction();
 	}
 
 	// Input action methods

@@ -27,4 +27,6 @@ MonoBehaviour:
   DOT: 0
   DOTTurns: 0
   stunTurns: 0
+  movementDisabledTurns: 0
+  isSustainedSpell: 1
   berzerkerSpellType: 5

@@ -11,6 +11,7 @@ public abstract class AbilityBase : MonoBehaviour, IAbility
     public bool instantCast { get; set; }
     public float abilityPowerCost { get; set; }
     public bool isCastable { get; set; }
+		public bool isSustainedSpell { get; set; }
     public Creature targetedEnemy { get; set; }
 
     protected virtual void Awake()

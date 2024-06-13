@@ -68,7 +68,7 @@ public class Creature : MonoBehaviour, ICreature
 		XPValue = stats.XPValue;
 	}
 
-	public void OnTurn()
+	public virtual void OnTurn()
 	{
 		if (currentAbilityPool < abilityPowerPool)
 		{
@@ -130,4 +130,3 @@ public class Creature : MonoBehaviour, ICreature
 		return null;
 	}
 }
-

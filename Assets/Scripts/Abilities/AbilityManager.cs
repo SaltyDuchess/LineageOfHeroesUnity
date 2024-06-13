@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using LineageOfHeroes.Spells;
 using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class AbilityManager : MonoBehaviour
 	[SerializeField] private ConsumableLibrary consumableLibrary; // Reference to the ConsumableLibrary
 	private List<AbilityData> unlockedAbilities; // List of unlocked abilities for the player
 	private List<AbilityBase> activeAbilities; // List of active abilities for the player
+	private List<SpellBase> activeSustainedSpells; // List of active sustained spells
 
 	private void Awake()
 	{
@@ -17,6 +19,7 @@ public class AbilityManager : MonoBehaviour
 			Instance = this;
 			unlockedAbilities = new List<AbilityData>();
 			activeAbilities = new List<AbilityBase>();
+			activeSustainedSpells = new List<SpellBase>();
 			DontDestroyOnLoad(gameObject);
 		}
 		else
@@ -63,6 +66,36 @@ public class AbilityManager : MonoBehaviour
 	public List<AbilityBase> GetActiveAbilities()
 	{
 		return activeAbilities;
+	}
+
+	public void AddSustainedSpell(SpellBase spell)
+	{
+		if (!activeSustainedSpells.Contains(spell))
+		{
+			activeSustainedSpells.Add(spell);
+		}
+	}
+
+	public void RemoveSustainedSpell(SpellBase spell)
+	{
+		if (activeSustainedSpells.Contains(spell))
+		{
+			spell.currentCooldown = spell.spellData.cooldown;
+			activeSustainedSpells.Remove(spell);
+		}
+	}
+
+	public List<SpellBase> GetActiveSustainedSpells()
+	{
+		return activeSustainedSpells;
+	}
+
+	public void ApplySustainedSpells(Player player)
+	{
+		foreach (var spell in activeSustainedSpells)
+		{
+			spell.ExecuteAbility(player);
+		}
 	}
 
 	public void AdvanceCooldownsOnActiveAbilities()

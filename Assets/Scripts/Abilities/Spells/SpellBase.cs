@@ -11,6 +11,7 @@ namespace LineageOfHeroes.Spells
 		public float DOT { get; set; }
 		public int DOTTurns { get; set; }
 		public int stunTurns { get; set; }
+		public int movementDisabledTurns { get; set; }
 		private TooltipTrigger tooltipTrigger;
 
 		protected override void Awake()
@@ -28,6 +29,8 @@ namespace LineageOfHeroes.Spells
 			DOT = spellData.DOT;
 			DOTTurns = spellData.DOTTurns;
 			stunTurns = spellData.stunTurns;
+			movementDisabledTurns = spellData.movementDisabledTurns;
+			isSustainedSpell = spellData.isSustainedSpell;
 		}
 
 		public override bool IsCastable(Creature castingCreature)

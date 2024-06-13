@@ -2068,6 +2068,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5332906049223456898, guid: 73bfb4f960585e145a424f7eb30d243a, type: 3}
+      propertyPath: stats.speedPool
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5533892023633780812, guid: 73bfb4f960585e145a424f7eb30d243a, type: 3}
       propertyPath: m_Name
       value: Player

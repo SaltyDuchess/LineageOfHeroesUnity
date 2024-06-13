@@ -12,4 +12,5 @@ public class SpellData : AbilityData
     public int DOTTurns;
     public int stunTurns;
 		public int movementDisabledTurns;
+		public bool isSustainedSpell;
 }

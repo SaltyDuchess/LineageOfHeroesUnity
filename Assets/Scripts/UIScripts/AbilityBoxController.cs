@@ -51,7 +51,7 @@ public class AbilityBoxController : MonoBehaviour
 	{
 		UpdateAbilityBoxColor();
 
-		if (player.queuedAbility == null)
+		if (player.queuedAbility == null && boundAbility == null)
 		{
 			abilityBoxImage.color = originalAbilityBoxColor;
 			isAbilityActive = false;
@@ -107,7 +107,7 @@ public class AbilityBoxController : MonoBehaviour
 			{
 				abilityBoxImage.color = notEnoughPowerColor;
 			}
-			else if (isAbilityActive)
+			else if (isAbilityActive || abilityManager.GetActiveSustainedSpells().Contains((SpellBase)boundAbility))
 			{
 				return;
 			}
@@ -126,8 +126,13 @@ public class AbilityBoxController : MonoBehaviour
 			{
 				if (isAbilityActive)
 				{
-					player.queuedAbility = null;
+					if (boundAbility.isSustainedSpell)
+					{
+						// Toggle sustained spell off
+						abilityManager.RemoveSustainedSpell((SpellBase)boundAbility);
+					}
 					abilityBoxImage.color = originalAbilityBoxColor;
+					player.queuedAbility = null;
 					isAbilityActive = false;
 				}
 				else if (boundAbility is ConsumableBase consumable)
@@ -140,7 +145,17 @@ public class AbilityBoxController : MonoBehaviour
 				}
 				else
 				{
-					QueueAbility();
+					if (boundAbility.isSustainedSpell)
+					{
+						// Toggle sustained spell on
+						isAbilityActive = true;
+						abilityManager.AddSustainedSpell((SpellBase)boundAbility);
+						abilityBoxImage.color = activeAbilityBoxColor;
+					}
+					else
+					{
+						QueueAbility();
+					}
 				}
 			}
 			else
@@ -189,10 +204,15 @@ public class AbilityBoxController : MonoBehaviour
 
 	private void OnPointerClick(PointerEventData eventData)
 	{
+		// this is what is called when the user right clicks on an ability box to remove an ability
 		if (eventData.button == PointerEventData.InputButton.Right && boundAbility != null)
 		{
+			if (boundAbility.isSustainedSpell && isAbilityActive)
+			{
+				abilityManager.RemoveSustainedSpell((SpellBase)boundAbility);
+			}
 			abilityManager.RemoveActiveAbility(boundAbility);
-			Destroy(boundAbility.gameObject);
+			Destroy(boundAbility.gameObject); // with this logic the user can right click cheese to reset cooldowns, needs fix eventually
 			boundAbility = null;
 			boundAbilityData = null;
 			abilityBoxImage.sprite = originalSprite;
