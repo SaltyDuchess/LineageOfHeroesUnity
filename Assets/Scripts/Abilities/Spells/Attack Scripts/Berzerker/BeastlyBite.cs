@@ -1,10 +1,11 @@
 using LineageOfHeroes.AttackScripts;
+using UnityEngine;
 
 namespace LineageOfHeroes.Spells.Berzerker
 {
 	public class BeastlyBite : BerzerkerSpellBase
 	{
-		float healPercentage = 0.5f;
+		[SerializeField] protected float healPercentage = 0.5f;
 
 		new private void Awake()
 		{

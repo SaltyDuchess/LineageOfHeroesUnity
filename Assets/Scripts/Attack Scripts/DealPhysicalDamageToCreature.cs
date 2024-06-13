@@ -5,7 +5,7 @@ namespace LineageOfHeroes.AttackScripts
 {
 	public static class DealPhysicalDamageToCreature
 	{
-		public static float DealPhysicalDamage(Creature castingCreature, Creature defender, float physDamageModifier = 1)
+		public static float DealPhysicalDamage(Creature castingCreature, Creature defender, float physDamageModifier = 0)
 		{
 			float damage = castingCreature.damageRange.GetRandomValue();
 

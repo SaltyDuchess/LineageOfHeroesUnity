@@ -4,6 +4,8 @@ namespace LineageOfHeroes.Spells.Berzerker
 {
 	public class HemorrhagicHaste : BerzerkerSpellBase
 	{
+		[SerializeField] protected int hpCost = 5;
+		[SerializeField] protected int speedIncrease = 50;
 		new private void Awake()
 		{
 			base.Awake();
@@ -14,13 +16,13 @@ namespace LineageOfHeroes.Spells.Berzerker
 		{
 			if (castingCreature is Player player)
 			{
-				player.currentHealth -= 5;
+				player.currentHealth -= hpCost;
 				if (player.currentHealth < 0)
 				{
 					player.currentHealth = 0;
 				}
 
-				player.speedPool += 50;
+				player.speedPool += speedIncrease;
 			}
 		}
 	}

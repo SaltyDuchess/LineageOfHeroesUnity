@@ -51,7 +51,7 @@ public class AbilityBoxController : MonoBehaviour
 	{
 		UpdateAbilityBoxColor();
 
-		if (player.queuedAbility == null && boundAbility == null)
+		if (player.queuedAbility == null && !boundAbility.isSustainedSpell)
 		{
 			abilityBoxImage.color = originalAbilityBoxColor;
 			isAbilityActive = false;
