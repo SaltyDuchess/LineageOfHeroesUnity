@@ -6,6 +6,7 @@ public interface ICreature
 		public bool TryAttack(Creature target);
 
     float speedPool { get; set; }
+		float currentSpeedPool { get; set; }
     float abilityPowerPool { get; set; }
     float currentAbilityPool { get; set; }
     float percentageAbilityPool { get; set; }

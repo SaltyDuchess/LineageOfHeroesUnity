@@ -24,11 +24,11 @@ public class TurnManager : MonoBehaviour
 	public void NextTurn()
 	{
 		currentPlayerIndex = (currentPlayerIndex + 1) % actors.Count;
-		actors[currentPlayerIndex].speedPool += 100;
+		actors[currentPlayerIndex].currentSpeedPool += 100;
 
-		if (actors[currentPlayerIndex].speedPool >= actors[currentPlayerIndex].actionSpeedCost)
+		if (actors[currentPlayerIndex].currentSpeedPool >= actors[currentPlayerIndex].actionSpeedCost)
 		{
-			actors[currentPlayerIndex].speedPool -= actors[currentPlayerIndex].actionSpeedCost;
+			actors[currentPlayerIndex].currentSpeedPool -= actors[currentPlayerIndex].actionSpeedCost;
 			actors[currentPlayerIndex].OnTurn();
 
 			if (actors[currentPlayerIndex] is Creature creature)
@@ -36,7 +36,7 @@ public class TurnManager : MonoBehaviour
 				if (creature.movementDisabledTurns > 0 && creature.TryAttack(null))
 				{
 					// If the creature can attack but not move, handle it
-					actors[currentPlayerIndex].speedPool -= actors[currentPlayerIndex].actionSpeedCost;
+					actors[currentPlayerIndex].currentSpeedPool -= actors[currentPlayerIndex].actionSpeedCost;
 				}
 				else if (creature.movementDisabledTurns > 0)
 				{
@@ -74,7 +74,7 @@ public class TurnManager : MonoBehaviour
 	public void AddActor(ICreature actor)
 	{
 		actors.Add(actor);
-		actors.Sort((a, b) => b.speedPool.CompareTo(a.speedPool));
+		actors.Sort((a, b) => b.currentSpeedPool.CompareTo(a.currentSpeedPool));
 	}
 }
 

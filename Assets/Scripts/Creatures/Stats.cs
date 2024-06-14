@@ -2,6 +2,7 @@
 public class Stats
 {
 	public float speedPool;
+	public float currentSpeedPool;
 	public float abilityPowerPool;
 	public float currentAbilityPool;
 	public float percentageAbilityPool;

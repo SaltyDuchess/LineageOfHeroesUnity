@@ -4,7 +4,7 @@ namespace LineageOfHeroes.AttackScripts
 	{
 		public static void StunDefender(Creature defender, float stunTurns)
 		{
-			defender.speedPool -= stunTurns * 100;
+			defender.currentSpeedPool -= stunTurns * 100;
 		}
 	}
 }

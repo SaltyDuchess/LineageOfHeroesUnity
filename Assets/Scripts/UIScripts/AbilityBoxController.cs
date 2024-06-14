@@ -51,7 +51,7 @@ public class AbilityBoxController : MonoBehaviour
 	{
 		UpdateAbilityBoxColor();
 
-		if (player.queuedAbility == null && !boundAbility.isSustainedSpell)
+		if (player.queuedAbility == null && !(boundAbility?.isSustainedSpell ?? false) && boundAbility == null)
 		{
 			abilityBoxImage.color = originalAbilityBoxColor;
 			isAbilityActive = false;
@@ -95,6 +95,7 @@ public class AbilityBoxController : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
 				targetedSpell.ConfirmTargetAndCast();
+				isAbilityActive = false;
 			}
 		}
 	}
@@ -107,13 +108,17 @@ public class AbilityBoxController : MonoBehaviour
 			{
 				abilityBoxImage.color = notEnoughPowerColor;
 			}
-			else if (isAbilityActive || abilityManager.GetActiveSustainedSpells().Contains((SpellBase)boundAbility))
-			{
-				return;
-			}
 			else
 			{
-				abilityBoxImage.color = originalAbilityBoxColor;
+				SpellBase spellBase = boundAbility as SpellBase;
+				if (isAbilityActive || (spellBase != null && abilityManager.GetActiveSustainedSpells().Contains(spellBase)))
+				{
+					return;
+				}
+				else if (player.queuedAbility == null)
+				{
+					abilityBoxImage.color = originalAbilityBoxColor;
+				}
 			}
 		}
 	}
@@ -230,13 +235,14 @@ public class AbilityBoxController : MonoBehaviour
 	{
 		player.queuedAbility = boundAbility;
 		abilityBoxImage.color = activeAbilityBoxColor;
-		isAbilityActive = true;
-
+		if (boundAbility is TargetedSpellBase)
+		{
+			isAbilityActive = true;
+		}
 		if (boundAbility.instantCast && !(boundAbility is TargetedSpellBase))
 		{
 			player.queuedAbility.ExecuteAbility(player);
 			abilityBoxImage.color = originalAbilityBoxColor;
-			isAbilityActive = false;
 		}
 	}
 }

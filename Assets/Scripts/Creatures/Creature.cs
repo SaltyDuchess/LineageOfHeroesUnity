@@ -7,6 +7,7 @@ public class Creature : MonoBehaviour, ICreature
 	public IAbility queuedAbility { get; set; } = null;
 	public CreatureStats stats = new CreatureStats();
 	public float speedPool { get; set; }
+	public float currentSpeedPool { get; set; }
 	public float healthPool { get; set; } = 100;
 	public float currentHealth { get; set; } = 100;
 	public float abilityPowerPool { get; set; }
@@ -45,6 +46,7 @@ public class Creature : MonoBehaviour, ICreature
 	protected void AssignStatsFromCreatureStats(CreatureStats stats)
 	{
 		speedPool = stats.speedPool;
+		currentSpeedPool = stats.currentSpeedPool;
 		healthPool = stats.healthPool;
 		currentHealth = stats.currentHealth;
 		abilityPowerPool = stats.abilityPowerPool;

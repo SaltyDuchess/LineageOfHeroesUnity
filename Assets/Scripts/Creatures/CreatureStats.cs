@@ -11,6 +11,7 @@ public class CreatureStats : Stats
 	public CreatureStats()
 	{
 		speedPool = 100;
+		currentSpeedPool = 100;
 		abilityPowerPool = 100;
 		currentAbilityPool = 100;
 		percentageAbilityPool = 100;

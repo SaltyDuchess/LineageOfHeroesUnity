@@ -26,17 +26,17 @@ public class Player : Creature
 	public override void OnTurn()
 	{
 		// Enable player input
-		speedPool += 100;
+		currentSpeedPool += 100;
 		GetComponent<PlayerMovement>().enabled = true;
 		AbilityManager.Instance.ApplySustainedSpells(this);
 	}
 
 	public void TakeAction()
 	{
-		speedPool -= actionSpeedCost;
+		currentSpeedPool -= actionSpeedCost;
 		GetComponent<PlayerMovement>().enabled = false;
 		TurnManager turnManager = FindObjectOfType<TurnManager>();
-		if (speedPool < 100)
+		if (currentSpeedPool < 100)
 		{
 			turnManager.NextTurn();
 		}

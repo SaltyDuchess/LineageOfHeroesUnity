@@ -1,5 +1,4 @@
 using LineageOfHeroes.AttackScripts;
-using UnityEngine;
 
 namespace LineageOfHeroes.Spells.Berzerker
 {

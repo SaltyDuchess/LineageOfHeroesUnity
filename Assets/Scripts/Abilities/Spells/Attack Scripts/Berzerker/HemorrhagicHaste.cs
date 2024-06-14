@@ -22,7 +22,7 @@ namespace LineageOfHeroes.Spells.Berzerker
 					player.currentHealth = 0;
 				}
 
-				player.speedPool += speedIncrease;
+				player.currentSpeedPool += speedIncrease;
 			}
 		}
 	}
