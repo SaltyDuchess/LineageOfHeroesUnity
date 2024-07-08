@@ -6,11 +6,12 @@ using UnityEngine;
 public class AbilityManager : MonoBehaviour
 {
 	public static AbilityManager Instance { get; private set; }
-	[SerializeField] private SpellLibrary spellLibrary; // Reference to the SpellLibrary
-	[SerializeField] private ConsumableLibrary consumableLibrary; // Reference to the ConsumableLibrary
-	private List<AbilityData> unlockedAbilities; // List of unlocked abilities for the player
-	private List<AbilityBase> activeAbilities; // List of active abilities for the player
+	[SerializeField] private SpellLibrary spellLibrary;
+	[SerializeField] private ConsumableLibrary consumableLibrary;
+	private List<AbilityData> unlockedAbilities;
+	private List<AbilityBase> activeAbilities;
 	private List<SpellBase> activeSustainedSpells; // List of active sustained spells
+	private List<PermanentUpgradeData> permanentUpgrades;
 
 	private void Awake()
 	{
@@ -20,6 +21,7 @@ public class AbilityManager : MonoBehaviour
 			unlockedAbilities = new List<AbilityData>();
 			activeAbilities = new List<AbilityBase>();
 			activeSustainedSpells = new List<SpellBase>();
+			permanentUpgrades = new List<PermanentUpgradeData>();
 			DontDestroyOnLoad(gameObject);
 		}
 		else
@@ -28,13 +30,24 @@ public class AbilityManager : MonoBehaviour
 		}
 	}
 
-	public void UnlockAbility(string abilityName)
+	public bool UnlockAbility(string abilityName)
 	{
 		AbilityData abilityToUnlock = GetAbilityByName(abilityName);
-		if (abilityToUnlock != null && !unlockedAbilities.Contains(abilityToUnlock))
+		if (abilityToUnlock != null && !unlockedAbilities.Contains(abilityToUnlock) && !permanentUpgrades.Contains(abilityToUnlock))
 		{
-			unlockedAbilities.Add(abilityToUnlock);
+			if (abilityToUnlock is PermanentUpgradeData permanentUpgrade)
+			{
+				permanentUpgrades.Add(permanentUpgrade);
+				ApplyPermanentUpgrade(permanentUpgrade);
+			}
+			else 
+			{
+				unlockedAbilities.Add(abilityToUnlock);
+			}
+			Debug.Log($"Unlocked ability: {abilityToUnlock.displayName}");
+			return true;
 		}
+		return false;
 	}
 
 	public void RemoveAbility(string abilityName)
@@ -113,7 +126,7 @@ public class AbilityManager : MonoBehaviour
 
 	private AbilityData GetAbilityByName(string abilityName)
 	{
-		SpellData spellData = spellLibrary?.GetSpellByName(abilityName);
+		AbilityData spellData = spellLibrary?.GetSpellByName(abilityName);
 		if (spellData != null)
 		{
 			return spellData;
@@ -121,5 +134,13 @@ public class AbilityManager : MonoBehaviour
 
 		ConsumableData consumableData = consumableLibrary?.GetConsumableByName(abilityName);
 		return consumableData;
+	}
+
+	private void ApplyPermanentUpgrade(PermanentUpgradeData upgrade)
+	{
+		if (upgrade.healthIncreasePercentage > 0)
+		{
+			GlobalEffectsManager.Instance.PlayerPercentageHPBoost = upgrade.healthIncreasePercentage / 100f;
+		}
 	}
 }

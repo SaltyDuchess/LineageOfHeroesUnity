@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using LineageOfHeroes.SpellFactory;
 using LineageOfHeroes.Spells;
 using TMPro;
 using UnityEngine;
@@ -18,7 +17,6 @@ public class LevelUpUIController : MonoBehaviour
 	private AbilityFactory abilityFactory;
 	private TextMeshProUGUI playerStatsText;
 	private List<SpellBase> createdSpellInstances = new List<SpellBase>();
-
 
 	void Awake()
 	{
@@ -44,61 +42,69 @@ public class LevelUpUIController : MonoBehaviour
 	{
 		player = FindObjectOfType<Player>();
 		abilityFactory = FindObjectOfType<AbilityFactory>();
-		// Instantiate the overlay
 		overlay = Instantiate(overlayPrefab, FindObjectOfType<Canvas>().transform);
 
-		// Assign the CloseLevelUpUI method to the close button's onClick event
 		Button closeButton = overlay.transform.Find("CloseButton").GetComponent<Button>();
 		closeButton.onClick.AddListener(CloseLevelUpUI);
 
-		// Find and assign the PlayerStatsText object
 		playerStatsText = overlay.transform.Find("PlayerStatsText").GetComponent<TextMeshProUGUI>();
-
-		// Update the player stats text
 		UpdatePlayerStatsText();
 
-		// Iterate through the player's class spells and create a UI object for each one
 		foreach (SpellData spell in player.playerClass.classSpells)
 		{
-			SpellBase spellInstance = (SpellBase)abilityFactory.CreateAbility(spell);
-			createdSpellInstances.Add(spellInstance);
-			GameObject spellUI = Instantiate(spellLevelUpPrefab);
-			spellUI.transform.SetParent(overlay.transform.Find("SpellUILevelupLayout").transform, false);
-
-			// Set the properties of the spell UI object (e.g., image, text)
-			spellUI.GetComponent<Image>().sprite = spellInstance.uiElement;
-
-			// Get the reference to TooltipTrigger component
-			tooltipTrigger = spellUI.GetComponent<TooltipTrigger>();
-
-			// Set the tooltipText using SetTooltipText method
-			tooltipTrigger.SetTooltipText(spellInstance.descriptionLong);
-
-			// Update the spellUI color
-			UpdateSpellUI(spellUI, spell);
-
-			// Add the click event to the spellUI
-			Button spellUIButton = spellUI.GetComponentInChildren<Button>(true);
-			spellUIButton.onClick.AddListener(() => UnlockSpellForPlayer(spell));
+			CreateSpellUI(spell);
 		}
+
+		foreach (PermanentUpgradeData upgrade in player.playerClass.classPermanentUpgrades)
+		{
+			CreateUpgradeUI(upgrade);
+		}
+	}
+
+	private void CreateSpellUI(SpellData spell)
+	{
+		SpellBase spellInstance = (SpellBase)abilityFactory.CreateAbility(spell);
+		createdSpellInstances.Add(spellInstance);
+		GameObject spellUI = Instantiate(spellLevelUpPrefab);
+		spellUI.transform.SetParent(overlay.transform.Find("SpellUILevelupLayout").transform, false);
+
+		spellUI.GetComponent<Image>().sprite = spellInstance.uiElement;
+		tooltipTrigger = spellUI.GetComponent<TooltipTrigger>();
+		tooltipTrigger.SetTooltipText(spellInstance.descriptionLong);
+		UpdateSpellUI(spellUI, spell);
+
+		Button spellUIButton = spellUI.GetComponentInChildren<Button>(true);
+		spellUIButton.onClick.AddListener(() => UnlockSpellForPlayer(spell));
+	}
+
+	private void CreateUpgradeUI(PermanentUpgradeData upgrade)
+	{
+		GameObject upgradeUI = Instantiate(spellLevelUpPrefab);
+		upgradeUI.transform.SetParent(overlay.transform.Find("SpellUILevelupLayout").transform, false);
+
+		upgradeUI.GetComponent<Image>().sprite = upgrade.uiElement;
+		tooltipTrigger = upgradeUI.GetComponent<TooltipTrigger>();
+		tooltipTrigger.SetTooltipText(upgrade.descriptionLong);
+		UpdateSpellUI(upgradeUI, upgrade);
+
+		Button upgradeUIButton = upgradeUI.GetComponentInChildren<Button>(true);
+		upgradeUIButton.onClick.AddListener(() => UnlockUpgradeForPlayer(upgrade));
 	}
 
 	public void UnlockSpellForPlayer(SpellData spell)
 	{
-		// Check if the player has enough ability points and if the spell is available
 		if (player.abilityPoints > 0 && player.currentLevel >= spell.levelRequirement)
 		{
 			AbilityManager spellManager = FindObjectOfType<AbilityManager>();
-			// Unlock the spell and deduct an ability point
-			spellManager.UnlockAbility(spell.displayName);
-			player.abilityPoints--;
+			bool abilityUnlocked = spellManager.UnlockAbility(spell.displayName);
 
-			// Update the player stats text
+			if (abilityUnlocked)
+			{
+				player.abilityPoints--;
+			}
+
 			UpdatePlayerStatsText();
-			// Update the UI to show the spell as unlocked
-			// ...
 
-			// Update the spellUI color for all spellUI objects
 			foreach (Transform spellUITransform in overlay.transform.Find("SpellUILevelupLayout").transform)
 			{
 				GameObject spellUI = spellUITransform.gameObject;
@@ -107,16 +113,27 @@ public class LevelUpUIController : MonoBehaviour
 		}
 	}
 
-	private void UpdateSpellUI(GameObject spellUI, SpellData spell)
+	public void UnlockUpgradeForPlayer(PermanentUpgradeData upgrade)
 	{
-		// Check if the player's level is lower than the required level for the spell or if the player doesn't have ability points
-		bool spellUnavailable = player.currentLevel < spell.levelRequirement || player.abilityPoints <= 0;
+		if (player.abilityPoints > 0 && player.currentLevel >= upgrade.levelRequirement)
+		{
+			AbilityManager abilityManager = FindObjectOfType<AbilityManager>();
+			bool abilityUnlocked = abilityManager.UnlockAbility(upgrade.displayName);
+			if (abilityUnlocked)
+			{
+				player.abilityPoints--;
+			}
 
-		// Change the spellUI color to be grayed out if the spell is unavailable
+			UpdatePlayerStatsText();
+		}
+	}
+
+	private void UpdateSpellUI(GameObject spellUI, AbilityData spell)
+	{
+		bool spellUnavailable = player.currentLevel < spell.levelRequirement || player.abilityPoints <= 0;
 		Color color = spellUnavailable ? new Color(0.5f, 0.5f, 0.5f, 0.5f) : Color.white;
 		spellUI.GetComponent<Image>().color = color;
 
-		// Apply the same color change to the child image
 		Image[] childImages = spellUI.GetComponentsInChildren<Image>(true);
 		if (childImages.Length > 1)
 		{
@@ -134,7 +151,6 @@ public class LevelUpUIController : MonoBehaviour
 
 	public void CloseLevelUpUI()
 	{
-		// Destroy the created SpellBase instances
 		foreach (SpellBase spellInstance in createdSpellInstances)
 		{
 			if (spellInstance != null)
@@ -143,10 +159,7 @@ public class LevelUpUIController : MonoBehaviour
 			}
 		}
 
-		// Clear the list of createdSpellInstances
 		createdSpellInstances.Clear();
-
-		// Destroy the overlay GameObject along with all its child elements
 		Destroy(overlay);
 	}
 }

@@ -8,6 +8,7 @@ namespace LineageOfHeroes.CharacterClasses
 		private void Awake()
 		{
 			classSpells = berzerkerCharacterClassData.classSpellLibrary.classSpells;
+			classPermanentUpgrades = berzerkerCharacterClassData.classPermanentUpgradeLibrary.classPermanentUpgrades;
 			this.ModifyPlayerStats(FindObjectOfType<Player>());
 		}
 		new public void ModifyPlayerStats(Player player)

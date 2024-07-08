@@ -193,7 +193,7 @@ namespace LineageOfHeroes.Items
 		public void AddStatsFromItem(EquipmentBase item, Player player)
 		{
 			Debug.Log("Adding stats from " + item.displayName + " damage range " + item.damageRange.minValue + " - " + item.damageRange.maxValue);
-			player.healthPool += item.bonusHp;
+			player.UpdateHealthPoolFromEquipment(item.bonusHp);
 			player.healthRegeneration += item.bonusHpRegen;
 			player.abilityPowerPool += item.bonusAbilityPower;
 			player.abilityRegeneration += item.bonusAbilityPowerRegen;
@@ -204,11 +204,12 @@ namespace LineageOfHeroes.Items
 			player.dodgeChance += item.bonusDodgeChance;
 			player.damageRange.maxValue += item.damageRange.maxValue;
 			player.damageRange.minValue += item.damageRange.minValue;
+			Debug.Log("Health Pool: " + player.healthPool);
 		}
 
 		public void RemoveStatsFromItem(EquipmentBase item, Player player)
 		{
-			player.healthPool -= item.bonusHp;
+			player.UpdateHealthPoolFromEquipment(-item.bonusHp);
 			player.healthRegeneration -= item.bonusHpRegen;
 			player.abilityPowerPool -= item.bonusAbilityPower;
 			player.abilityRegeneration -= item.bonusAbilityPowerRegen;

@@ -9,6 +9,7 @@ namespace LineageOfHeroes.CharacterClasses
 	{
 		public CharacterClassData classData { get; set; }
 		public List<SpellData> classSpells {get; set; }
+		public List<PermanentUpgradeData> classPermanentUpgrades { get; set; }
 		public string className { get; set; }
 		public void ModifyPlayerStats(Player player)
 		{}

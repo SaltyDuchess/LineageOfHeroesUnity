@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SpellLibrary : MonoBehaviour
 {
-    [SerializeField] private List<SpellData> allSpells; // List of all available spells in the game
+    [SerializeField] private List<AbilityData> allSpells; // List of all available spells in the game
 
-    public SpellData GetSpellByName(string spellName)
+    public AbilityData GetSpellByName(string spellName)
     {
       return allSpells.FirstOrDefault(spell => spell.displayName == spellName);
     }
