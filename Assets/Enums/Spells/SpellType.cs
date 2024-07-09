@@ -4,7 +4,8 @@ namespace LineageOfHeroes.Spells.SpellTypes
 	{
 		Berzerker,
 		Magi,
-		Summoner
+		Summoner,
+		MultiClass
 	}
 
 	public enum BerzerkerSpellType
@@ -42,8 +43,6 @@ namespace LineageOfHeroes.Spells.SpellTypes
 
 	public enum MultiClassSpellType
 	{
-		HeightenHealth,
 		PrecisionPuncture,
-		StaminaSwell,
 	}
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class CharacterClassData : ScriptableObject
 {
 	public ClassSpellLibrary classSpellLibrary;
+	public ClassSpellLibrary multiClassSpellLibrary;
 	public ClassPermanentUpgradeLibrary classPermanentUpgradeLibrary;
 	public string className;
 }

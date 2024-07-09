@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3371941194925560127
+--- !u!1 &5173715542851541223
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3371941194925560121}
-  - component: {fileID: 3371941194925560120}
+  - component: {fileID: 3760732863149590110}
+  - component: {fileID: -5297937169129314690}
   m_Layer: 0
-  m_Name: MasterSpellFactory
+  m_Name: MultiClassSpellFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3371941194925560121
+--- !u!4 &3760732863149590110
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3371941194925560127}
+  m_GameObject: {fileID: 5173715542851541223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 365.1912, y: 245.1705, z: 3.70944}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3371941194925560120
+--- !u!114 &-5297937169129314690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3371941194925560127}
+  m_GameObject: {fileID: 5173715542851541223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ee19e21586a694e9b6be21968df750, type: 3}
+  m_Script: {fileID: 11500000, guid: eb71b9bc38bdefb47b14fa2546d49f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  berzerkerSpellFactory: {fileID: 7162493202947375072, guid: 4c4ffabeb65bb1245a28d336d51ab56d, type: 3}
-  magiSpellFactory: {fileID: 8332413702688852002, guid: ac83592d546af044ea94ad0595457dd1, type: 3}
-  summonerSpellFactory: {fileID: 6048863522616304234, guid: 5e452bee80cef2c4e8ab440dffe2c804, type: 3}
-  multiClassSpellFactory: {fileID: -5297937169129314690, guid: 541daa2b41060f642baa3daf18a265bb, type: 3}
+  multiClassSpellPrefabs:
+  - spellType: 0
+    spellPrefab: {fileID: -5320165897161440235, guid: c6e7101e34d137f4d8ae2c3f90e4853d, type: 3}

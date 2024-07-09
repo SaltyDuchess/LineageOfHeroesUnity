@@ -1,3 +1,5 @@
+using LineageOfHeroes.CodingUtilityScripts;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace LineageOfHeroes.CharacterClasses
@@ -8,6 +10,7 @@ namespace LineageOfHeroes.CharacterClasses
 		private void Awake()
 		{
 			classSpells = berzerkerCharacterClassData.classSpellLibrary.classSpells;
+			ListUtilities.AddUniqueRangeToList(classSpells, berzerkerCharacterClassData.multiClassSpellLibrary.classSpells);
 			classPermanentUpgrades = berzerkerCharacterClassData.classPermanentUpgradeLibrary.classPermanentUpgrades;
 			this.ModifyPlayerStats(FindObjectOfType<Player>());
 		}
