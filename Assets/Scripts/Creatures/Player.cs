@@ -16,16 +16,20 @@ public class Player : Creature
 	public int currentXP { get; set; } = 0;
 	public bool IsTakingTurn { get; private set; } = false;
 	private float baseHealthPool;
+	private float baseAbilityPowerPool;
 	private float equipmentHealthPool;
+	private float equipmentAbilityPowerPool;
 
 	private void OnEnable()
 	{
 		GlobalEffectsManager.Instance.OnPlayerPercentageHPBoostChanged += UpdateHealthBasedOnBoostValueUpdate;
+		GlobalEffectsManager.Instance.OnPlayerPercentageAbilityPowerBoostChanged += UpdateAbilityPowerBasedOnBoostValueUpdate;
 	}
 
 	private void OnDisable()
 	{
 		GlobalEffectsManager.Instance.OnPlayerPercentageHPBoostChanged -= UpdateHealthBasedOnBoostValueUpdate;
+		GlobalEffectsManager.Instance.OnPlayerPercentageAbilityPowerBoostChanged -= UpdateAbilityPowerBasedOnBoostValueUpdate;
 	}
 
 	new private void Awake()
@@ -34,6 +38,7 @@ public class Player : Creature
 		playerClass = Instantiate(playerClassPrefab, transform);
 		IsPlayer = true;
 		baseHealthPool = healthPool;
+		baseAbilityPowerPool = abilityPowerPool;
 		globalEffectsManager = FindObjectOfType<GlobalEffectsManager>();
 		// Modify player stats based on the chosen class
 		//playerClass.ModifyPlayerStats(this);
@@ -78,11 +83,28 @@ public class Player : Creature
 		Debug.Log($"Player health updated. New health pool: {healthPool}, current health: {currentHealth}");
 	}
 
+	public void UpdateAbilityPowerPoolFromEquipment(float newEquipmentAbilityPowerPoolChange)
+	{
+		equipmentAbilityPowerPool += newEquipmentAbilityPowerPoolChange;
+		float newAbilityPowerPoolBeforePercentages = baseAbilityPowerPool + equipmentAbilityPowerPool;
+		float newAbilityPowerPool = newAbilityPowerPoolBeforePercentages * (1 + globalEffectsManager.PlayerPercentageAbilityPowerBoost);
+		abilityPowerPool = newAbilityPowerPool;
+		Debug.Log($"Player stamina updated. New stamina pool: {abilityPowerPool}, current stamina: {currentAbilityPool}");
+	}
+
 	private void UpdateHealthBasedOnBoostValueUpdate(float percentageBoost)
 	{
 		float newHealthPool = healthPool * (1 + percentageBoost);
 		currentHealth += newHealthPool - healthPool;
 		healthPool = newHealthPool;
 		Debug.Log($"Player health updated. New health pool: {healthPool}, current health: {currentHealth}");
+	}
+
+	private void UpdateAbilityPowerBasedOnBoostValueUpdate(float percentageBoost)
+	{
+		float newAbilityPowerPool = abilityPowerPool * (1 + percentageBoost);
+		currentAbilityPool += newAbilityPowerPool - abilityPowerPool;
+		abilityPowerPool = newAbilityPowerPool;
+		Debug.Log($"Player stamina updated. New stamina pool: {abilityPowerPool}, current stamina: {currentAbilityPool}");
 	}
 }

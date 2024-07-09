@@ -7,7 +7,11 @@ public class GlobalEffectsManager : MonoBehaviour
 
 	public event Action<float> OnPlayerPercentageHPBoostChanged;
 
+	public event Action<float> OnPlayerPercentageAbilityPowerBoostChanged;
+
 	private float playerPercentageHPBoost;
+
+	private float playerPercentageAbilityPowerBoost;
 
 	public float PlayerPercentageHPBoost
 	{
@@ -16,6 +20,16 @@ public class GlobalEffectsManager : MonoBehaviour
 		{
 			playerPercentageHPBoost = value;
 			OnPlayerPercentageHPBoostChanged?.Invoke(playerPercentageHPBoost);
+		}
+	}
+
+	public float PlayerPercentageAbilityPowerBoost
+	{
+		get => playerPercentageAbilityPowerBoost;
+		set
+		{
+			playerPercentageAbilityPowerBoost = value;
+			OnPlayerPercentageAbilityPowerBoostChanged?.Invoke(playerPercentageAbilityPowerBoost);
 		}
 	}
 

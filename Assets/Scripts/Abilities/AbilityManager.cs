@@ -142,5 +142,9 @@ public class AbilityManager : MonoBehaviour
 		{
 			GlobalEffectsManager.Instance.PlayerPercentageHPBoost = upgrade.healthIncreasePercentage / 100f;
 		}
+		if (upgrade.abilityPowerIncreasePercentage > 0)
+		{
+			GlobalEffectsManager.Instance.PlayerPercentageAbilityPowerBoost = upgrade.abilityPowerIncreasePercentage / 100f;
+		}
 	}
 }

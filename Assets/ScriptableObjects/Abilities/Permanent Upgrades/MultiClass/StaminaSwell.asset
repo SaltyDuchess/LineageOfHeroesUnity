@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3eed5c91210d74b4bbf2215d87619068, type: 3}
-  m_Name: HeightenHealth
+  m_Name: StaminaSwell
   m_EditorClassIdentifier: 
-  displayName: Heighten Health
-  uiElement: {fileID: 21300000, guid: e08e10ba776620843866a785d0ae5154, type: 3}
+  displayName: Stamina Swell
+  uiElement: {fileID: 21300000, guid: d8900ede8d46de44f94c2157599d3329, type: 3}
   levelRequirement: 4
   abilityPowerCost: 0
   cooldown: 0
   instantCast: 0
-  descriptionLong: Increases heath by 25%
-  healthIncreasePercentage: 25
-  abilityPowerIncreasePercentage: 0
+  descriptionLong: Increases stamina by 25%
+  healthIncreasePercentage: 0
+  abilityPowerIncreasePercentage: 25

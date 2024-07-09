@@ -195,7 +195,7 @@ namespace LineageOfHeroes.Items
 			Debug.Log("Adding stats from " + item.displayName + " damage range " + item.damageRange.minValue + " - " + item.damageRange.maxValue);
 			player.UpdateHealthPoolFromEquipment(item.bonusHp);
 			player.healthRegeneration += item.bonusHpRegen;
-			player.abilityPowerPool += item.bonusAbilityPower;
+			player.UpdateAbilityPowerPoolFromEquipment(item.bonusAbilityPower);
 			player.abilityRegeneration += item.bonusAbilityPowerRegen;
 			player.physDamageResist += item.physDamageResist;
 			player.magicDamageResist += item.bonusMagicDamageResist;
@@ -211,7 +211,7 @@ namespace LineageOfHeroes.Items
 		{
 			player.UpdateHealthPoolFromEquipment(-item.bonusHp);
 			player.healthRegeneration -= item.bonusHpRegen;
-			player.abilityPowerPool -= item.bonusAbilityPower;
+			player.UpdateAbilityPowerPoolFromEquipment(-item.bonusAbilityPower);
 			player.abilityRegeneration -= item.bonusAbilityPowerRegen;
 			player.physDamageResist -= item.physDamageResist;
 			player.magicDamageResist -= item.bonusMagicDamageResist;

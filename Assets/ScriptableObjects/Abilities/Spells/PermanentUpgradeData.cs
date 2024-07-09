@@ -4,4 +4,5 @@ using UnityEngine;
 public class PermanentUpgradeData : AbilityData
 {
     public float healthIncreasePercentage;
+		public float abilityPowerIncreasePercentage;
 }
