@@ -18,6 +18,6 @@ MonoBehaviour:
   abilityPowerCost: 0
   cooldown: 0
   instantCast: 0
-  descriptionLong: Increases heath by 25%
+  descriptionLong: Heighten Health --- Required Level - 4 Increases heath by 25%
   healthIncreasePercentage: 25
   abilityPowerIncreasePercentage: 0

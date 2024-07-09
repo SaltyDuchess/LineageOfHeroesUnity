@@ -18,6 +18,6 @@ MonoBehaviour:
   abilityPowerCost: 0
   cooldown: 0
   instantCast: 0
-  descriptionLong: Increases stamina by 25%
+  descriptionLong: Stamina Swell --- Required Level 4 Increases stamina by 25%
   healthIncreasePercentage: 0
   abilityPowerIncreasePercentage: 25
