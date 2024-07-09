@@ -1,6 +1,4 @@
 using LineageOfHeroes.CodingUtilityScripts;
-using Unity.VisualScripting;
-using UnityEngine;
 
 namespace LineageOfHeroes.CharacterClasses
 {
@@ -11,9 +9,12 @@ namespace LineageOfHeroes.CharacterClasses
 		{
 			classSpells = berzerkerCharacterClassData.classSpellLibrary.classSpells;
 			ListUtilities.AddUniqueRangeToList(classSpells, berzerkerCharacterClassData.multiClassSpellLibrary.classSpells);
-			classPermanentUpgrades = berzerkerCharacterClassData.classPermanentUpgradeLibrary.classPermanentUpgrades;
+			classPermanentUpgrades = new System.Collections.Generic.List<PermanentUpgradeData>();
+			ListUtilities.AddUniqueRangeToList(classPermanentUpgrades, berzerkerCharacterClassData.classPermanentUpgradeLibrary.classPermanentUpgrades);
+			ListUtilities.AddUniqueRangeToList(classPermanentUpgrades, berzerkerCharacterClassData.multiClassPermanentUpgradeLibrary.classPermanentUpgrades);
 			this.ModifyPlayerStats(FindObjectOfType<Player>());
 		}
+
 		new public void ModifyPlayerStats(Player player)
 		{
 			base.ModifyPlayerStats(player);

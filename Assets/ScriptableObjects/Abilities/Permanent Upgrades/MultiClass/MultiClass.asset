@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c14a5d977ad252b43821bac8727d3431, type: 3}
-  m_Name: BerzerkerPermanentUpgrades
+  m_Name: MultiClass
   m_EditorClassIdentifier: 
   classPermanentUpgrades:
   - {fileID: 11400000, guid: bc5a1d0a179df84468ff3dfcd3654942, type: 2}

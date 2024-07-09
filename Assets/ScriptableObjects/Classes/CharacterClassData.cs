@@ -6,5 +6,6 @@ public class CharacterClassData : ScriptableObject
 	public ClassSpellLibrary classSpellLibrary;
 	public ClassSpellLibrary multiClassSpellLibrary;
 	public ClassPermanentUpgradeLibrary classPermanentUpgradeLibrary;
+	public ClassPermanentUpgradeLibrary multiClassPermanentUpgradeLibrary;
 	public string className;
 }
