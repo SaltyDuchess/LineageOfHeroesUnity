@@ -45,14 +45,17 @@ public class Mob : Creature, IMob
 		player = FindObjectOfType<Player>();
 	}
 
-	new public void OnTurn()
-	{
-		base.OnTurn();
+	private void Update() {
 		if (currentHealth <= 0)
 		{
 			Die();
 			return;
 		}
+	}
+
+	new public void OnTurn()
+	{
+		base.OnTurn();
 
 		if (mobBehavior != null)
 		{

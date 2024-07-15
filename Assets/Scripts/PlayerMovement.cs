@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	public float moveSpeed = 5.0f;
 	public int gridSize = 1;
+	public Vector2Int lastMoveDirection;
 
 	private Vector2Int targetGridPosition;
 	private Vector3Int targetPosition;
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 			player.TakeAction();
 			return;
 		}
+		else lastMoveDirection = moveDirection;
 
 		Vector2Int currentGridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
 		Vector2Int newGridPosition = currentGridPosition + moveDirection * gridSize;

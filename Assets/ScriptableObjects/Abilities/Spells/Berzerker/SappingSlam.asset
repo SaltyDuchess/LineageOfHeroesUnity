@@ -14,17 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Sapping Slam
   uiElement: {fileID: 21300000, guid: ea7a694a39e19f545b42acd3c2e39f0c, type: 3}
-  levelRequirement: 3
-  abilityPowerCost: 30
+  levelRequirement: 2
+  abilityPowerCost: 25
   cooldown: 8
-  instantCast: 0
+  instantCast: 1
   descriptionLong: 
   spellType: 0
-  physDamageModifier: 0.2
+  physDamageModifier: 15
   magicDamageModifier: 0
-  critDamageModifier: 0.2
-  critChanceModifier: 0.2
+  critDamageModifier: 10
+  critChanceModifier: 25
   DOT: 0
   DOTTurns: 0
-  stunTurns: 0
+  stunTurns: 2
+  movementDisabledTurns: 0
+  isSustainedSpell: 0
   berzerkerSpellType: 11
