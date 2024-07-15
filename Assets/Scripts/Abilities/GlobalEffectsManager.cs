@@ -6,6 +6,9 @@ public class GlobalEffectsManager : MonoBehaviour
 	public static GlobalEffectsManager Instance { get; private set; }
 	public event Action<float> OnPlayerPercentageHPBoostChanged;
 	public event Action<float> OnPlayerPercentageAbilityPowerBoostChanged;
+	public bool bleedsCanCrit = false;
+	public float bleedCritChance = 0f;
+	public float bleedCritModifier = 0f;
 	private float playerPercentageHPBoost;
 	private float playerPercentageAbilityPowerBoost;
 

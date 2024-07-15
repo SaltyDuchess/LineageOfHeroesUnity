@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using LineageOfHeroes.AttackScripts;
 using UnityEngine;
 
 public interface ICreature
@@ -17,8 +19,7 @@ public interface ICreature
     float invulnerabilityCharges { get; set; }
     float autoAttackRange { get; set; }
     float actionSpeedCost { get; set; }
-    float damageOverTime { get; set; }
-    int damageOverTimeTurns { get; set; }
+    List<DOTData> damageOverTimeEffects { get; set; }
     StatRange damageRange { get; set; }
     float healthRegeneration { get; set; }
     float critDamageMultiplier { get; set; }

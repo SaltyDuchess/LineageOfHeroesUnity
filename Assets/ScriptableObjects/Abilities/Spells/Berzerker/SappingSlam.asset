@@ -20,9 +20,9 @@ MonoBehaviour:
   instantCast: 1
   descriptionLong: 
   spellType: 0
-  physDamageModifier: 15
+  physDamageModifier: 0.15
   magicDamageModifier: 0
-  critDamageModifier: 10
+  critDamageModifier: 0.1
   critChanceModifier: 25
   DOT: 0
   DOTTurns: 0

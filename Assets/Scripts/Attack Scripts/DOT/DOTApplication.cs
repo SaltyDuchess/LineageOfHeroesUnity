@@ -4,8 +4,12 @@ namespace LineageOfHeroes.AttackScripts
 	{
 		public static void ApplyBleedToDefender(Creature defender, float bleedAmount, int bleedTurns)
 		{
-			defender.damageOverTime = bleedAmount;
-			defender.damageOverTimeTurns = bleedTurns;
+			defender.damageOverTimeEffects.Add(new DOTData
+			{ 
+				dotType = DOTType.Bleed,
+				dotAmount = bleedAmount,
+				dotTurns = bleedTurns
+			});
 		}
 	}
 }

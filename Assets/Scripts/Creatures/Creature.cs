@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using LineageOfHeroes.AttackScripts;
 using UnityEngine;
 
@@ -20,8 +21,7 @@ public class Creature : MonoBehaviour, ICreature
 	public float invulnerabilityCharges { get; set; }
 	public float autoAttackRange { get; set; }
 	public float actionSpeedCost { get; set; }
-	public float damageOverTime { get; set; }
-	public int damageOverTimeTurns { get; set; }
+	public List<DOTData> damageOverTimeEffects { get; set; }
 	public StatRange damageRange { get; set; }
 	public float healthRegeneration { get; set; }
 	public float critDamageMultiplier { get; set; }
@@ -35,6 +35,7 @@ public class Creature : MonoBehaviour, ICreature
 	protected virtual void Awake()
 	{
 		AssignStatsFromCreatureStats(stats);
+		damageOverTimeEffects = new List<DOTData>();
 	}
 
 	private void Update()
@@ -59,8 +60,6 @@ public class Creature : MonoBehaviour, ICreature
 		invulnerabilityCharges = stats.invulnerabilityCharges;
 		autoAttackRange = stats.autoAttackRange;
 		actionSpeedCost = stats.actionSpeedCost;
-		damageOverTime = stats.damageOverTime;
-		damageOverTimeTurns = stats.damageOverTimeTurns;
 		damageRange = stats.damageRange;
 		healthRegeneration = stats.healthRegeneration;
 		critDamageMultiplier = stats.critDamageMultiplier;
@@ -76,10 +75,9 @@ public class Creature : MonoBehaviour, ICreature
 		{
 			currentAbilityPool += abilityRegeneration;
 		}
-		if (damageOverTimeTurns > 0)
+		if (damageOverTimeEffects.Count > 0)
 		{
-			currentHealth -= damageOverTime;
-			damageOverTimeTurns--;
+			DealDOTDamageToCreature.DealDOTDamage(this);
 		}
 		if (currentHealth < healthPool)
 		{

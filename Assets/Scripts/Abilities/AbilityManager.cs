@@ -175,5 +175,11 @@ public class AbilityManager : MonoBehaviour
 		{
 			GlobalEffectsManager.Instance.PlayerPercentageAbilityPowerBoost = upgrade.abilityPowerIncreasePercentage / 100f;
 		}
+		if (upgrade.bleedsCanCrit)
+		{
+			GlobalEffectsManager.Instance.bleedsCanCrit = true;
+			GlobalEffectsManager.Instance.bleedCritChance = upgrade.bleedCritChance;
+			GlobalEffectsManager.Instance.bleedCritModifier = upgrade.bleedCritModifier;
+		}
 	}
 }
