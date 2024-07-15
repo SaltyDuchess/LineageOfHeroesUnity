@@ -20,6 +20,18 @@ public class Player : Creature
 	private float equipmentHealthPool;
 	private float equipmentAbilityPowerPool;
 
+	private void Update() 
+	{
+		if (currentAbilityPool > abilityPowerPool)
+		{
+			currentAbilityPool = abilityPowerPool;
+		}
+		if (currentHealth > healthPool)
+		{
+			currentHealth = healthPool;
+		}
+	}
+
 	private void OnEnable()
 	{
 		GlobalEffectsManager.Instance.OnPlayerPercentageHPBoostChanged += UpdateHealthBasedOnBoostValueUpdate;
@@ -50,6 +62,7 @@ public class Player : Creature
 		currentSpeedPool += 100;
 		GetComponent<PlayerMovement>().enabled = true;
 		AbilityManager.Instance.ApplySustainedSpells(this);
+		AbilityManager.Instance.ExecuteAllTurnRecurringPermanentUpgrades();
 	}
 
 	public void TakeAction()

@@ -4,13 +4,9 @@ using UnityEngine;
 public class GlobalEffectsManager : MonoBehaviour
 {
 	public static GlobalEffectsManager Instance { get; private set; }
-
 	public event Action<float> OnPlayerPercentageHPBoostChanged;
-
 	public event Action<float> OnPlayerPercentageAbilityPowerBoostChanged;
-
 	private float playerPercentageHPBoost;
-
 	private float playerPercentageAbilityPowerBoost;
 
 	public float PlayerPercentageHPBoost

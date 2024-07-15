@@ -124,6 +124,12 @@ public class LevelUpUIController : MonoBehaviour
 				player.abilityPoints--;
 			}
 
+			if (upgrade.turnRecurring)
+			{
+				PermanentUpgradeBase upgradeInstance = (PermanentUpgradeBase)abilityFactory.CreateAbility(upgrade);
+				abilityManager.AddActivePermanentAbility(upgradeInstance);
+			}
+
 			UpdatePlayerStatsText();
 		}
 	}

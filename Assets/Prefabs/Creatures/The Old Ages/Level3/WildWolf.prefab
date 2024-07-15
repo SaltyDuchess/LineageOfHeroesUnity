@@ -71,6 +71,7 @@ MonoBehaviour:
   IsPlayer: 0
   stats:
     speedPool: 100
+    currentSpeedPool: 100
     abilityPowerPool: 100
     currentAbilityPool: 100
     percentageAbilityPool: 100

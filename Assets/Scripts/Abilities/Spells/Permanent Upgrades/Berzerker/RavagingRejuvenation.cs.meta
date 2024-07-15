@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5848c5318a02952469f92d97ce9b9bf2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - spellData: {fileID: 11400000, guid: 8193c67f76733f246870ef634704c80a, type: 2}
+  - berzerkerSpellData: {fileID: 11400000, guid: 8193c67f76733f246870ef634704c80a, type: 2}
+  - aoeCirclePrefab: {fileID: 7159619976284873374, guid: 5b1678c326a35f042bb09c7702a5d2df, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

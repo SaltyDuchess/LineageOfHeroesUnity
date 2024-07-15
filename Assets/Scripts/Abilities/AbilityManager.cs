@@ -12,6 +12,7 @@ public class AbilityManager : MonoBehaviour
 	private List<AbilityBase> activeAbilities;
 	private List<SpellBase> activeSustainedSpells; // List of active sustained spells
 	private List<PermanentUpgradeData> permanentUpgrades;
+	private List<PermanentUpgradeBase> activePermanentUpgrades;
 
 	private void Awake()
 	{
@@ -22,6 +23,7 @@ public class AbilityManager : MonoBehaviour
 			activeAbilities = new List<AbilityBase>();
 			activeSustainedSpells = new List<SpellBase>();
 			permanentUpgrades = new List<PermanentUpgradeData>();
+			activePermanentUpgrades = new List<PermanentUpgradeBase>();
 			DontDestroyOnLoad(gameObject);
 		}
 		else
@@ -79,6 +81,22 @@ public class AbilityManager : MonoBehaviour
 		return activeAbilities;
 	}
 
+	public void AddActivePermanentAbility(PermanentUpgradeBase upgrade)
+	{
+		if (!activePermanentUpgrades.Contains(upgrade))
+		{
+			activePermanentUpgrades.Add(upgrade);
+		}
+	}
+
+	public void RemoveActivePermanentAbility(PermanentUpgradeBase upgrade)
+	{
+		if (activePermanentUpgrades.Contains(upgrade))
+		{
+			activePermanentUpgrades.Remove(upgrade);
+		}
+	}
+
 	public void AddSustainedSpell(SpellBase spell)
 	{
 		if (!activeSustainedSpells.Contains(spell))
@@ -120,6 +138,17 @@ public class AbilityManager : MonoBehaviour
 			if (ability.currentCooldown > 0)
 			{
 				ability.currentCooldown--;
+			}
+		}
+	}
+
+	public void ExecuteAllTurnRecurringPermanentUpgrades()
+	{
+		foreach (PermanentUpgradeBase upgrade in activePermanentUpgrades)
+		{
+			if (upgrade.permanentUpgradeData.turnRecurring)
+			{
+				upgrade.ExecuteAbility();
 			}
 		}
 	}
