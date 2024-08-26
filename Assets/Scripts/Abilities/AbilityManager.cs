@@ -181,5 +181,9 @@ public class AbilityManager : MonoBehaviour
 			GlobalEffectsManager.Instance.bleedCritChance = upgrade.bleedCritChance;
 			GlobalEffectsManager.Instance.bleedCritModifier = upgrade.bleedCritModifier;
 		}
+		if (upgrade.bleedsHealPlayer)
+		{
+			GlobalEffectsManager.Instance.bleedsHealPlayer = true;
+		}
 	}
 }

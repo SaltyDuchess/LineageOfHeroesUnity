@@ -9,4 +9,5 @@ public class PermanentUpgradeData : SpellData
 		public bool bleedsCanCrit;
 		public float bleedCritChance;
 		public float bleedCritModifier;
+		public bool bleedsHealPlayer;
 }

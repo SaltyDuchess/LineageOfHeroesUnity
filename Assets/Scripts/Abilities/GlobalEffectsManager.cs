@@ -7,6 +7,7 @@ public class GlobalEffectsManager : MonoBehaviour
 	public event Action<float> OnPlayerPercentageHPBoostChanged;
 	public event Action<float> OnPlayerPercentageAbilityPowerBoostChanged;
 	public bool bleedsCanCrit = false;
+	public bool bleedsHealPlayer = false;
 	public float bleedCritChance = 0f;
 	public float bleedCritModifier = 0f;
 	private float playerPercentageHPBoost;

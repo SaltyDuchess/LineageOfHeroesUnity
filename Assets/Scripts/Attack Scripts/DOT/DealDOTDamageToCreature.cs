@@ -1,5 +1,6 @@
-using System.Diagnostics;
 using LineageOfHeroes.Randomization;
+using UnityEngine;
+using System.Collections.Generic;
 
 namespace LineageOfHeroes.AttackScripts
 {
@@ -7,8 +8,11 @@ namespace LineageOfHeroes.AttackScripts
 	{
 		public static void DealDOTDamage(Creature defender)
 		{
-			foreach (DOTData dot in defender.damageOverTimeEffects)
+			// Iterate over the list in reverse order to avoid issues when removing items
+			for (int i = defender.damageOverTimeEffects.Count - 1; i >= 0; i--)
 			{
+				DOTData dot = defender.damageOverTimeEffects[i];
+
 				switch (dot.dotType)
 				{
 					case DOTType.Bleed:
@@ -17,13 +21,25 @@ namespace LineageOfHeroes.AttackScripts
 						{
 							isCrit = RandomGenerator.Range(1, 101) <= GlobalEffectsManager.Instance.bleedCritChance;
 						}
-						defender.currentHealth -= isCrit ? dot.dotAmount * GlobalEffectsManager.Instance.bleedCritModifier : dot.dotAmount;
-						dot.dotTurns--;
-						if (dot.dotTurns <= 0)
+						var bleedDamage = isCrit ? dot.dotAmount * GlobalEffectsManager.Instance.bleedCritModifier : dot.dotAmount;
+						defender.currentHealth -= bleedDamage;
+						if (GlobalEffectsManager.Instance.bleedsHealPlayer && defender is Mob)
 						{
-							defender.damageOverTimeEffects.Remove(dot);
+							Player player = Object.FindObjectOfType<Player>();
+							if (player != null)
+							{
+								Debug.Log(player.currentHealth);
+								player.currentHealth += bleedDamage;
+								Debug.Log(player.currentHealth);
+							}
 						}
 						break;
+				}
+
+				dot.dotTurns--;
+				if (dot.dotTurns <= 0)
+				{
+					defender.damageOverTimeEffects.RemoveAt(i);
 				}
 			}
 		}
